@@ -1,0 +1,27 @@
+bundle update
+bundle install --without production
+
+rails generate rspec:install
+
+git init
+git add .
+git commit -m "Initial commit"
+
+git remote add origin git@github.com:<username>/sample_app.git
+git push -u origin master
+
+git checkout -b static-pages
+
+rails generate controller StaticPages home help --no-test-framework
+
+rails generate controller FooBars baz quux
+rails destroy  controller FooBars baz quux
+
+rails generate model User name:string email:string
+
+bundle exec rake db:migrate
+bundle exec rake db:rollback
+
+bundle exec annotate
+
+rails generate migration add_index_to_users_email
