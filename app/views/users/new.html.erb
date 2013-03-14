@@ -1,5 +1,21 @@
-<% provide(:title, 'New User') %>
-<h1>New User</h1>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 
-<%= render 'form' %>
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages' %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :phone_number, "Phone Number" %>
+  <%= f.text_field :phone_number %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, "Confirmation" %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+<% end %>

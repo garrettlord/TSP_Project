@@ -25,3 +25,5 @@ bundle exec rake db:rollback
 bundle exec annotate
 
 rails generate migration add_index_to_users_email
+
+rails generate integration_test user_pages
