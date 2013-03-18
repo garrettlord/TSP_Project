@@ -1,7 +1,7 @@
 Apothegm::Application.routes.draw do
-  root to: 'StaticPages#home'
-
   resources :users
+  
+  root to: 'StaticPages#home'
   match '/signup', to: 'users#new'
 
   # The priority is based upon order of creation:
