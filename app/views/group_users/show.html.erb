@@ -1,0 +1,3 @@
+<% provide(:title, "#{Group.find(@group_user.group_id).name}: #{User.find(@group_user.user_id).name}") %>
+User: <%= User.find(@group_user.user_id).name %><br>
+Group: <%= Group.find(@group_user.group_id).name %>

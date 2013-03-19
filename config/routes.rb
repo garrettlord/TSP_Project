@@ -1,6 +1,7 @@
 Apothegm::Application.routes.draw do
   resources :users
   resources :groups
+  resources :group_users
   
   root to: 'StaticPages#home'
   match '/signup', to: 'users#new'
