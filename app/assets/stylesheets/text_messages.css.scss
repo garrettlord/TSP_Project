@@ -1,0 +1,409 @@
+// Place all the styles related to the TextMessages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the TextMessages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.text-label {
+  -webkit-background-clip: border-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: transparent;
+  background-image: none;
+  background-origin: padding-box;
+  background-size: auto;
+  color: #666;
+  cursor: default;
+  display: block;
+  float: left;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  height: 36px;
+  letter-spacing: normal;
+  line-height: 18px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 25px;
+  padding-right: 5px;
+  padding-top: 0px;
+  vertical-align: baseline;
+  width: 230px;
+  word-spacing: 0px;
+  zoom: 1;
+}
+
+.text-textfield {
+  -webkit-appearance: none;
+  -webkit-background-clip: border-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  -webkit-border-image: none;
+  -webkit-box-shadow: rgba(231, 231, 231, 0.398438) 0px 2px 5px 1px inset;
+  -webkit-rtl-ordering: logical;
+  -webkit-transition-delay: 0s, 0s;
+  -webkit-transition-duration: 0.20000000298023224s, 0.20000000298023224s;
+  -webkit-transition-property: border, box-shadow;
+  -webkit-transition-timing-function: linear, linear;
+  -webkit-user-select: text;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: white;
+  background-origin: padding-box;
+  background-size: auto;
+  border-bottom-color: #999;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #777;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: #777;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: #333;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  box-shadow: rgba(231, 231, 231, 0.398438) 0px 2px 5px 1px inset;
+  color: #555;
+  cursor: auto;
+  display: block;
+  float: left;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  height: 18px;
+  letter-spacing: normal;
+  line-height: 18px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-top: 0px;
+  outline-color: #555;
+  outline-style: none;
+  outline-width: 0px;
+  padding-bottom: 7px;
+  padding-left: 6px;
+  padding-right: 0px;
+  padding-top: 7px;
+  text-align: start;
+  text-indent: 0px;
+  text-shadow: none;
+  text-transform: none;
+  vertical-align: middle;
+  width: 420px;
+  word-spacing: 0px;
+  zoom: 1;
+}
+
+.instruct {
+  -webkit-background-clip: border-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: transparent;
+  background-image: none;
+  background-origin: padding-box;
+  background-size: auto;
+  clear: both;
+  color: #888;
+  display: block;
+  float: right;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+  height: 32px;
+  letter-spacing: normal;
+  line-height: 16.5px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 20px;
+  padding-top: 3px;
+  vertical-align: baseline;
+  width: 435px;
+  word-spacing: 0px;
+  zoom: 1;
+}
+
+.text-fieldset {
+  -webkit-background-clip: border-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  -webkit-border-image: none;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: transparent;
+  background-image: none;
+  background-origin: padding-box;
+  background-size: auto;
+  border-bottom-color: whiteSmoke;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #333;
+  border-left-style: none;
+  border-left-width: 0px;
+  border-right-color: #333;
+  border-right-style: none;
+  border-right-width: 0px;
+  border-top-color: #333;
+  border-top-style: none;
+  border-top-width: 0px;
+  clear: both;
+  color: #333;
+  display: block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 100;
+  height: 76px;
+  letter-spacing: normal;
+  line-height: 18px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 30px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 5px;
+  position: relative;
+  vertical-align: baseline;
+  width: 720px;
+  word-spacing: 0px;
+  zoom: 1;
+}
+
+.text-textarea {
+  resize: none;
+  -webkit-appearance: none;
+  -webkit-background-clip: border-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  -webkit-border-image: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-shadow: rgba(173, 173, 173, 0.195313) 0px 1px 2px 0px inset, rgba(31, 31, 31, 0.25) 0px 0px 4px 0px;
+  -webkit-rtl-ordering: logical;
+  -webkit-transition-delay: 0s, 0s;
+  -webkit-transition-duration: 0.20000000298023224s, 0.20000000298023224s;
+  -webkit-transition-property: border, box-shadow;
+  -webkit-transition-timing-function: linear, linear;
+  -webkit-user-select: text;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: white;
+  background-origin: padding-box;
+  background-size: auto;
+  border-bottom-color: #999;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #777;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: #777;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: #333;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  box-shadow: rgba(173, 173, 173, 0.195313) 0px 1px 2px 0px inset, rgba(31, 31, 31, 0.25) 0px 0px 4px 0px;
+  color: #555;
+  cursor: auto;
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  height: 60px;
+  letter-spacing: normal;
+  line-height: 18px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-top: 0px;
+  min-height: 60px;
+  outline-color: #555;
+  outline-style: none;
+  outline-width: 0px;
+  overflow-x: auto;
+  overflow-y: auto;
+  padding-bottom: 7px;
+  padding-left: 6px;
+  padding-right: 0px;
+  padding-top: 7px;
+  //resize: both;
+  text-align: start;
+  text-indent: 0px;
+  text-shadow: none;
+  text-transform: none;
+  vertical-align: top;
+  white-space: pre-wrap;
+  width: 420px;
+  word-spacing: 0px;
+  word-wrap: break-word;
+  zoom: 1;
+}
+
+.sendButton {
+  -webkit-background-clip: padding-box;
+  -webkit-background-origin: padding-box;
+  -webkit-background-size: auto;
+  -webkit-border-image: none;
+  background-attachment: scroll;
+  background-clip: padding-box;
+  background-color: transparent;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#82C8FD), to(#2D8DF2));
+  background-origin: padding-box;
+  background-size: auto;
+  border-bottom-color: whiteSmoke;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom-style: solid;
+  border-bottom-width: 5px;
+  border-left-color: whiteSmoke;
+  border-left-style: solid;
+  border-left-width: 5px;
+  border-right-color: whiteSmoke;
+  border-right-style: solid;
+  border-right-width: 5px;
+  border-top-color: whiteSmoke;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-top-style: solid;
+  border-top-width: 5px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  height: 36px;
+  letter-spacing: normal;
+  line-height: 36px;
+  margin-bottom: 0px;
+  margin-left: 255px;
+  margin-right: 255px;
+  margin-top: 0px;
+  outline-color: white;
+  outline-style: none;
+  outline-width: 0px;
+  padding-bottom: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: baseline;
+  width: 160px;
+  word-spacing: 0px;
+  zoom: 1;
+}
+
+.button {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: bold;
+  height: 36px;
+
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: transparent;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#82C8FD), to(#2D8DF2));
+  background-origin: padding-box;
+  background-size: auto;
+
+  padding-bottom: 7.699999809265137px;
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-top: 7px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: rgba(0, 0, 0, 0.296875) 0px 1px 1px;
+
+  border-bottom-color: whiteSmoke;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: whiteSmoke;
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-right-color: whiteSmoke;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-top-color: whiteSmoke;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-top-style: solid;
+  border-top-width: 1px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  box-shadow: rgba(0, 0, 0, 0.199219) 0px 1px 2px 0px;
+  color:#FFF !important;
+}
+
+.button:hover {
+  color:#FFF !important;
+  background-color:#1448D5;background: -moz-linear-gradient(100% 100% 90deg, #1448d5, #2d8df2);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%,from(#2d8df2),to(#1448d5));
+  background-clip:padding-box;
+  -moz-background-clip:padding;
+  -webkit-background-clip:padding-box;
+  outline:none;
+  text-decoration:none
+}
+
+h1 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
+.success_text {
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  color: #32cd32;
+}
+
+.error_text {
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  color: #ff0000;
+}
