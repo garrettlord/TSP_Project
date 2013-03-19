@@ -1,0 +1,19 @@
+<% provide(:title, 'Groups') %>
+<h1>Listing Groups</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @groups.each do |group| %>
+  <tr>
+    <td><%= group.name %></td>
+    <td><%= link_to 'Show', group_path(group) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Group', new_group_path %>
