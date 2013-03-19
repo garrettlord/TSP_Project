@@ -1,2 +1,15 @@
 <% provide(:title, @user.name) %>
 <h1><%= @user.name %></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+  <% @user.groups.each do |group| %>
+    <tr>
+      <td><%= group.name %></td>
+      <td><%= link_to 'Show', group_path(group) %></td>
+    </tr>
+  <% end %>
+</table>
