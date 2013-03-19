@@ -4,6 +4,8 @@ Apothegm::Application.routes.draw do
   root to: 'StaticPages#home'
   match '/signup', to: 'users#new'
 
+  resources :text_messages
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
