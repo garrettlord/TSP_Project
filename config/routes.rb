@@ -4,6 +4,7 @@ Apothegm::Application.routes.draw do
   
   root to: 'StaticPages#home'
   match '/signup', to: 'users#new'
+  match '/help', to: 'StaticPages#help'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
