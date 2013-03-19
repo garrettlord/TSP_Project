@@ -12,6 +12,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :phone_number, :password, :password_confirmation
   has_secure_password
+  has_many :group_users
   has_many :groups, :through => :group_users
 
   validates :name, presence: true, uniqueness: { case_sensitive: false },
