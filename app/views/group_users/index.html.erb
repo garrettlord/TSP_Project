@@ -1,0 +1,23 @@
+<% provide(:title, 'Group Users') %>
+<h1>Listing GroupUsers</h1>
+
+<table>
+  <tr>
+    <th>Group Name</th>
+    <th>User Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @group_users.each do |group_user| %>
+  <tr>
+    <td><%= Group.find(group_user.group_id).name %></td>
+    <td><%= User.find(group_user.user_id).name %></td>
+    <td><%= link_to 'Show', group_user_path(group_user) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Association', new_group_user_path %>
