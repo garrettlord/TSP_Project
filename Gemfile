@@ -32,8 +32,5 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
-<<<<<<< .merge_file_a02920
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
-=======
->>>>>>> .merge_file_a03920

@@ -17,18 +17,21 @@ class TextMessage
     @attributes[:message]
   end
 
-  def numbers
-    @attributes[:numbers]
+  def group_name
+    @attributes[:group_name]
   end
 
   # validation
-  validates :numbers, :phone => true
   validates :message, :presence => true
   validates_length_of :message, :maximum => 160
 
   # parses :numbers into an array of unique, 10 digit numbers (only for valid records)
   def numbers_array
-    get_items_from_csv(numbers).collect{|x| x.gsub(/\D/, "")}.uniq
+    numbers = []
+    Group.find_by_name(group_name).users.each do |user|
+      numbers << user.phone_number
+    end
+    return numbers
   end
 
   # needed for form not to try to access db
