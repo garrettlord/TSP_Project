@@ -1,0 +1,12 @@
+<% provide(:title, 'Edit Group') %>
+<h1>Edit Group</h1>
+<p>Find me in app/views/groups/edit.html.erb</p>
+
+<%= form_for(@group) do |f| %>
+  <%= render 'error_messages' %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Update group", class: "btn btn-large btn-primary" %>
+<% end %>
