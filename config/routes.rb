@@ -5,6 +5,7 @@ Apothegm::Application.routes.draw do
   
   root to: 'StaticPages#home'
   match '/signup', to: 'users#new'
+  match '/help', to: 'StaticPages#help'
 
   resources :text_messages
 
