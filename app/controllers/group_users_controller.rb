@@ -21,4 +21,11 @@ class GroupUsersController < ApplicationController
       render 'new'
     end
   end
+
+  def destroy
+    @group_user = GroupUser.find(params[:id])
+    @group_user.destroy
+
+    redirect_to group_users_url
+  end
 end
