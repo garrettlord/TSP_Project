@@ -1,0 +1,21 @@
+<% provide(:title, 'Edit User') %>
+<h1>Edit User</h1>
+<p>Find me in app/views/users/edit.html.erb</p>
+
+<%= form_for(@user) do |f| %>
+  <%= render 'error_messages' %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :phone_number, "Phone Number" %>
+  <%= f.text_field :phone_number %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation, "Confirmation" %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Update my account", class: "btn btn-large btn-primary" %>
+<% end %>
