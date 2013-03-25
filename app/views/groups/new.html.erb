@@ -2,11 +2,18 @@
 <h1>New Group</h1>
 <p>Find me in app/views/groups/new.html.erb</p>
 
-<%= form_for(@group) do |f| %>
-  <%= render 'error_messages' %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.submit "Create new group", class: "btn btn-large btn-primary" %>
+<%= form_tag '/groups' do %>
+  <div>
+    <%= label_tag :name, 'Name' %>
+    <%= text_field_tag :name %>
+  </div>
+  <% @users.each do |user| %>
+    <div>
+      <%= label_tag "#{user.name}" %>
+      <%= check_box_tag "#{user.name}" %>
+    </div>
+  <% end %>
+  <div>
+    <%= submit_tag "Create new Group", class: "btn btn-large btn-primary" %>
+  </div>
 <% end %>

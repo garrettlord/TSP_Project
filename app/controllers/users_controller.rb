@@ -9,12 +9,29 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @groups = Group.all
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new
+    @user.name = params[:name]
+    @user.phone_number = params[:phone_number]
+    @user.password = params[:password]
+    @user.password_confirmation = params[:password_confirmation]
+
     if @user.save
       flash[:success] = "Welcome to our project, #{@user.name}!"
+
+      groups = Group.all
+      groups.each do |group|
+        if params["#{group.name}"]
+          group_user = GroupUser.new(group_id: group.id, user_id: @user.id)
+          unless group_user.save
+            flash[:failure] = "Could not create the associations checked"
+          end
+        end
+      end
+
       redirect_to @user
     else
       render 'new'
