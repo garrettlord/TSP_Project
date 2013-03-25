@@ -9,14 +9,28 @@ def index
 
   def new
     @group = Group.new
+    @users = User.all
   end
 
   def create
-    @group = Group.new(params[:group])
+    @group = Group.new(name: params[:name])
+
     if @group.save
       flash[:success] = "New group successfully created!"
+
+      users = User.all
+      users.each do |user|
+        if params["#{user.name}"]
+          group_user = GroupUser.new(group_id: @group.id, user_id: user.id)
+          unless group_user.save
+            flash[:failure] = "Could not create the associations checked"
+          end
+        end
+      end
+
       redirect_to @group
     else
+      flash[:failure] = "Could not save group"
       render 'new'
     end
   end
