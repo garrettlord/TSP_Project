@@ -1,5 +1,7 @@
 module TwilioHelper
 
+  # twilio account information
+  # TWILIO_NUMBER = "+19069346838"
   TWILIO_NUMBER = "+19062144698"
   # ACCOUNT_SID = 'ACe6309fe95fd294f06795604a051096c3'
   ACCOUNT_SID = 'ACd596ace63991a2ee1c1d04d511bb929d'
@@ -10,16 +12,13 @@ module TwilioHelper
     @text_message = TextMessage.new(group_name: group, message: message)
     
     if @text_message.valid?
-
       successes = []
       errors = []
       numbers = @text_message.numbers_array
       account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
       
       numbers.each do |number|
-
         logger.info "sending message: #{@text_message.message} to: #{number}"
-
         begin
           account.sms.messages.create(
               :from => TWILIO_NUMBER,
@@ -30,8 +29,11 @@ module TwilioHelper
         rescue Exception => e
           logger.error "error sending message: #{e.to_s}"
           errors << e.to_s
-        end
-      end #num each
-    end
-  end
-end
+        end # begin
+      end # num each
+      return successes, errors
+    else
+      return false
+    end # if
+  end # def
+end # module
