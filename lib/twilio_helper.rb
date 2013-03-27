@@ -29,10 +29,9 @@ module TwilioHelper
           successes << "#{number}"
         rescue Exception => e
           logger.error "error sending message: #{e.to_s}"
-          errors << e.to_s
+          errors << "#{e.to_s}"
         end # begin
       end # num each
     end # if
-    return successes, errors
   end # def
 end # module
