@@ -9,7 +9,13 @@ class ReceiveMessagesController < ApplicationController
     @group = words[0]
     @message = words[1..-1]
     fromNum = params[:From]
-    @userName = User.find_by_phone_number(fromNum).name ||= "UNKNOWN"
+    userID = User.find_by_phone_number(fromNum)
+    unless(userID.nil?)
+      @userName = User.find_by_phone_number(fromNum).name
+    else
+      @userName = "UNKNOWN"
+    end
+    
     render '/list_texts/list_texts.xml.erb', :content_type => 'text/xml'
   end
 
