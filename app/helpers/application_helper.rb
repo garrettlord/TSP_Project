@@ -10,25 +10,25 @@ module ApplicationHelper
     
     if @text_message.valid?
 
-      successes = []
-      errors = []
-      numbers = @text_message.numbers_array
-      account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
-      numbers.each do |number|
+    successes = []
+    errors = []
+    numbers = @text_message.numbers_array
+    account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
+    numbers.each do |number|
 
-        logger.info "sending message: #{@text_message.message} to: #{number}"
+      logger.info "sending message: #{@text_message.message} to: #{number}"
 
-        begin
-          account.sms.messages.create(
-              :from => TWILIO_NUMBER,
-              :to => "+1#{number}",
-              :body => @text_message.message
-          )
-          successes << "#{number}"
-        rescue Exception => e
-          logger.error "error sending message: #{e.to_s}"
-          errors << e.to_s
-        end
+      begin
+        account.sms.messages.create(
+            :from => TWILIO_NUMBER,
+            :to => "+1#{number}",
+            :body => @text_message.message
+        )
+        successes << "#{number}"
+      rescue Exception => e
+        logger.error "error sending message: #{e.to_s}"
+        errors << e.to_s
+      end
     end
   end
 
@@ -40,6 +40,6 @@ module ApplicationHelper
     else
       "#{base_title} | #{page_title}"
     end
-  end
+  end 
 end
 
