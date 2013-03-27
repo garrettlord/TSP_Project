@@ -1,15 +1,11 @@
 <h1>Text Message Status</h1>
 
 <ul class="success_text">
-  <% for success in flash[:successes] %>
-      <li>Successfully sent message to <%= number_to_phone(success, :area_code => true) %></li>
-  <% end %>
+  <%= flash[:successes] %>
 </ul>
 
 <ul class="error_text">
-  <% for error in flash[:errors] %>
-      <li><%= error %></li>
-  <% end %>
+  <%= flash[:errors] %>
 </ul>
 
 <%= link_to 'Send Another', new_text_message_path %>
