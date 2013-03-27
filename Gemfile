@@ -7,6 +7,7 @@ gem 'httparty', '=0.8.2'
 gem 'imdb_party'
 gem 'shoulda'
 gem 'twilio-ruby'
+gem 'jquery-rails', '2.0.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
@@ -25,8 +26,6 @@ group :assets do
   gem 'uglifier', '1.2.3'
 end
 
-gem 'jquery-rails', '2.0.2'
-
 group :test do
   gem 'capybara', '1.1.2'
 end
@@ -35,5 +34,14 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
-gem 'twitter-bootstrap-rails'
-gem 'bootstrap-sass'
+group :production, :test, :development do
+	gem 'twitter-bootstrap-rails'
+	gem 'bootstrap-sass'
+	gem 'rails', '3.2.12'
+	gem 'bcrypt-ruby', '3.0.1'
+	gem 'ywx'
+	gem 'httparty', '=0.8.2'
+	gem 'imdb_party'
+	gem 'shoulda'
+	gem 'twilio-ruby'
+end
