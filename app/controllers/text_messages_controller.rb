@@ -40,8 +40,8 @@ class TextMessagesController < ApplicationController
         end
       end
 
-      flash[:errors] = errors
-      flash[:successes] = successes
+      flash.now[:errors] = errors
+      flash.now[:successes] = successes
       if (flash[:errors].any?)
         render :action => :status, :status => :bad_request
       else
