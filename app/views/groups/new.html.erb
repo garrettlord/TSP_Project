@@ -1,12 +1,9 @@
-<% provide(:title, 'New Group') %>
-<h1>New Group</h1>
-<p>Find me in app/views/groups/new.html.erb</p>
 
-<%= form_for(@group) do |f| %>
-  <%= render 'error_messages' %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%- model_class = Group -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human %></h1>
+</div>
+<%= render :partial => 'form' %>
 
-  <%= f.submit "Create new group", class: "btn btn-large btn-primary" %>
-<% end %>
+
