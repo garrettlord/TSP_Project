@@ -1,4 +1,5 @@
 class ReceiveMessagesController < ApplicationController
+  include helpers/twilio_helper
 
   # POST /process_sms
   def process_sms
