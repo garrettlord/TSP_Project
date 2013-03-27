@@ -11,9 +11,10 @@ module TwilioHelper
   def send_text(group, message)
     @text_message = TextMessage.new(group_name: group, message: message)
     
+    successes = []
+    errors = []
+
     if @text_message.valid?
-      successes = []
-      errors = []
       numbers = @text_message.numbers_array
       account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
       
@@ -28,12 +29,9 @@ module TwilioHelper
           successes << "#{number}"
         rescue Exception => e
           logger.error "error sending message: #{e.to_s}"
-          errors << e.to_s
+          errors << "#{e.to_s}"
         end # begin
       end # num each
-      return successes, errors
-    else
-      return false
     end # if
   end # def
 end # module
