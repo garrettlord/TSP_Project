@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'ywx'
+gem 'httparty', '=0.8.2'
+gem 'imdb_party'
+gem 'shoulda'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
@@ -24,9 +29,11 @@ gem 'jquery-rails', '2.0.2'
 
 group :test do
   gem 'capybara', '1.1.2'
-  gem 'factory_girl_rails', '4.1.0'
 end
 
 group :production do
   gem 'pg', '0.12.2'
 end
+
+gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
