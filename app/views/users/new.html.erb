@@ -1,21 +1,31 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, 'Sign Up') %>
 <h1>Sign up</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 
-<%= form_for(@user) do |f| %>
+<%= form_tag '/users' do %>
   <%= render 'error_messages' %>
+  <div>
+    <%= label_tag :name, "Name" %>
+    <%= text_field_tag :name %>
+  </div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= label_tag :phone_number, "Phone Number" %>
+  <%= text_field_tag :phone_number %>
 
-  <%= f.label :phone_number, "Phone Number" %>
-  <%= f.text_field :phone_number %>
+  <%= label_tag :password, "Password" %>
+  <%= password_field_tag :password %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= label_tag :password_confirmation, "Password Confirmation" %>
+  <%= password_field_tag :password_confirmation %>
 
-  <%= f.label :password_confirmation, "Confirmation" %>
-  <%= f.password_field :password_confirmation %>
+  <% @groups.each do |group| %>
+    <div>
+      <%= label_tag "#{group.name}" %>
+      <%= check_box_tag "#{group.name}" %>
+    </div>
+  <% end %>
 
-  <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+  <div>
+    <%= submit_tag "Create new User", class: "btn btn-large btn-primary" %>
+  </div>
 <% end %>
