@@ -17,6 +17,8 @@ class ReceiveMessagesController < ApplicationController
       @userName = "UNKNOWN"
     end
 
+    @message = "#{@group}: #{@userName} - #{@message}"
+
     send_text(@group, @message)
 
     render '/list_texts/list_texts.xml.erb', :content_type => 'text/xml'
