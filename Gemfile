@@ -9,6 +9,7 @@ gem 'shoulda'
 gem 'twilio-ruby'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
+gem 'nokogiri'
 gem 'jquery-rails', '2.0.2'
 
 group :development, :test do
