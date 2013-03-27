@@ -7,6 +7,8 @@ gem 'httparty', '=0.8.2'
 gem 'imdb_party'
 gem 'shoulda'
 gem 'twilio-ruby'
+gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass'
 gem 'jquery-rails', '2.0.2'
 
 group :development, :test do
@@ -34,14 +36,4 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
-group :production, :test, :development do
-	gem 'twitter-bootstrap-rails'
-	gem 'bootstrap-sass'
-	gem 'rails', '3.2.12'
-	gem 'bcrypt-ruby', '3.0.1'
-	gem 'ywx'
-	gem 'httparty', '=0.8.2'
-	gem 'imdb_party'
-	gem 'shoulda'
-	gem 'twilio-ruby'
-end
+
