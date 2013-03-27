@@ -8,7 +8,7 @@ class TextMessagesController < ApplicationController
 
   # POST /text_messages
   def create
-    successes, failures = send_text(params[:text_message][:group_name], params[:text_message][:message])
+    successes, errors = send_text(params[:text_message][:group_name], params[:text_message][:message])
     unless errors.nil?
       flash[:errors] = errors
       flash[:successes] = successes
