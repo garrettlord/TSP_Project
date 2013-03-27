@@ -6,7 +6,7 @@ Apothegm::Application.routes.draw do
   root to: 'StaticPages#home'
   match '/signup', to: 'users#new'
   match '/help', to: 'StaticPages#help'
-  match '/process_sms' => 'ReceiveMessagesController#process_sms'
+  match '/process_sms' => 'ReceiveMessages#process_sms'
 
   resources :text_messages
 
