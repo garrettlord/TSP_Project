@@ -7,7 +7,7 @@ class ReceiveMessagesController < ApplicationController
     body = params[:Body]
     words = body.split(" ")
     @group = words[0]
-    @message = words[1..-1]
+    @message = words[1..-1].join(" ")
     fromNum = params[:From]
     userID = User.find_by_phone_number(fromNum)
     unless(userID.nil?)
@@ -15,8 +15,10 @@ class ReceiveMessagesController < ApplicationController
     else
       @userName = "UNKNOWN"
     end
-    
+
+    send_text(@group, @message)
+
     render '/list_texts/list_texts.xml.erb', :content_type => 'text/xml'
   end
-
+  
 end
