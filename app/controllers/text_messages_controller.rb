@@ -1,5 +1,6 @@
 class TextMessagesController < ApplicationController
-  
+  include TwilioHelper
+
   # GET /text_messages/new
   def new
     @text_message = TextMessage.new
