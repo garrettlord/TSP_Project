@@ -1,9 +1,5 @@
-<% provide(:title, 'New Group User') %>
-<h1>New Group User</h1>
-<p>Find me in app/views/group_users/new.html.erb</p>
-
-<%= form_tag '/group_users' do %>
-  <div><%= label_tag 'group_name', 'Group Name' %><%= text_field_tag 'group_name' %></div>
-  <div><%= label_tag 'user_name', 'User Name' %><%= text_field_tag 'user_name' %></div>
-  <div><%= submit_tag "Create new association", class: "btn btn-large btn-primary" %></div>
-<% end %>
+<%- model_class = GroupUser -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human %></h1>
+</div>
+<%= render :partial => 'form' %>
