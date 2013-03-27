@@ -187,6 +187,7 @@ DEPENDENCIES
   httparty (= 0.8.2)
   imdb_party
   jquery-rails (= 2.0.2)
+  nokogiri
   pg (= 0.12.2)
   rails (= 3.2.12)
   rspec-rails (= 2.11.0)
