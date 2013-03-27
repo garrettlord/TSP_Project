@@ -18,6 +18,8 @@ class TextMessagesController < ApplicationController
         render :action => :status
       end
     else
+      errors ||= []
+      successes ||= []
       render :action => :status, :status => :bad_request
     end
   end
