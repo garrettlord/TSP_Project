@@ -1,8 +1,14 @@
 Apothegm::Application.routes.draw do
   resources :users
+  resources :groups
+  resources :group_users
   
   root to: 'StaticPages#home'
   match '/signup', to: 'users#new'
+  match '/help', to: 'StaticPages#help'
+  match '/process_sms' => 'ReceiveMessages#process_sms'
+
+  resources :text_messages
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

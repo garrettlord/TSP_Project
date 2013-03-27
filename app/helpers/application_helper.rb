@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   # returns the full title on a per-page basis
   def full_title(page_title)
     base_title = "TSP Project Spring 2013"
@@ -7,5 +8,6 @@ module ApplicationHelper
     else
       "#{base_title} | #{page_title}"
     end
-  end
+  end 
 end
+

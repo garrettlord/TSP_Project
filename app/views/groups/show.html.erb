@@ -1,0 +1,18 @@
+<% provide(:title, @group.name) %>
+<h1><%= @group.name %></h1>
+
+<h2>Users</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone Number</th>
+  </tr>
+
+  <% @group.users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.phone_number %></td>
+      <td><%= link_to 'Show', user_path(user) %></td>
+    </tr>
+  <% end %>
+</table>

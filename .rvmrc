@@ -1,0 +1,3 @@
+rvm use 1.9.3@tsp --create
+rvm env -- [ruby]@[gemset] > .powenv
+rvm_project_rvmrc_default=1
