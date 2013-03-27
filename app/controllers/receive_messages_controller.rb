@@ -13,9 +13,9 @@ class ReceiveMessagesController < ApplicationController
 
     # find the user's name from their phone number
     fromNumRaw = params[:From].split("")
-    fromNum = "#{fromNumRaw[2..4]}-#{fromNumRaw[5..7]}-#{fromNumRaw[8..1]}"
+    fromNum = "#{fromNumRaw[2..4.join}-#{fromNumRaw[5..7].join}-#{fromNumRaw[8..1].join}"
     userID = User.find_by_phone_number(fromNum)
-    unless(userID.nil?)
+    if(!userID.nil?)
       @userName = User.find_by_phone_number(fromNum).name
     else
       @userName = "UNKNOWN"
