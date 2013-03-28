@@ -34,6 +34,7 @@ module ParseHelper
 			# 	highscore(input.at(1))
 			when "weather", "w"
 				output = weather(input[1])
+				send_text(User.find_by_name(from).number, output)
 
 			#Two parameter functions
 
