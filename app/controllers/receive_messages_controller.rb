@@ -1,4 +1,5 @@
 class ReceiveMessagesController < ApplicationController
+  include ParseHelper
   include TwilioHelper
 
   # POST /process_sms
