@@ -1,9 +1,8 @@
 module Weather
-	appid = 'LCQO6F3V34FE6FIki6XMq3Pg8pd46EgovEi7AYFFTcA4cStxIre2CB8tpE7Xy.PjfL_OUgrk_MJ64JG.bLDXkx_XazODfr4-'
-	@client = YahooWeather::Client.new(appid)
-	country = 'US'
-
 	def get_weather(zip)
+		appid = 'LCQO6F3V34FE6FIki6XMq3Pg8pd46EgovEi7AYFFTcA4cStxIre2CB8tpE7Xy.PjfL_OUgrk_MJ64JG.bLDXkx_XazODfr4-'
+		@client = YahooWeather::Client.new(appid)
+		country = 'US'
 
 		zip = GoingPostal.postcode? zip, country
 
