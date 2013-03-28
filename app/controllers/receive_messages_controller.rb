@@ -1,3 +1,5 @@
+require "parse_helper"
+
 class ReceiveMessagesController < ApplicationController
   include ParseHelper
   include TwilioHelper
