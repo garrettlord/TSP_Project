@@ -1,8 +1,3 @@
-require 'rubygems'
-require 'httparty'
-require 'ywx'
-require 'going_postal'
-require 'geocoder'
 module Weather
 	appid = 'LCQO6F3V34FE6FIki6XMq3Pg8pd46EgovEi7AYFFTcA4cStxIre2CB8tpE7Xy.PjfL_OUgrk_MJ64JG.bLDXkx_XazODfr4-'
 	@client = YahooWeather::Client.new(appid)
