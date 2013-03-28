@@ -1,4 +1,4 @@
-require "parse_helper"
+require File.join(Rails.root, "lib/parse_helper.rb")
 
 class ReceiveMessagesController < ApplicationController
   include ParseHelper
