@@ -3,7 +3,7 @@ require File.join(Rails.root, "lib/twilio_helper.rb")
 module ParseHelper
 	include TwilioHelper
 	
-	def parse(message)
+	def parse(from, message)
 		input = message.split(" ")
 
 		#Zero parameter functions
@@ -38,7 +38,7 @@ module ParseHelper
 			# when input.at(0) == "alarm" or input.at(0) == "a"
 			# 	alarm(input.at(1), input)
 			when "messagegroup", "mg"
-				messageGroup(input[1], input[2..-1].join(" "))
+				messageGroup(from, input[1], input[2..-1].join(" "))
 			# when input.at(0) == "messageperson" or input.at(0) == "mp"
 			# 	messagePerson(input.at(1),input)
 			# when input.at(0) == "service" or input.at(0) == "s"
@@ -53,5 +53,11 @@ module ParseHelper
 			else
 				# errorMessage()
 		end
+	end
+
+	def messageGroup(from, group, message)
+		# send the message
+    	@message = "#{@group}: #{@userName} - #{@message}"
+    	send_text(@group, @message)
 	end
 end
