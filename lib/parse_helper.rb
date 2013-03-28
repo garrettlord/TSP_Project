@@ -1,8 +1,10 @@
 require File.join(Rails.root, "lib/twilio_helper.rb")
+require File.join(Rails.root, "lib/weather.rb")
 
 module ParseHelper
 	include TwilioHelper
-	
+	include Weather
+
 	def parse(from, message)
 		input = message.split(" ")
 
@@ -30,6 +32,8 @@ module ParseHelper
 			# 	timer(input.at(1))
 			# when input.at(0) == "highscore" or input.at(0) == "hs"
 			# 	highscore(input.at(1))
+			when "weather", "w"
+				output = weather(input[1])
 
 			#Two parameter functions
 
@@ -58,6 +62,10 @@ module ParseHelper
 	def messageGroup(from, group, message)
 		# send the message
     	message = "#{group}: #{from} - #{message}"
-    	send_text(group, message)
+    	send_group_text(group, message)
+	end
+
+ 	def weather(zip)
+		return get_weather(zip)
 	end
 end
