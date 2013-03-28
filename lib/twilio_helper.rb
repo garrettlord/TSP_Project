@@ -8,8 +8,8 @@ module TwilioHelper
   def send_group_text(group, message)
     text_message = TextMessage.new(group_name: group, message: message)
 
-    if @text_message.valid?
-      numbers = @text_message.numbers_array
+    if text_message.valid?
+      numbers = text_message.numbers_array
       
       numbers.each do |number|
         send_text(number, text_message.number)
