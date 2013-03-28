@@ -2,7 +2,6 @@ require File.join(Rails.root, "lib/parse_helper.rb")
 
 class ReceiveMessagesController < ApplicationController
   include ParseHelper
-  include TwilioHelper
 
   # POST /process_sms
   def process_sms
