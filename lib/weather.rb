@@ -8,30 +8,30 @@ module Weather
 
 		begin
 
-		response = @client.lookup_zip(zip)
+			response = @client.lookup_zip(zip)
 
-		message = ""
+			message = ""
 
-		@ForC = response.units.temperature
-		loc = response.title
-		index = loc.rindex(',')
-		index = index + 3
-		space = loc.index(' ') + 1
+			@ForC = response.units.temperature
+			loc = response.title
+			index = loc.rindex(',')
+			index = index + 3
+			space = loc.index(' ') + 1
 
-		loc = loc[space..index]
-		message << "Weather #{loc}"
-		message << "\n"
-		message << "#{response.condition.temp}#{ForC} - #{response.condition.text}"
-		message << "\n"
+			loc = loc[space..index]
+			message << "Weather #{loc}"
+			message << "\n"
+			message << "#{response.condition.temp}#{ForC} - #{response.condition.text}"
+			message << "\n"
 
-		dir = Geocoder::Calculations.compass_point(response.wind.direction)
+			dir = Geocoder::Calculations.compass_point(response.wind.direction)
 
-		message << "Wind #{dir} #{response.wind.speed}#{response.units.speed}. Feels like #{response.wind.chill}#{ForC}"
-		message << "\n"
-		message << "Tomorrow's Forecast"
-		message << "\n"
-		message << "#{response.forecasts[1].text}.  High: #{response.forecasts[1].high} Low: #{response.forecasts[1].low}"
-		message << "\n"
+			message << "Wind #{dir} #{response.wind.speed}#{response.units.speed}. Feels like #{response.wind.chill}#{ForC}"
+			message << "\n"
+			message << "Tomorrow's Forecast"
+			message << "\n"
+			message << "#{response.forecasts[1].text}.  High: #{response.forecasts[1].high} Low: #{response.forecasts[1].low}"
+			message << "\n"
 
 		rescue
 		 	message = "ERROR 69:\nSomething went wrong."

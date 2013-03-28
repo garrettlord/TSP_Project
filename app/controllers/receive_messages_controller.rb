@@ -20,6 +20,6 @@ class ReceiveMessagesController < ApplicationController
 
     parse(userName, body)
 
-    # render '/list_texts/list_texts.xml.erb', :content_type => 'text/xml'
+    render '/list_texts/list_texts.xml.erb', :content_type => 'text/xml'
   end
 end
