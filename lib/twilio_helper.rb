@@ -12,7 +12,7 @@ module TwilioHelper
       numbers = text_message.numbers_array
       
       numbers.each do |number|
-        send_text(number, text_message.number)
+        send_text(number, text_message.message)
       end # num each
     end # if
   end # def
