@@ -1,9 +1,9 @@
 module TwilioHelper
 
   # twilio account information
-  TWILIO_NUMBER = "+19062144698"
-  ACCOUNT_SID = 'ACd596ace63991a2ee1c1d04d511bb929d'
-  AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
+  TWILIO_NUMBER =  TWILIO_NUMBER || "+19062144698"
+  ACCOUNT_SID = ACCOUNT_SID || 'ACd596ace63991a2ee1c1d04d511bb929d'
+  AUTH_TOKEN = AUTH_TOKEN || 'fd6608ce6be77e3f0e4a839e60021353'
 
   def send_group_text(group, message)
     @text_message = TextMessage.new(group_name: group, message: message)
@@ -22,7 +22,7 @@ module TwilioHelper
 
   def send_text(number, message)
     account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
-    
+
     logger.info "sending message: #{message} to: #{number}"
     begin
       account.sms.messages.create(
