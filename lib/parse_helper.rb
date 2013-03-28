@@ -62,7 +62,7 @@ module ParseHelper
 	def messageGroup(from, group, message)
 		# send the message
     	message = "#{group}: #{from} - #{message}"
-    	send_group_text(group, message)
+    	send_text(group, message)
 	end
 
  	def weather(zip)
