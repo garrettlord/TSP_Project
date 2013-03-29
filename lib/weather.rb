@@ -12,7 +12,7 @@ module Weather
 
 			message = ""
 
-			@ForC = response.units.temperature
+			tempUnit = response.units.temperature
 			loc = response.title
 			index = loc.rindex(',')
 			index = index + 3
@@ -21,20 +21,21 @@ module Weather
 			loc = loc[space..index]
 			message << "Weather #{loc}"
 			message << "\n"
-			message << "#{response.condition.temp}#{ForC} - #{response.condition.text}"
+			message << "#{response.condition.temp}#{tempUnit} - #{response.condition.text}"
 			message << "\n"
 
 			dir = Geocoder::Calculations.compass_point(response.wind.direction)
 
-			message << "Wind #{dir} #{response.wind.speed}#{response.units.speed}. Feels like #{response.wind.chill}#{ForC}"
+			message << "Wind #{dir} #{response.wind.speed}#{response.units.speed}. Feels like #{response.wind.chill}#{tempUnit}"
 			message << "\n"
 			message << "Tomorrow's Forecast"
 			message << "\n"
 			message << "#{response.forecasts[1].text}.  High: #{response.forecasts[1].high} Low: #{response.forecasts[1].low}"
 			message << "\n"
 
-		rescue
-		 	message = "ERROR 69:\nSomething went wrong."
+		rescue Exception => e
+			message = "#{e.to_s}"
+		 	# message = "ERROR 69:\nSomething went wrong."
 
 		end #begin
 
