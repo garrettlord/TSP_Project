@@ -18,17 +18,19 @@ module TwilioHelper
   end # def
 
   def send_text(number, message)
-    account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
+    unless message.empty?
+      account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
 
-    logger.info "sending message: #{message} to: #{number}"
-    begin
-      account.sms.messages.create(
-          :from => TWILIO_NUMBER,
-          :to => "+1#{number}",
-          :body => message
-      )
-    rescue Exception => e
-      logger.error "error sending message: #{e.to_s}"
-    end # begin
+      logger.info "sending message: #{message} to: #{number}"
+      begin
+        account.sms.messages.create(
+            :from => TWILIO_NUMBER,
+            :to => "+1#{number}",
+            :body => message
+        )
+      rescue Exception => e
+        logger.error "error sending message: #{e.to_s}"
+      end # begin
+    end
   end
 end # module

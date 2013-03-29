@@ -6,7 +6,8 @@ module ParseHelper
 	include Weather
 
 	def parse(user, message)
-		input = message.split(" ")
+		input = message.downcase.split(" ")
+		output = ""
 
 		#Zero parameter functions
 
@@ -34,7 +35,6 @@ module ParseHelper
 			# 	highscore(input.at(1))
 			when "weather", "w"
 				output = weather(input[1])
-				send_text(user.phone_number, output)
 
 			#Two parameter functions
 
@@ -58,6 +58,9 @@ module ParseHelper
 			else
 				# errorMessage()
 		end
+
+		# send the message
+		send_text(user.phone_number, output)
 	end
 
 	def messageGroup(from, group, message)
