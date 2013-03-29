@@ -5,7 +5,7 @@ module ParseHelper
 	include TwilioHelper
 	include Weather
 
-	def parse(from, message)
+	def parse(user, message)
 		input = message.split(" ")
 
 		#Zero parameter functions
@@ -34,7 +34,7 @@ module ParseHelper
 			# 	highscore(input.at(1))
 			when "weather", "w"
 				output = weather(input[1])
-				send_text(User.find_by_name(from).phone_number, output)
+				send_text(user.phone_number, output)
 
 			#Two parameter functions
 
@@ -43,7 +43,7 @@ module ParseHelper
 			# when input.at(0) == "alarm" or input.at(0) == "a"
 			# 	alarm(input.at(1), input)
 			when "messagegroup", "mg"
-				messageGroup(from, input[1], input[2..-1].join(" "))
+				messageGroup(user.name, input[1], input[2..-1].join(" "))
 			# when input.at(0) == "messageperson" or input.at(0) == "mp"
 			# 	messagePerson(input.at(1),input)
 			# when input.at(0) == "service" or input.at(0) == "s"

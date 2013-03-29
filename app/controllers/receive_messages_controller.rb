@@ -11,14 +11,12 @@ class ReceiveMessagesController < ApplicationController
     # find the user's name from their phone number
     fromNumRaw = params[:From].split("")
     fromNum = "#{fromNumRaw[2..4].join}-#{fromNumRaw[5..7].join}-#{fromNumRaw[8..-1].join}"
-    user= User.find_by_phone_number(fromNum)
-    unless(user.nil?)
-      userName = user.name
+    user = User.find_by_phone_number(fromNum)
+    if user.nil?
+      @error = "Could not find user"
     else
-      userName = "#{fromNum}"
+      parse(user, body)
     end
-
-    parse(userName, body)
 
     render '/list_texts/list_texts.xml.erb', :content_type => 'text/xml'
   end
