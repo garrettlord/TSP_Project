@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319002623) do
+ActiveRecord::Schema.define(:version => 20130327202111) do
 
   create_table "group_users", :force => true do |t|
     t.integer  "group_id"
@@ -27,6 +27,23 @@ ActiveRecord::Schema.define(:version => 20130319002623) do
   end
 
   add_index "groups", ["name"], :name => "index_groups_on_name", :unique => true
+
+  create_table "scramble_games", :force => true do |t|
+    t.integer  "score"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "scramble_rounds", :force => true do |t|
+    t.string   "correctWord"
+    t.string   "scrambledWord"
+    t.integer  "usedHint"
+    t.integer  "roundScore"
+    t.integer  "scramble_game_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
