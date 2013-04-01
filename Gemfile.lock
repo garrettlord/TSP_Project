@@ -60,6 +60,8 @@ GEM
       multi_json (~> 1.0)
     ffi (1.4.0)
     ffi (1.4.0-x86-mingw32)
+    geocoder (1.1.6)
+    going_postal (0.1.2)
     hike (1.2.1)
     httparty (0.8.2)
       multi_json
@@ -184,6 +186,8 @@ DEPENDENCIES
   bootstrap-sass
   capybara (= 1.1.2)
   coffee-rails (= 3.2.2)
+  geocoder
+  going_postal
   httparty (= 0.8.2)
   imdb_party
   jquery-rails (= 2.0.2)

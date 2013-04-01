@@ -1,3 +1,7 @@
 <Response>
-  <Sms><%= @group %>: <%= @userName %> - <%=@message%>></Sms>
+	<% if @error.nil? %>
+		<Sms>Message processed</Sms>
+	<% else %>
+		<Sms><%= "#{@error}" %><Sms>
+	<% end %>
 </Response>

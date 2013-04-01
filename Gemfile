@@ -11,6 +11,8 @@ gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
 gem 'nokogiri'
 gem 'jquery-rails', '2.0.2'
+gem 'going_postal'
+gem 'geocoder'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
