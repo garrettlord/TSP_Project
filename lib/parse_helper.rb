@@ -36,8 +36,12 @@ module ParseHelper
 			# 	highscore(input.at(1))
 			when "weather", "w"
 				output = weather(input[1])
-			when "lookup", "define:"
+			when "word-define"
 				output = get_definition(input[1])
+			when "word-example"
+				output = get_example(input[1])
+			when "word-related"
+				output = get_related(input[1])
 
 			#Two parameter functions
 

@@ -1,36 +1,21 @@
 module Define
+	
 	def get_definition(word)
-		appid = 'LCQO6F3V34FE6FIki6XMq3Pg8pd46EgovEi7AYFFTcA4cStxIre2CB8tpE7Xy.PjfL_OUgrk_MJ64JG.bLDXkx_XazODfr4-'
-		@client = YahooWeather::Client.new(appid)
-		country = 'US'
+	
+		%w(rubygems wordnik).each {|lib| require lib}
 
-		zip = GoingPostal.postcode? zip, country
+		Wordnik.configure do |config|
+    		config.api_key = 'd41d2d7c76970666c300a0a3cfa019bd4fd633ddc240fadb0'
+		end
 
 		begin
-
-			response = @client.lookup_zip(zip)
+			definition = Wordnik.word.get_definitions('live', :limit=>2, :source_dictionaries => word)
+			
+			definition = definition[0]["text"] #first definition found from Webster
 
 			message = ""
 
-			tempUnit = response.units.temperature
-			loc = response.title
-			index = loc.rindex(',')
-			index = index + 3
-			space = loc.index(' ') + 1
-
-			loc = loc[space..index]
-			message << "Weather #{loc}"
-			message << "\n"
-			message << "#{response.condition.temp}#{tempUnit} - #{response.condition.text}"
-			message << "\n"
-
-			dir = Geocoder::Calculations.compass_point(response.wind.direction)
-
-			message << "Wind #{dir} #{response.wind.speed}#{response.units.speed}. Feels like #{response.wind.chill}#{tempUnit}"
-			message << "\n"
-			message << "Tomorrow's Forecast"
-			message << "\n"
-			message << "#{response.forecasts[1].text}.  High: #{response.forecasts[1].high} Low: #{response.forecasts[1].low}"
+			message << "Definition: #{@definition}" 
 			message << "\n"
 
 		rescue Exception => e
@@ -41,6 +26,61 @@ module Define
 
 		return message
 	end #def
+
+	def get_example(word)
+	
+		%w(rubygems wordnik).each {|lib| require lib}
+
+		Wordnik.configure do |config|
+    		config.api_key = 'd41d2d7c76970666c300a0a3cfa019bd4fd633ddc240fadb0'
+		end
+
+		begin
+			example = Wordnik.word.get_examples(word)
+			
+			example = example["examples"][0]["text"] #first definition found from Webster
+
+			message = ""
+
+			message << "Definition: #{example}" 
+			message << "\n"
+
+		rescue Exception => e
+			message = "#{e.to_s}"
+		 	# message = "ERROR 69:\nSomething went wrong."
+
+		end #begin
+
+		return message
+	end #def
+
+	def get_related(word)
+	
+		%w(rubygems wordnik).each {|lib| require lib}
+
+		Wordnik.configure do |config|
+    		config.api_key = 'd41d2d7c76970666c300a0a3cfa019bd4fd633ddc240fadb0'
+		end
+
+		begin
+			related = Wordnik.word.get_examples(word)
+			
+			related = related[0]["words"] #first definition found from Webster
+
+			message = ""
+
+			message << "Definition: #{related}" 
+			message << "\n"
+
+		rescue Exception => e
+			message = "#{e.to_s}"
+		 	# message = "ERROR 69:\nSomething went wrong."
+
+		end #begin
+
+		return message
+	end #def
+
 end #module
 # Sample Output
 	# Weather for Beverly Hills, CA
