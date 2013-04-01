@@ -1,5 +1,6 @@
 require File.join(Rails.root, "lib/twilio_helper.rb")
 require File.join(Rails.root, "lib/weather.rb")
+require File.join(Rails.root, "lib/define.rb")
 
 module ParseHelper
 	include TwilioHelper
@@ -35,6 +36,8 @@ module ParseHelper
 			# 	highscore(input.at(1))
 			when "weather", "w"
 				output = weather(input[1])
+			when "lookup", "define:"
+				output = get_definition(input[1])
 
 			#Two parameter functions
 
