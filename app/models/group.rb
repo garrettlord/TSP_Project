@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-class Group < ActiveRecord::Base
-  attr_accessible :name
-  has_many :group_users
-  has_many :users, :through => :group_users
-
-  validates :name, presence: true, uniqueness: true,
-      length: { maximum: 50 }
-end
-=======
 # == Schema Information
 #
 # Table name: groups
@@ -26,4 +16,3 @@ class Group < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true,
       length: { maximum: 50 }
 end
->>>>>>> e720476d02c7fca50f96f5a0209f871bea3ed1a7

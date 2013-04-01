@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<% provide(:title, "#{Group.find(@group_user.group_id).name}: #{User.find(@group_user.user_id).name}") %>
-User: <%= User.find(@group_user.user_id).name %><br>
-Group: <%= Group.find(@group_user.group_id).name %>
-=======
 <%- model_class = GroupUser -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
@@ -26,4 +21,3 @@ Group: <%= Group.find(@group_user.group_id).name %>
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
->>>>>>> e720476d02c7fca50f96f5a0209f871bea3ed1a7

@@ -1,33 +1,3 @@
-<<<<<<< HEAD
-
-ActiveRecord::Schema.define(:version => 20130319002623) do
-
-  create_table "group_users", :force => true do |t|
-    t.integer  "group_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "groups", ["name"], :name => "index_groups_on_name", :unique => true
-
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "phone_number"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.string   "password_digest"
-  end
-
-  add_index "users", ["name"], :name => "index_users_on_name", :unique => true
-end
-=======
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -86,4 +56,3 @@ ActiveRecord::Schema.define(:version => 20130327202111) do
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
 
 end
->>>>>>> e720476d02c7fca50f96f5a0209f871bea3ed1a7

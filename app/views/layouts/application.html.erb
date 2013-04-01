@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= full_title(yield(:title)) %></title>
-    <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-    <%= render 'layouts/shim' %>
-  </head>
-  <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div>
-  </body>
-=======
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,5 +18,4 @@
       <%= render 'layouts/footer' %>
     </div>
   </body>
->>>>>>> e720476d02c7fca50f96f5a0209f871bea3ed1a7
 </html>
