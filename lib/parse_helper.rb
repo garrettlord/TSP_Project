@@ -38,11 +38,11 @@ module ParseHelper
 			when "weather", "w"
 				output = weather(input[1])
 			when "word-define" 
-				output = get_definition(input[1])
+				output = definition(input[1])
 			when "word-example"
-				output = get_example(input[1])
+				output = example(input[1])
 			when "word-related"
-				output = get_related(input[1])
+				output = related(input[1])
 
 			#Two parameter functions
 
@@ -79,5 +79,14 @@ module ParseHelper
 
  	def weather(zip)
 		return get_weather(zip)
+	end
+	def definition(word)
+		return get_definition(word)
+	end
+	def example(word)
+		return get_definition(word)
+	end
+	def related(word)
+		return get_related(word)
 	end
 end
