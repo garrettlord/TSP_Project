@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% provide(:title, 'Edit Group') %>
 <h1>Edit Group</h1>
 <p>Find me in app/views/groups/edit.html.erb</p>
@@ -10,3 +11,10 @@
 
   <%= f.submit "Update group", class: "btn btn-large btn-primary" %>
 <% end %>
+=======
+<%- model_class = Group -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human %></h1>
+</div>
+<%= render :partial => 'form' %>
+>>>>>>> e720476d02c7fca50f96f5a0209f871bea3ed1a7

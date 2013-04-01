@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% provide(:title, 'Edit User') %>
 <h1>Edit User</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
@@ -19,3 +20,10 @@
 
   <%= f.submit "Update my account", class: "btn btn-large btn-primary" %>
 <% end %>
+=======
+<%- model_class = User -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human %></h1>
+</div>
+<%= render :partial => 'form' %>
+>>>>>>> e720476d02c7fca50f96f5a0209f871bea3ed1a7
