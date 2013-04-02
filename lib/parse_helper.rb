@@ -1,9 +1,11 @@
 require File.join(Rails.root, "lib/twilio_helper.rb")
 require File.join(Rails.root, "lib/weather.rb")
+require File.join(Rails.root, "lib/define.rb")
 
 module ParseHelper
 	include TwilioHelper
 	include Weather
+	include Define
 
 	def parse(user, message)
 		input = message.downcase.split(" ")
@@ -35,6 +37,12 @@ module ParseHelper
 			# 	highscore(input.at(1))
 			when "weather", "w"
 				output = weather(input[1])
+			when "word-define" 
+				output = definition(input[1])
+			when "word-example"
+				output = example(input[1])
+			when "word-related"
+				output = related(input[1])
 
 			#Two parameter functions
 
@@ -71,5 +79,14 @@ module ParseHelper
 
  	def weather(zip)
 		return get_weather(zip)
+	end
+	def definition(word)
+		return get_definition(word)	
+	end
+	def example(word)
+		return get_definition(word)
+	end
+	def related(word)
+		return get_related(word)
 	end
 end
