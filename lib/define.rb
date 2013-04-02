@@ -30,7 +30,7 @@ module Define
 
 			message = ""
 
-			message << "Definition: #{example}" 
+			message << "Word Example: #{example}" 
 			message << "\n"
 
 		rescue Exception => e
@@ -49,8 +49,26 @@ module Define
 			
 			message = ""
 
-			message << "Definition: #{related[0]["words"].join(', ')}" 
+			message << "Related Words: #{related[0]["words"].join(', ')}" 
 			message << "\n"
+
+		rescue Exception => e
+			message = "#{e.to_s}"
+		 	# message = "ERROR 69:\nSomething went wrong."
+
+		end #begin
+
+		return message
+	end #def
+
+	def get_random(min, max)
+
+		begin
+			random = Wordnik.words.get_random_word(:part_of_speech => 'verb', :part_of_speech => 'noun', :part_of_speech => 'adjective', :minLength => min, :maxLength => max)
+
+			message = ""
+
+			message << "#{random["word"]}" 
 
 		rescue Exception => e
 			message = "#{e.to_s}"
