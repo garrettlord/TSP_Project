@@ -13,7 +13,7 @@ def index
   end
 
   def create
-    @group = Group.new(params[:group])
+    @group = Group.new(name: params[:name])
 
     if @group.save
       flash[:success] = "New group successfully created!"
