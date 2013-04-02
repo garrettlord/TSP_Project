@@ -11,9 +11,10 @@
 
 </dl>
 
-  <strong>Groups this user is a member of:</strong>
+  
 
   <dl class="dl-horizontal">
+    <dt><strong>Groups this user is in:</strong></dt>
     <% @user.groups.each do |group|%>
       <dd><%=link_to group.name, group_path(group) %></dd>
     <% end %>
