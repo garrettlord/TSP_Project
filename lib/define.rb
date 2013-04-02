@@ -22,12 +22,6 @@ module Define
 	end #def
 
 	def get_example(word)
-	
-		%w(rubygems wordnik).each {|lib| require lib}
-
-		Wordnik.configure do |config|
-    		config.api_key = 'd41d2d7c76970666c300a0a3cfa019bd4fd633ddc240fadb0'
-		end
 
 		begin
 			example = Wordnik.word.get_examples(word)
@@ -49,21 +43,13 @@ module Define
 	end #def
 
 	def get_related(word)
-	
-		%w(rubygems wordnik).each {|lib| require lib}
-
-		Wordnik.configure do |config|
-    		config.api_key = 'd41d2d7c76970666c300a0a3cfa019bd4fd633ddc240fadb0'
-		end
 
 		begin
 			related = Wordnik.word.get_examples(word)
 			
-			related = related[0]["words"] #first definition found from Webster
-
 			message = ""
 
-			message << "Definition: #{related}" 
+			message << "Definition: #{related[0]["words"].join(', ')}" 
 			message << "\n"
 
 		rescue Exception => e

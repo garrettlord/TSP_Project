@@ -22,7 +22,9 @@ puts word[0]["text"]
 puts "---------------------"
 puts example["examples"][0]["text"]
 puts "---------------------"
-puts related[0]["words"]
+related[0]["words"].each  do |temp|
+puts temp
+end
 puts "------------------------"
 puts wotd["word"]
 puts wotd["examples"][0]["text"]
