@@ -1,0 +1,10 @@
+ScrambleGame
+* score:integer
+* user_id:integer
+
+ScrambleRound
+* correctWord:string
+* scrambledWord:string
+* usedHint:integer
+* roundScore:integer
+* scramble_game_id:integer
