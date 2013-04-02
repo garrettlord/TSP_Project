@@ -81,7 +81,7 @@ module ParseHelper
 		return get_weather(zip)
 	end
 	def definition(word)
-		return get_definition(word)
+		return get_definition(word)	
 	end
 	def example(word)
 		return get_definition(word)

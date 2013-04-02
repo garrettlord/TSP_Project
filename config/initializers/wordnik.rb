@@ -1,4 +1,3 @@
 Wordnik.configure do |config|
-  config.api_key = ENV['WORDNIK_API_KEY']
-  config.logger = Logger.new('/dev/null')
+  config.api_key = 'd41d2d7c76970666c300a0a3cfa019bd4fd633ddc240fadb0'               # required
 end

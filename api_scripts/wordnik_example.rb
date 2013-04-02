@@ -9,7 +9,7 @@ Wordnik.configure do |config|
     config.api_key = 'd41d2d7c76970666c300a0a3cfa019bd4fd633ddc240fadb0'
 end
 
-	word = Wordnik.word.get_definitions('live', :limit=>2, :source_dictionaries => 'webster')
+	word = Wordnik.word.get_definitions('school', :limit=>2, :source_dictionaries => 'webster')
 	example = Wordnik.word.get_examples('school')
 	related = Wordnik.word.get_related('sad', :type => 'synonym')
 	pron = Wordnik.word.get_text_pronunciations('apple')
