@@ -68,7 +68,17 @@ module ParseHelper
 		end
 
 		# send the message
-		send_text(user.phone_number, output)
+    texts = [];
+    while output.length > 120 do
+      texts << output[0..120]
+      output = output[120..-1]
+    end
+    texts << output
+
+    texts.each do |text|
+      send_text(user.phone_number, text)
+    end
+		
 	end
 
 	def messageGroup(from, group, message)
