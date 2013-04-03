@@ -8,12 +8,12 @@ module ParseHelper
 	include Define
 
 	def parse(user, message)
-		input = message.downcase.split(" ")
+		input = message.split(" ")
 		output = ""
 
 		#Zero parameter functions
 
-		case input[0]
+		case input[0].downcase
 			# when input.at(0) == "food" or input.at(0) == "f"
 			# 	food
 

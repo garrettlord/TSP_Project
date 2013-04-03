@@ -11,9 +11,10 @@
 
 </dl>
 
-  <strong>Groups this user is a member of:</strong>
+  
 
   <dl class="dl-horizontal">
+    <dt><strong>Groups this user is in:</strong></dt>
     <% @user.groups.each do |group|%>
       <dd><%=link_to group.name, group_path(group) %></dd>
     <% end %>
@@ -30,3 +31,54 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+<center>
+<div class="row">
+  <div class = "span6">
+    <h2>Send a Message</h2>
+  </div>
+  <div class = "span6">
+    <h2>Associate Groups and Users</h2>
+  </div>
+</div>
+<div class="row">
+
+
+<%= form_tag "/group_messages" do %>
+      <div class = "span3">
+        <p><Strong>Groups:</Strong></p>
+        <%= select_tag :group, options_from_collection_for_select(@groups, "id", "name"), size: "10" %>
+        
+      </div>
+      <div class = "span3">
+        <p><Strong>Message:</Strong></p>
+        <%= text_area_tag :message, nil, rows: "9" %>
+        <%= hidden_field_tag :user_id, "#{@user.id}" %>
+        <%= submit_tag nil, value: "Send", class: "btn btn-large btn-primary" %>  
+      </div>
+
+<% end %>
+
+
+
+  <div class="span3">
+    
+    <p><Strong>Groups:</Strong></p>
+    <select multiple="multiple" size = "10">
+        <% @groups.each do |group|%>
+          <option><%= group.name%></option>
+        <%end%>
+      </select>
+      <p><small>Hold Ctrl to select multiple items</small></p>
+  </div>
+  
+  <div class="span3">
+    <p><Strong>Users:</Strong></p>
+    <select multiple="multiple" size = "10">
+        <% @users.each do |user|%>
+          <option><%= user.name%></option>
+        <%end%>
+      </select>
+      <button class="btn btn-large btn-primary" type="button">Associate</button>
+  </div>
+</div>
+</center>

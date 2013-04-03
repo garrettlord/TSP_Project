@@ -1,6 +1,9 @@
 module Define
 	
 	def get_definition(word)
+		Wordnik.configure do |config|
+		  config.api_key = 'd41d2d7c76970666c300a0a3cfa019bd4fd633ddc240fadb0'               # required
+		end
 
 		begin
 			definition = Wordnik.word.get_definitions(word, :source_dictionaries => 'webster')
@@ -22,7 +25,9 @@ module Define
 	end #def
 
 	def get_example(word)
-
+		Wordnik.configure do |config|
+		  config.api_key = 'd41d2d7c76970666c300a0a3cfa019bd4fd633ddc240fadb0'               # required
+		end
 		begin
 			example = Wordnik.word.get_examples(word)
 			
@@ -43,7 +48,9 @@ module Define
 	end #def
 
 	def get_related(word)
-
+		Wordnik.configure do |config|
+		  config.api_key = 'd41d2d7c76970666c300a0a3cfa019bd4fd633ddc240fadb0'               # required
+		end
 		begin
 			related = Wordnik.word.get_examples(word)
 			
