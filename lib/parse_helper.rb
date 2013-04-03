@@ -73,6 +73,7 @@ module ParseHelper
       texts << output[0..120]
       output = output[120..-1]
     end
+    texts << output
 
     texts.each do |text|
       send_text(user.phone_number, text)
