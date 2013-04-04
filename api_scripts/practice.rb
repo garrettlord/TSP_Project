@@ -5,11 +5,12 @@ gem 'httparty', '=0.8.2'
 require 'httparty'
 require 'imdb_party'
 
-module Movies
+
 	imdb = ImdbParty::Imdb.new(anonymize: true)
 
-	def find_movie(searc)
-		begin
+searc = ARGV[0]
+
+begin
 			results = imdb.find_by_title(searc);
 			thing = results[0]
 			id = thing.fetch(:imdb_id)
@@ -31,13 +32,5 @@ module Movies
 		rescue
 			message = "Error: Something went wrong"
 		end # begin
-		message
-	end # def
-end # module
-
-# The League of Extraordinary Gentlemen
-# Runtime: 110 min
-# Released 2003
-# PG-13
-# Genres: Action Adventure
-# Starring Sean Connery and Stuart Townsend
+	
+	puts	message
