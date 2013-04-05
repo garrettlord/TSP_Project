@@ -72,12 +72,7 @@ module ParseHelper
 		end
 
 		# send the message
-    texts = [];
-    while output.length > 120 do
-      texts << output[0..120]
-      output = output[120..-1]
-    end
-    texts << output
+    texts = output.scan(/.{120}/);
 
     texts.each do |text|
       send_text(user.phone_number, text)
