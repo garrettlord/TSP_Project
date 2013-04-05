@@ -75,7 +75,7 @@ module ParseHelper
 
 		# send the message
     puts "output: #{output}"
-    texts = output.scan(/.{1,120}/);
+    texts = output.scan(/.{1,120}/m)
 
     texts.each do |text|
       send_text(user.phone_number, text)
