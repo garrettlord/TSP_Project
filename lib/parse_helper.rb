@@ -100,7 +100,7 @@ module ParseHelper
 	end
 
 	def example(word)
-		return get_definition(word)
+		return get_example(word)
 	end
 
 	def related(word)
