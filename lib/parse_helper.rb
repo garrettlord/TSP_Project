@@ -10,12 +10,13 @@ module ParseHelper
   include Movie
 
 	def parse(user, message)
-		input = message.downcase.split(" ")
+    puts "parsing"
+		input = message.split(" ")
 		output = ""
 
 		#Zero parameter functions
 
-		case input[0]
+		case input[0].downcase
 			# when input.at(0) == "food" or input.at(0) == "f"
 			# 	food
 
@@ -68,16 +69,17 @@ module ParseHelper
 			#Three parameter functions
 
 			else
-				# errorMessage()
+				output = "Could not process request"
 		end
 
 		# send the message
-    texts = output.scan(/.{120}/);
+    puts "output: #{output}"
+    texts = output.scan(/.{1,120}/m)
 
     texts.each do |text|
       send_text(user.phone_number, text)
+      puts "#{user.phone_number}: #{text}"
     end
-		
 	end
 
 	def messageGroup(from, group, message)
