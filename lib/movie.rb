@@ -1,16 +1,8 @@
-require 'rubygems'
-require 'jeweler'
-require 'shoulda'
-gem 'httparty', '=0.8.2'
-require 'httparty'
-require 'imdb_party'
-
-module Movies
-	imdb = ImdbParty::Imdb.new(anonymize: true)
-
-	def find_movie(searc)
+module Movie
+	def find_movie(search)
+    imdb = ImdbParty::Imdb.new(anonymize: true)
 		begin
-			results = imdb.find_by_title(searc);
+			results = imdb.find_by_title(search);
 			thing = results[0]
 			id = thing.fetch(:imdb_id)
 			movie = imdb.find_movie_by_id(id)
