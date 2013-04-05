@@ -1,5 +1,5 @@
 <Response>
-	<% if @error.any? %>
+	<% unless @error.nil? %>
 		<Sms><%= "#{@error}" %><Sms>
 	<% end %>
 </Response>
