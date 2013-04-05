@@ -11,7 +11,6 @@ module ParseHelper
 
 	def parse(user, message)
     puts "parsing"
-
 		input = message.split(" ")
 		output = ""
 

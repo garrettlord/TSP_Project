@@ -14,7 +14,6 @@ gem 'nokogiri'
 gem 'jquery-rails', '2.0.2'
 gem 'going_postal'
 gem 'geocoder'
-gem 'wordnik'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
