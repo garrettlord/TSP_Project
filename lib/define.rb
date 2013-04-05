@@ -45,7 +45,7 @@ module Define
 	def get_related(word)
 
 		begin
-			related = Wordnik.word.get_examples(word)
+			related = Wordnik.word.get_related(word)
 			
 			message = ""
 
