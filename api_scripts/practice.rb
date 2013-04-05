@@ -1,0 +1,36 @@
+require 'rubygems'
+require 'jeweler'
+require 'shoulda'
+gem 'httparty', '=0.8.2'
+require 'httparty'
+require 'imdb_party'
+
+
+	imdb = ImdbParty::Imdb.new(anonymize: true)
+
+searc = ARGV[0]
+
+begin
+			results = imdb.find_by_title(searc);
+			thing = results[0]
+			id = thing.fetch(:imdb_id)
+			movie = imdb.find_movie_by_id(id)
+
+			message = ""
+
+			message << "#{movie.title}"
+			message << "\n"
+			message << "Runtime: #{movie.runtime}"
+			message << "\n"
+			message << "Released #{movie.release_date.slice(0..3)}"
+			message << "\n"
+			message << "#{movie.certification}   "
+			message << "\n"
+			message << "Genres: #{movie.genres.at(0)} #{movie.genres.at(1)}"
+			message << "\n"
+			message << "Starring #{movie.actors.at(0).name} and #{movie.actors.at(1).name}"
+		rescue
+			message = "Error: Something went wrong"
+		end # begin
+	
+	puts	message

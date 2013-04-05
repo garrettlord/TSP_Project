@@ -1,11 +1,13 @@
 require File.join(Rails.root, "lib/twilio_helper.rb")
 require File.join(Rails.root, "lib/weather.rb")
 require File.join(Rails.root, "lib/define.rb")
+require File.join(Rails.root, "lib/movie.rb")
 
 module ParseHelper
 	include TwilioHelper
 	include Weather
 	include Define
+  include Movie
 
 	def parse(user, message)
 		input = message.downcase.split(" ")
@@ -37,12 +39,14 @@ module ParseHelper
 			# 	highscore(input.at(1))
 			when "weather", "w"
 				output = weather(input[1])
-			when "word-define" 
+			when "word-define", "wd"
 				output = definition(input[1])
-			when "word-example"
+			when "word-example", "we"
 				output = example(input[1])
-			when "word-related"
+			when "word-related", "wr"
 				output = related(input[1])
+      when "movie", "m"
+        output = movie(input[1..-1].join(" "))
 
 			#Two parameter functions
 
@@ -68,12 +72,7 @@ module ParseHelper
 		end
 
 		# send the message
-    texts = [];
-    while output.length > 120 do
-      texts << output[0..120]
-      output = output[120..-1]
-    end
-    texts << output
+    texts = output.scan(/.{120}/);
 
     texts.each do |text|
       send_text(user.phone_number, text)
@@ -90,13 +89,20 @@ module ParseHelper
  	def weather(zip)
 		return get_weather(zip)
 	end
+
 	def definition(word)
 		return get_definition(word)	
 	end
+
 	def example(word)
-		return get_definition(word)
+		return get_example(word)
 	end
+
 	def related(word)
 		return get_related(word)
 	end
+
+  def movie(movie)
+    return find_movie(movie)
+  end
 end
