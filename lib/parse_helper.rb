@@ -10,6 +10,8 @@ module ParseHelper
   include Movie
 
 	def parse(user, message)
+    puts "parsing"
+
 		input = message.split(" ")
 		output = ""
 
@@ -68,16 +70,17 @@ module ParseHelper
 			#Three parameter functions
 
 			else
-				# errorMessage()
+				output = "Could not process request"
 		end
 
 		# send the message
-    texts = output.scan(/.{120}/);
+    puts "output: #{output}"
+    texts = output.scan(/.{1,120}/);
 
     texts.each do |text|
       send_text(user.phone_number, text)
+      puts "#{user.phone_number}: #{text}"
     end
-		
 	end
 
 	def messageGroup(from, group, message)
