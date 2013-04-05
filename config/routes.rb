@@ -10,6 +10,7 @@ Apothegm::Application.routes.draw do
 
   resources :text_messages
 
+  match '/group_messages', to: 'users#group_message'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
