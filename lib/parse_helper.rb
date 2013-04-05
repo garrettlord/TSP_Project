@@ -46,7 +46,7 @@ module ParseHelper
 			when "word-related", "wr"
 				output = related(input[1])
       when "movie", "m"
-        output = movie(input[1])
+        output = movie(input[1..-1].join(" "))
 
 			#Two parameter functions
 
