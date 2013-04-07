@@ -1,4 +1,3 @@
-!
 bundle update
 bundle install --without production
 

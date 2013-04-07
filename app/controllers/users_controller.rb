@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @groups = Group.all
+    @users = User.all
   end
 
   def new
@@ -69,5 +71,11 @@ class UsersController < ApplicationController
     end
 
     redirect_to users_url
+  end
+
+  def group_message
+    send_group_text Group.find(params[:group]).name, params[:message]
+    flash[:message] = " Message Sent to #{Group.find(params[:group]).name}: #{params[:message]}"
+    redirect_to "/users/#{params[:user_id]}"
   end
 end
