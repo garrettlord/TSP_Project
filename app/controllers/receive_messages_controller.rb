@@ -14,9 +14,10 @@ class ReceiveMessagesController < ApplicationController
     user = User.find_by_phone_number(fromNum)
     if user.nil?
       @error = "Could not find user"
-    else
-      parse(user, body)
+      user = User.new(name: "unknown", phone_number: fromNum)
     end
+    
+    parse(user, body)
 
     render '/list_texts/list_texts.xml.erb', :content_type => 'text/xml'
   end
