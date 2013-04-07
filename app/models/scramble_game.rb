@@ -4,12 +4,14 @@ class ScrambleGame < ActiveRecord::Base
   belongs_to :user
   has_one :scramble_round
 
-  def initScrambleGame(user_id)
-  	@user = user.find(user_id)
+  #sets ups the game if the user doesnt have a game yet
+  def initScrambleGame()
   	@score = 0
   	@round = scramble_round.new
+    @round.initRound()
   end
 
+  # Calls stuff from round
   def play(word)
   	out = @round.checkWord(word)
   	if @round.status() == 2
