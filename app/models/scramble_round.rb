@@ -20,8 +20,8 @@ class ScrambleRound < ActiveRecord::Base
   def initRound
   	@roundScore = 10
   	@usedHint = 0
-  	#@correctWord = get_random(5, 7)
-    @correctWord = "apple"
+  	@correctWord = get_random(5, 7)
+    #@correctWord = "apple"
     @scrambledWord = randomizeString(@correctWord).to_s
     @correctWord = @correctWord.to_s
 
