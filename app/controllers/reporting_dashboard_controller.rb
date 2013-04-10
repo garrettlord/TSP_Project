@@ -1,0 +1,6 @@
+class ReportingDashboardController < ApplicationController
+
+
+
+
+end
