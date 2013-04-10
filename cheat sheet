@@ -29,8 +29,12 @@ rails generate migration add_index_to_users_email
 rails generate integration_test user_pages
 
 
-user = User.create(name: "test", phone_number: "123-456-8970", password: "foobar", password_confirmation: "foobar")
-group = Group.create(name: "test")
-group2 = Group.create(name: "test2")
-assoc = GroupUser.create(group_id: 5, user_id: 6)
-assoc2 = GroupAdmin.create(group_id: 6, user_id: 6)
+user1 (id 6) is an admin of group1 (id 5)
+user2 (id 7) is a user of group2 (id 6)
+
+user1 = User.create(name: "test", phone_number: "123-456-8970", password: "foobar", password_confirmation: "foobar")
+user2 = User.create(name: "another", phone_number: "123-456-8970", password: "foobar", password_confirmation: "foobar")
+group1 = Group.create(name: "test")
+group2 = Group.create(name: "another")
+assoc2 = GroupUser.create(group_id: 5, user_id: 6, admin: true)
+assoc2 = GroupUser.create(group_id: 6, user_id: 7, admin: false)

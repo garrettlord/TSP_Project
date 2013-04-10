@@ -16,16 +16,14 @@ class User < ActiveRecord::Base
 
   #groups
   has_many :group_users
-  has_many :user_groups, through: :group_users, foreign_key: :user_id, class_name: "Group", source: :group
-
-  has_many :group_admins
-  has_many :admin_groups, through: :group_admins, foreign_key: :user_id, class_name: "Group", source: :group
-  # has_many :groups, :through => :group_users
+  has_many :user_groups, through: :group_users, foreign_key: :user_id, class_name: "Group", source: :group, conditions: {"group_users.admin" => false}
+  has_many :admin_groups, through: :group_users, foreign_key: :user_id, class_name: "Group", source: :group, conditions: {"group_users.admin" => true}
+  has_many :groups, through: :group_users, foreign_key: :user_id, class_name: "Group", source: :group
 
   # scramble
   has_one :scramble_game
 
-  validates :name, presence: true, uniqueness: { case_sensitive: false },
+  validates :name, presence: true, uniqueness: true,
       length: { maximum: 50 }
 
   VALID_PHONE_REGEX = /\A[0-9]{3}\-[0-9]{3}\-[0-9]{4}\z/i
