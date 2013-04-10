@@ -81,7 +81,7 @@ module ParseHelper
       puts "#{user.phone_number}: #{text}"
     end
 	end
-
+	
 	def messageGroup(from, group, message)
 		# send the message
     	message = "#{group}: #{from} - #{message}"
