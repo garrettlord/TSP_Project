@@ -18,4 +18,8 @@ class Group < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true,
       length: { maximum: 50 }
+
+  def group_all
+    self.group_users + self.group_admins
+  end
 end
