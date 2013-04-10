@@ -9,7 +9,7 @@
 #
 
 class Group < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :public
 
   has_many :group_users
   has_many :users, through: :group_users, foreign_key: :group_id, class_name: "User", source: :user, conditions: {"group_users.admin" => false}
