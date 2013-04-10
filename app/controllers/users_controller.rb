@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     @user.password_confirmation = params[:password_confirmation]
 
     if @user.save
+      sign_in @user
       flash[:success] = "Welcome to our project, #{@user.name}!"
 
       groups = Group.all
