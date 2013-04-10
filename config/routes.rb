@@ -2,13 +2,17 @@ Apothegm::Application.routes.draw do
   resources :users
   resources :groups
   resources :group_users
+  resources :text_messages
+  resources :sessions, only: [:new, :create, :destroy]
   
   root to: 'StaticPages#home'
+
   match '/signup', to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+
   match '/help', to: 'StaticPages#help'
   match '/process_sms' => 'ReceiveMessages#process_sms'
-
-  resources :text_messages
 
   match '/group_messages', to: 'users#group_message'
   # The priority is based upon order of creation:
