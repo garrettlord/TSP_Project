@@ -27,3 +27,10 @@ bundle exec annotate
 rails generate migration add_index_to_users_email
 
 rails generate integration_test user_pages
+
+
+user = User.create(name: "test", phone_number: "123-456-8970", password: "foobar", password_confirmation: "foobar")
+group = Group.create(name: "test")
+group2 = Group.create(name: "test2")
+assoc = GroupUser.create(group_id: 5, user_id: 6)
+assoc2 = GroupAdmin.create(group_id: 6, user_id: 6)
