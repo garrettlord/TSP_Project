@@ -86,6 +86,23 @@ module Define
 		return message
 	end #def
 
+	def get_wotd()
+
+		begin 
+			wotd = Wordnik.words.get_word_of_the_day()
+			
+			message = ""
+
+			message << "Word of the Day: #{ wotd["word"]}- #{wotd["definitions"][0]["text"]}" 
+
+			rescue Exception => e
+			message = "#{e.to_s}"
+
+		end
+	
+		return message
+	end
+
 end #module
 # Sample Output
 	# Weather for Beverly Hills, CA
