@@ -6,8 +6,8 @@ ACCOUNT_SID = 'ACd596ace63991a2ee1c1d04d511bb929d'
   # AUTH_TOKEN = '8467ec204a825f52e0bb7c908915d0cf'
 AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
 
-  @inbound = []
-  @allTexts = []
+  @inboundCount = []
+  @allTextsCount = []
 
   def build()
     client = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN)
@@ -18,16 +18,16 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
        :start_date => "2013-04-02",
        :end_date => "2013-04-06"
       }).each do |record|
-          @inbound << record.count
+          @inboundCount << record.count
     end
-    
+
     #"inbound and outbound texts"
     client.account.usage.records.daily.list({
        :category => "sms",
        :start_date => "2013-04-02",
        :end_date => "2013-04-06"
       }).each do |record|
-      @allTexts << record.count
+      @allTextsCount << record.count
     end
 
   end 
