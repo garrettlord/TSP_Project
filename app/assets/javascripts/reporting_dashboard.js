@@ -40,12 +40,11 @@ $(function () {
             },
             series: [{
                 name: 'Total',
-                //data: [10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0]
-                data: @allTextsCount
+                data: [10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0]
             }, {
                 name: 'Inbound',
                 data: @inboundCount
-               // data: [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+               data: [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
             }]
         });
     });

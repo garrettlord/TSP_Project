@@ -1,1 +1,59 @@
-<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+          new Highcharts.chart({
+              chart: {
+                  renderTo: 'dash_graph',
+                  type: 'line',
+                  marginRight: 130,
+                  marginBottom: 25
+              },
+              title: {
+                  text: 'Total Texts Sent',
+                  x: -20 //center
+              },
+              subtitle: {
+                  text: '503 Taco Leg',
+                  x: -20
+              },
+              xAxis: {
+                  categories: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Jun',
+                      'Sat', 'Sun']
+              },
+              yAxis: {
+                  title: {
+                      text: 'Texts Send'
+                  },
+                  plotLines: [{
+                      value: 0,
+                      width: 1,
+                      color: '#808080'
+                  }]
+              },
+              tooltip: {
+                  valueSuffix: '°C'
+              },
+              legend: {
+                  layout: 'vertical',
+                  align: 'right',
+                  verticalAlign: 'top',
+                  x: -10,
+                  y: 100,
+                  borderWidth: 0
+              },
+              series: [{
+                  name: 'Total',
+                  // data: <%= @allTextsCount %>
+                  data: [10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0]
+              }, {
+                  name: 'Inbound',
+                  // data: <%= @inboundCount %>
+                 data: [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]
+              }]
+        });
+  });
+</script>
+
+<div id="dash_graph" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
