@@ -18,7 +18,7 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
     client.account.usage.records.daily.list({
        :category => "sms-inbound",
        :start_date => "2013-04-02",
-       :end_date => "2013-04-06"
+       :end_date => "2013-04-09"
       }).each do |record|
           @inboundCount << record.count
     end
@@ -27,7 +27,7 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
     client.account.usage.records.daily.list({
        :category => "sms",
        :start_date => "2013-04-02",
-       :end_date => "2013-04-06"
+       :end_date => "2013-04-09"
       }).each do |record|
       @allTextsCount << record.count
     end
