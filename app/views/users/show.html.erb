@@ -88,9 +88,9 @@
       <center>
 
         <p><h2>Send a Message</h2>
-        <%= form_tag "/group_messages/" do %>
+        <%= form_tag "/group_messages/multiple" do %>
           <p><Strong>Groups:</Strong>
-          <p><%= select_tag :group, options_from_collection_for_select(@groups, "id", "name"), multiple: true, size: "5", class: "span12" %>
+          <p><%= select_tag :groups, options_from_collection_for_select(@groups, "id", "name"), multiple: true, size: "5", class: "span12" %>
           <p><%= text_area_tag :history, nil, rows: "15", readonly: true, class: "span12"  %>
           <p><%= text_area_tag :message, nil, rows: "1", class: "span12"  %>
           <p><%= submit_tag nil, value: "Send", class: "btn btn-large btn-primary" %> 
