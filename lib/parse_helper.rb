@@ -56,7 +56,8 @@ module ParseHelper
 			# when input.at(0) == "alarm" or input.at(0) == "a"
 			# 	alarm(input.at(1), input)
 			when "messagegroup", "mg"
-				messageGroup(user.name, input[1], input[2..-1].join(" "))
+        group = Group.find_by_name(input[1])
+				messageGroup(user, group, input[2..-1].join(" "))
 			# when input.at(0) == "messageperson" or input.at(0) == "mp"
 			# 	messagePerson(input.at(1),input)
 			# when input.at(0) == "service" or input.at(0) == "s"
@@ -84,8 +85,8 @@ module ParseHelper
 
 	def messageGroup(from, group, message)
 		# send the message
-    	message = "#{group}: #{from} - #{message}"
-    	send_group_text(group, message)
+    	message = "#{group.name}: #{from.name} - #{message}"
+    	send_group_text(from, group, message)
 	end
 
  	def weather(zip)

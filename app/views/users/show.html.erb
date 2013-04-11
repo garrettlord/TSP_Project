@@ -56,7 +56,7 @@
 
         <p>
 
-        <!-- associating groups and users section -->
+        <!-- add public groups section -->
         <h2>Add Public Groups</h2>
         <%= form_tag "/group_users/multiple/create" do %>
           <Strong>Groups:</Strong></p>
@@ -68,6 +68,8 @@
         <% end %>
 
         <p>
+
+        <!-- remove groups section -->
         <h2>Remove Groups</h2>
         <%= form_tag "/group_users/multiple/destroy" do %>
           <Strong>Groups:</Strong></p>
@@ -83,7 +85,7 @@
 
 
 
-    <!-- messaging column -->
+    <!-- group messaging column -->
     <div class = "span8">
       <center>
 
