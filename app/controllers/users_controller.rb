@@ -91,8 +91,8 @@ class UsersController < ApplicationController
     user = User.find(params[:user_id])
     if !params[:groups].nil?
       flash[:message] = ""
-      params[:groups].each do |group_name|
-        group = Group.find_by_name(group_name)
+      params[:groups].each do |group_id|
+        group = Group.find(group_id)
         send_group_text user, group, params[:message]
         flash[:message] << "Message sent to #{group.name}: #{params[:message]}\n"
       end
