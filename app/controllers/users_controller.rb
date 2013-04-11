@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     @groups = Group.find(:all, conditions: {public: true})
     @groups_in = @user.all_groups
     @users = User.all
+    messages = GroupMessage.all
+    @message = ""
+    messages.each do |msg|
+      @message << "#{msg.message}\n"
+    end
   end
 
   def new
