@@ -87,6 +87,7 @@ class UsersController < ApplicationController
 
   def group_message_multiple
     if !params[:groups].nil?
+      flash[:message] = ""
       params[:groups].each do |group|
         send_group_text Group.find(group).name, params[:message]
         flash[:message] << "Message sent to #{Group.find(group).name}: #{params[:message]}\n"
