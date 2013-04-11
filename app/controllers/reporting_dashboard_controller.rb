@@ -6,8 +6,6 @@ ACCOUNT_SID = 'ACd596ace63991a2ee1c1d04d511bb929d'
   # AUTH_TOKEN = '8467ec204a825f52e0bb7c908915d0cf'
 AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
 
-  
-
   def build()
     @inboundCount = []
     @allTextsCount = []
@@ -32,6 +30,10 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
       @allTextsCount << record.count
     end
 
+  logger.info "inbound is #{@inboundCount.to_s}"
+  logger.info "The all texts are #{@allTextsCount.to_s}"
+
+  render '/reporting_dashboard/build.html.erb'
   end 
 
 end
