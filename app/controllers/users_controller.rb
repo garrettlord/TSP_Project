@@ -80,22 +80,26 @@ class UsersController < ApplicationController
   end
 
   def group_message
-    send_group_text Group.find(params[:group]).name, params[:message]
-    flash[:message] = " Message Sent to #{Group.find(params[:group]).name}: #{params[:message]}"
-    redirect_to "/users/#{params[:user_id]}"
+    user = User.find(params[:user_id])
+    group = Group.find(params[:group])
+    send_group_text user, group, params[:message]
+    flash[:message] = " Message Sent to #{group.name}: #{params[:message]}"
+    redirect_to "/users/#{user.id}"
   end
 
   def group_message_multiple
+    user = User.find(params[:user_id])
     if !params[:groups].nil?
       flash[:message] = ""
-      params[:groups].each do |group|
-        send_group_text Group.find(group).name, params[:message]
-        flash[:message] << "Message sent to #{Group.find(group).name}: #{params[:message]}\n"
+      params[:groups].each do |group_name|
+        group = Group.find_by_name(group_name)
+        send_group_text user, group, params[:message]
+        flash[:message] << "Message sent to #{group.name}: #{params[:message]}\n"
       end
     else
       flash[:error] = "Could not send any group messages"
     end
     
-    redirect_to "/users/#{params[:user_id]}"
+    redirect_to "/users/#{user.id}"
   end
 end
