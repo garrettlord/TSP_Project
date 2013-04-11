@@ -16,6 +16,7 @@ gem 'going_postal'
 gem 'geocoder'
 gem 'wordnik'
 gem 'jquery-rails', '~> 2.1'
+gem 'factory_girl_rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
