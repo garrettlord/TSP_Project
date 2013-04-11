@@ -22,10 +22,52 @@ class GroupUsersController < ApplicationController
     end
   end
 
+  def multiple_create
+    success = true
+    unless params[:groups].nil? # no errors
+      params[:groups].each do |group|
+        group_user = GroupUser.new(group_id: group, user_id: params[:user_id], admin: false)
+        unless group_user.save
+          success = false
+        end
+      end
+      if success
+        flash[:success] = "Groups added"
+      else
+        flash[:error] = "Could not add all groups"
+      end
+    else
+      flash[:error] = "Could not add any groups"
+    end
+    redirect_to User.find(params[:user_id])
+  end
+
   def destroy
     @group_user = GroupUser.find(params[:id])
     @group_user.destroy
 
     redirect_to group_users_url
+  end
+
+  def multiple_destroy
+    success = true
+    unless params[:groups].nil? # no errors
+      params[:groups].each do |group|
+        group_user = GroupUser.find(:first, :conditions => { group_id: group, user_id: params[:user_id] })
+        if group_user.nil?
+          success = false
+        else
+          group_user.destroy
+        end
+      end
+      if success
+        flash[:success] = "Groups removed"
+      else
+        flash[:error] = "Could not remove all groups"
+      end
+    else
+      flash[:error] = "Could not remove any groups"
+    end
+    redirect_to User.find(params[:user_id])
   end
 end

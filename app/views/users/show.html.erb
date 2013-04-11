@@ -57,16 +57,27 @@
         <p>
 
         <!-- associating groups and users section -->
-        <!-- XXX fix up form here -->
-        <h2>Add Groups</h2>
-        <%= form_tag "/group_users" do %>
+        <h2>Add Public Groups</h2>
+        <%= form_tag "/group_users/multiple/create" do %>
           <Strong>Groups:</Strong></p>
-          <p><%= select_tag :group, options_from_collection_for_select(@groups, "id", "name"), multiple: true, size: "5" %>
+          <p><%= select_tag :groups, options_from_collection_for_select(@groups, "id", "name"), multiple: true, size: "5" %>
           <p><small>Hold Ctrl to select multiple items</small></p>
           <p><%= submit_tag nil, value: "Associate", class: "btn btn-large btn-primary" %>
 
           <%= hidden_field_tag :user_id, "#{@user.id}" %> 
         <% end %>
+
+        <p>
+        <h2>Remove Groups</h2>
+        <%= form_tag "/group_users/multiple/destroy" do %>
+          <Strong>Groups:</Strong></p>
+          <p><%= select_tag :groups, options_from_collection_for_select(@groups_in, "id", "name"), multiple: true, size: "5" %>
+          <p><small>Hold Ctrl to select multiple items</small></p>
+          <p><%= submit_tag nil, value: "Disassociate", class: "btn btn-large btn-primary" %>
+
+          <%= hidden_field_tag :user_id, "#{@user.id}" %> 
+        <% end %>
+
       </center>
     </div>
 
@@ -77,7 +88,7 @@
       <center>
 
         <p><h2>Send a Message</h2>
-        <%= form_tag "/group_messages" do %>
+        <%= form_tag "/group_messages/" do %>
           <p><Strong>Groups:</Strong>
           <p><%= select_tag :group, options_from_collection_for_select(@groups, "id", "name"), multiple: true, size: "5", class: "span12" %>
           <p><%= text_area_tag :history, nil, rows: "15", readonly: true, class: "span12"  %>

@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @groups = Group.all
+    @groups = Group.find(:all, conditions: {public: true})
+    @groups_in = @user.all_groups
     @users = User.all
   end
 
