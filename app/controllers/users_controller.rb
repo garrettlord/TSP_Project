@@ -1,4 +1,8 @@
+require File.join(Rails.root, 'lib/twilio_helper.rb')
+
 class UsersController < ApplicationController
+  include TwilioHelper
+
   def index
     @users = User.all
   end
