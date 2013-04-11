@@ -79,7 +79,6 @@ module ParseHelper
 
     texts.each do |text|
       send_text(user.phone_number, text)
-      puts "#{user.phone_number}: #{text}"
     end
 	end
 

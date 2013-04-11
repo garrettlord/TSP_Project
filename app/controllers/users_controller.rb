@@ -93,7 +93,8 @@ class UsersController < ApplicationController
       flash[:message] = ""
       params[:groups].each do |group_id|
         group = Group.find(group_id)
-        send_group_text user, group, params[:message]
+        message = "#{group.name}: #{user.name} - #{params[:message]}"
+        send_group_text user, group, message
         flash[:message] << "Message sent to #{group.name}: #{params[:message]}\n"
       end
     else
