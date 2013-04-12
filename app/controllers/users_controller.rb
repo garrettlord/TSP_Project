@@ -9,13 +9,18 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @groups = Group.find(:all, conditions: {public: true})
-    @groups_in = @user.all_groups
-    @users = User.all
-    messages = GroupMessage.where("group_id in (?) OR user_id = ?", @groups_in, @user.id)
-    @message = ""
-    messages.each do |msg|
-      @message << "#{msg.message}\n"
+    if signed_in? && current_user == @user
+      @groups = Group.find(:all, conditions: {public: true})
+      @groups_in = @user.all_groups
+      @users = User.all
+      messages = GroupMessage.where("group_id in (?) OR user_id = ?", @groups_in, @user.id)
+      @message = ""
+      messages.each do |msg|
+        @message << "#{msg.message}\n"
+      end
+    else
+      flash[:error] = "You are either not signed in or are trying to view another users page"
+      redirect_to root_url
     end
   end
 
