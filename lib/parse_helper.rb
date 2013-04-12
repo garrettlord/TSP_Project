@@ -74,12 +74,7 @@ module ParseHelper
 		end
 
 		# send the message
-    puts "output: #{output}"
-    texts = output.scan(/.{1,120}/m)
-
-    texts.each do |text|
-      send_text(user.phone_number, text)
-    end
+    send_text(user.phone_number, output)
 	end
 
 	def messageGroup(from, group, message)

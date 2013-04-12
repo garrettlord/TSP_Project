@@ -22,16 +22,20 @@ module TwilioHelper
     unless message.empty?
       account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
 
-      logger.info "sending message: #{message} to: #{number}"
-      begin
-        account.sms.messages.create(
-            :from => TWILIO_NUMBER,
-            :to => "+1#{number}",
-            :body => message
-        )
-      rescue Exception => e
-        logger.error "error sending message: #{e.to_s}"
-      end # begin
+      texts = message.scan(/.{1,120}/m)
+
+      texts.each do |text|
+        puts "sending message: #{test} to: #{number}"
+        begin
+          account.sms.messages.create(
+              :from => TWILIO_NUMBER,
+              :to => "+1#{number}",
+              :body => text
+          )
+        rescue Exception => e
+          puts "error sending message: #{e.to_s}"
+        end # begin
+      end
     end
   end
 end # module
