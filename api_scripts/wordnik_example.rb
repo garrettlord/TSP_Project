@@ -18,16 +18,19 @@ end
 	random = Wordnik.words.get_random_word(:part_of_speech => 'verb', :part_of_speech => 'noun', :part_of_speech => 'adjective', :minLength => '3', :maxLength => '4')
 
 
-puts word[0]["text"]
-puts "---------------------"
-puts example["examples"][0]["text"]
-puts "---------------------"
-related[0]["words"].each  do |temp|
-puts temp
-end
+# puts word[0]["text"]
+# puts "---------------------"
+# puts example["examples"][0]["text"]
+# puts "---------------------"
+# related[0]["words"].each  do |temp|
+# puts temp
+# end
 puts "------------------------"
+# puts wotd
+puts "word is:"
 puts wotd["word"]
-puts wotd["examples"][0]["text"]
-puts wotd["examples"][1]["text"]
-puts "------------------------"
-puts random["word"]
+puts "definition is -----------------------------------------"
+puts wotd["definitions"][0]["text"]
+puts "-----------"
+# puts "------------------------"
+# puts random["word"]
