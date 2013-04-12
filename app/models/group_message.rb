@@ -3,5 +3,5 @@ class GroupMessage < ActiveRecord::Base
 
   validates :group_id, presence: true
   validates :user_id, presence: true
-  validates :message, presence: true, length: { maximum: 160 }
+  validates :message, presence: true
 end
