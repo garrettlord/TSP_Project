@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @groups_in = @user.all_groups
     @users = User.all
     messages = GroupMessage.all
+    messages = GroupMessage.where("group_id = ? OR user_id = ?", @groups_in, @user.id)
     @message = ""
     messages.each do |msg|
       @message << "#{msg.message}\n"
