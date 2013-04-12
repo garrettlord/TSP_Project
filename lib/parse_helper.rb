@@ -46,6 +46,8 @@ module ParseHelper
 				output = example(input[1])
 			when "word-related", "wr"
 				output = related(input[1])
+			when "wotd", "word-of-the-day"
+      	output = wotd()
       when "movie", "m"
         output = movie(input[1..-1].join(" "))
 
@@ -81,7 +83,7 @@ module ParseHelper
       puts "#{user.phone_number}: #{text}"
     end
 	end
-
+	
 	def messageGroup(from, group, message)
 		# send the message
     	message = "#{group}: #{from} - #{message}"
@@ -107,4 +109,8 @@ module ParseHelper
   def movie(movie)
     return find_movie(movie)
   end
+
+  def wotd()
+  	return get_wotd()
+  end 
 end

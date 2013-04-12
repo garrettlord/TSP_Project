@@ -15,6 +15,8 @@ Apothegm::Application.routes.draw do
   match '/process_sms' => 'ReceiveMessages#process_sms'
 
   match '/group_messages', to: 'users#group_message'
+
+  match '/dashboard' => 'ReportingDashboard#build'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
