@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   attr_accessible :name, :phone_number, :password, :password_confirmation
   has_secure_password
 
+  before_save :create_remember_token
+
   #groups
   has_many :group_users
   has_many :user_groups, through: :group_users, foreign_key: :user_id, class_name: "Group", source: :group, conditions: {"group_users.admin" => false}
@@ -35,4 +37,10 @@ class User < ActiveRecord::Base
   def all_groups
     self.user_groups + self.admin_groups
   end
+
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end
