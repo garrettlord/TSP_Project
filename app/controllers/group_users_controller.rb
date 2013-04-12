@@ -30,12 +30,12 @@ class GroupUsersController < ApplicationController
   end
 
   def multiple_create
-    flash[:success] = "Groups added:"
     if !params[:groups].nil? # if there are groups in the hash
       params[:groups].each do |group_id|
         if GroupUser.where("group_id = ? AND user_id = ?", group_id.to_i, params[:user_id].to_i).empty?
           group_user = GroupUser.new(group_id: group_id, user_id: params[:user_id], admin: false)
           if group_user.save
+            flash[:success] ||= "Groups added:"
             flash[:success] << " #{Group.find(group_id).name},"
           else
             flash[:error] ||= "Groups not added:"
@@ -49,7 +49,9 @@ class GroupUsersController < ApplicationController
     else
       flash[:error] = "No Associations to add"
     end
-    flash[:success] = flash[:success][0..-2]
+    unless flash[:success].nil?
+      flash[:success] = flash[:success][0..-2]
+    end
     unless flash[:error].nil?
       flash[:error] = flash[:error][0..-2]
     end
