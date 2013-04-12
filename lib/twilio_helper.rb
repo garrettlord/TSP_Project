@@ -25,7 +25,7 @@ module TwilioHelper
       texts = message.scan(/.{1,120}/m)
 
       texts.each do |text|
-        puts "sending message: #{test} to: #{number}"
+        puts "sending message: #{text} to: #{number}"
         begin
           account.sms.messages.create(
               :from => TWILIO_NUMBER,
