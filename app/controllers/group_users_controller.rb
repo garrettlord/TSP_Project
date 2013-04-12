@@ -12,32 +12,46 @@ class GroupUsersController < ApplicationController
   end
 
   def create
-    @group_user = GroupUser.new(group_id: Group.find_by_name(params[:group_name]).id,
-        user_id: User.find_by_name(params[:user_name]).id, admin: false)
-    if @group_user.save
-      flash[:success] = "New association created!"
-      redirect_to @group_user
+    group = Group.find_by_name(params[:group_name])
+    user = User.find_by_name(params[:user_name])
+    if GroupUser.where("group_id = ? AND user_id = ?", group.id, user.id).empty?
+      @group_user = GroupUser.new(group_id: group.id,
+          user_id: user.id, admin: false)
+      if @group_user.save
+        flash[:success] = "New association created!"
+        redirect_to @group_user
+      else
+        render 'new'
+      end
     else
+      flash[:error] = "Association already exists"
       render 'new'
     end
   end
 
   def multiple_create
-    success = true
-    unless params[:groups].nil? # no errors
-      params[:groups].each do |group|
-        group_user = GroupUser.new(group_id: group, user_id: params[:user_id], admin: false)
-        unless group_user.save
-          success = false
+    flash[:success] = "Groups added:"
+    if !params[:groups].nil? # if there are groups in the hash
+      params[:groups].each do |group_id|
+        if GroupUser.where("group_id = ? AND user_id = ?", group_id.to_i, params[:user_id].to_i).empty?
+          group_user = GroupUser.new(group_id: group_id, user_id: params[:user_id], admin: false)
+          if group_user.save
+            flash[:success] << " #{Group.find(group_id).name},"
+          else
+            flash[:error] ||= "Groups not added:"
+            flash[:error] << " #{Group.find(group_id).name} (could not create),"
+          end
+        else
+          flash[:error] ||= "Groups not added:"
+          flash[:error] << " #{Group.find(group_id).name} (already exists),"
         end
       end
-      if success
-        flash[:success] = "Groups added"
-      else
-        flash[:error] = "Could not add all groups"
-      end
     else
-      flash[:error] = "Could not add any groups"
+      flash[:error] = "No Associations to add"
+    end
+    flash[:success] = flash[:success][0..-2]
+    unless flash[:error].nil?
+      flash[:error] = flash[:error][0..-2]
     end
     redirect_to User.find(params[:user_id])
   end
