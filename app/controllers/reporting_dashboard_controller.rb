@@ -1,5 +1,5 @@
 class ReportingDashboardController < ApplicationController
-
+  respond_to :json, :html
 TWILIO_NUMBER = "+19062144698"
   # ACCOUNT_SID = 'ACe6309fe95fd294f06795604a051096c3'
 ACCOUNT_SID = 'ACd596ace63991a2ee1c1d04d511bb929d'
@@ -7,8 +7,8 @@ ACCOUNT_SID = 'ACd596ace63991a2ee1c1d04d511bb929d'
 AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
 
   def build()
-    @inboundCount = []
-    @allTextsCount = []
+    inboundCount = []
+    allTextsCount = []
     
     client = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN)
 
@@ -18,7 +18,7 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
        :start_date => "2013-04-02",
        :end_date => "2013-04-09"
       }).each do |record|
-          @inboundCount << record.count
+          inboundCount << record.count.to_i
     end
 
     #"inbound and outbound texts"
@@ -27,12 +27,17 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
        :start_date => "2013-04-02",
        :end_date => "2013-04-09"
       }).each do |record|
-      @allTextsCount << record.count #rendering it as varible to JSON in the last line....
+      allTextsCount << record.count.to_i #rendering it as varible to JSON in the last line....
     end
 
-  logger.info "inbound is #{@inboundCount.to_s}"
-  logger.info "The all texts are #{@allTextsCount.to_s}"
+  logger.info "inbound is #{inboundCount.to_s}"
+  logger.info "The all texts are #{allTextsCount.to_s}"
+
+    respond_to do |format|
+      format.html {render html: [allTextsCount, inboundCount] }
+      format.json {render json: [allTextsCount, inboundCount] }
+    end
   
   end
-
+  
 end
