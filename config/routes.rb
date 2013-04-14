@@ -19,6 +19,8 @@ Apothegm::Application.routes.draw do
 
   match '/group_users/multiple/create', to: 'group_users#multiple_create', via: :post
   match '/group_users/multiple/destroy', to: 'group_users#multiple_destroy', via: :post
+
+  match '/dashboard' => 'ReportingDashboard#build'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
