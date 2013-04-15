@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130412155524) do
 
-  create_table "group_admins", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "group_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "group_messages", :force => true do |t|
     t.integer  "user_id"
     t.integer  "group_id"
