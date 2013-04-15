@@ -4,19 +4,44 @@ def index
   end
 
   def show
-    @group = Group.find(params[:id])
+    if signed_in?
+      @group = Group.find(params[:id])
+      @admins = @group.admins
+      @users = @group.users
+      @allusers = User.all
+      @isadmin = GroupUser.where("group_id = ? and user_id = ?", @group.id, current_user.id).first.admin
+
+      messages = GroupMessage.where("group_id = ?", @group.id)
+      @message = ""
+      messages.each do |msg|
+        @message << "#{msg.message}\n"
+      end
+    else
+      flash[:error] = "You must be signed in to view this page"
+      redirect_to signin_url
+    end
   end
 
   def new
-    @group = Group.new
-    @users = User.all
+    if signed_in?
+      @group = Group.new
+      @users = User.all
+    else
+      flash[:error] = "You must be signed in to view this page"
+      redirect_to signin_url
+    end
   end
 
   def create
-    @group = Group.new(name: params[:name])
+    @group = Group.new(params[:group])
 
     if @group.save
       flash[:success] = "New group successfully created!"
+
+      group_user = GroupUser.new(group_id: @group.id, user_id: current_user.id, admin: true)
+      unless group_user.save
+        flash[:failure] = "Could not add you as an admin of the new group"
+      end
 
       users = User.all
       users.each do |user|
@@ -47,7 +72,7 @@ def index
 
     respond_to do |format|
       if @group.update_attributes(params[:group])
-        format.html { redirect_to @group, notice: 'Event was successfully updated.' }
+        format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -23,7 +23,6 @@ class TextMessage
 
   # validation
   validates :message, :presence => true
-  validates_length_of :message, :maximum => 160
 
   # parses :numbers into an array of unique, 10 digit numbers (only for valid records)
   def numbers_array

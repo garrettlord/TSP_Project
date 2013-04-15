@@ -1,31 +1,31 @@
-<%= form_tag '/users', :html => { :class => 'form-horizontal' } do %>
+<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= label_tag :name, nil, :class => 'control-label' %>
+    <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
-      <%= text_field_tag :name, nil, :class => 'text_field' %>
+      <%= f.text_field :name, :class => 'text_field', :autofocus => 'true' %>
     </div>
   </div>
   <div class="control-group">
-    <%= label_tag :phone_number, nil, :class => 'control-label' %>
+    <%= f.label :phone_number, :class => 'control-label' %>
     <div class="controls">
-      <%= text_field_tag :phone_number, nil, :placeholder => '123-456-7890',:class => 'text_field' %>
+      <%= f.text_field :phone_number, :placeholder => '123-456-7890',:class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= label_tag :password, nil, :class => 'control-label' %>
+    <%= f.label :password, :class => 'control-label' %>
     <div class="controls">
-      <%= password_field_tag :password, nil, :class => 'text_field' %>
+      <%= f.password_field :password, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= label_tag :password_confirmation, nil, :class => 'control-label' %>
+    <%= f.label :password_confirmation, :class => 'control-label' %>
     <div class="controls">
-      <%= password_field_tag :password_confirmation, nil, :class => 'text_field' %>
+      <%= f.password_field :password_confirmation, :class => 'text_field' %>
     </div>
   </div>
 
   <div class="form-actions">
-    <%= submit_tag nil, :class => 'btn btn-primary' %>
+    <%= f.submit :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 users_path, :class => 'btn' %>
   </div>
