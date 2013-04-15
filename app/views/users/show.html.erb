@@ -1,14 +1,13 @@
+<% provide(:title, "#{@user.name}") %>
 <%- model_class = User -%>
 
 <div class = "container-fluid">
   <!-- start a row -->
   <div class="row-fluid">
 
-
-
     <!-- user info column -->
     <div class = "span4">
-      <!-- bold text at the top -->
+      <!-- user name -->
       <center>
         <div class="page-header">
           <h1><%=t '.title', :default => @user.name %></h1>
@@ -30,8 +29,8 @@
 
         <!-- list of involved groups -->
         <dl class="dl-horizontal">
-          <dt><strong>Groups this user is in:</strong></dt>
-          <% @user.all_groups.each do |group|%>
+          <dt><strong>Groups you are in:</strong></dt>
+          <% @groups_in.each do |group|%>
             <dd><%=link_to group.name, group_path(group) %></dd>
           <% end %>
         </dl>
@@ -41,10 +40,8 @@
 
       <center>
 
-        <!-- bar with back, edit, destroy -->
+        <!-- bar with edit, destroy -->
         <div class="form-actions">
-          <%= link_to t('.back', :default => t("helpers.links.back")),
-                      users_path, :class => 'btn'  %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_user_path(@user), :class => 'btn' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

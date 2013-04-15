@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if signed_in? && current_user == @user
       @groups = Group.find(:all, conditions: {public: true})
-      @groups_in = @user.all_groups
+      @groups_in = @user.groups
       @users = User.all
       messages = GroupMessage.where("group_id in (?) OR user_id = ?", @groups_in, @user.id)
       @message = ""
@@ -19,8 +19,8 @@ class UsersController < ApplicationController
         @message << "#{msg.message}\n"
       end
     else
-      flash[:error] = "You are either not signed in or are trying to view another users page"
-      redirect_to root_url
+      flash[:error] = "You must be signed in to view this page"
+      redirect_to signin_url
     end
   end
 
@@ -30,11 +30,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
-    @user.name = params[:name]
-    @user.phone_number = params[:phone_number]
-    @user.password = params[:password]
-    @user.password_confirmation = params[:password_confirmation]
+    @user = User.new(params[:user])
 
     if @user.save
       sign_in @user
@@ -67,7 +63,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
+      sign_out
       if @user.update_attributes(params[:user])
+        sign_in @user
         format.html { redirect_to @user, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
@@ -78,6 +76,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    if signed_in?
+      sign_out
+    end
+
     @user = User.find(params[:id])
     @user.destroy
 

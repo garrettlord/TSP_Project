@@ -58,6 +58,35 @@ class GroupUsersController < ApplicationController
     redirect_to User.find(params[:user_id])
   end
 
+  def add_users_to_group
+    if !params[:users].nil? # if there are users in the hash
+      params[:users].each do |user_id|
+        if GroupUser.where("group_id = ? AND user_id = ?", params[:group_id].to_i, user_id.to_i).empty?
+          group_user = GroupUser.new(group_id: params[:group_id], user_id: user_id, admin: false)
+          if group_user.save
+            flash[:success] ||= "Users added:"
+            flash[:success] << " #{User.find(user_id).name},"
+          else
+            flash[:error] ||= "Users not added:"
+            flash[:error] << " #{User.find(user_id).name} (could not create),"
+          end
+        else
+          flash[:error] ||= "Users not added:"
+          flash[:error] << " #{User.find(user_id).name} (already exists),"
+        end
+      end
+    else
+      flash[:error] = "No Associations to add"
+    end
+    unless flash[:success].nil?
+      flash[:success] = flash[:success][0..-2]
+    end
+    unless flash[:error].nil?
+      flash[:error] = flash[:error][0..-2]
+    end
+    redirect_to Group.find(params[:group_id])
+  end
+
   def destroy
     @group_user = GroupUser.find(params[:id])
     @group_user.destroy
@@ -85,5 +114,27 @@ class GroupUsersController < ApplicationController
       flash[:error] = "Could not remove any groups"
     end
     redirect_to User.find(params[:user_id])
+  end
+
+  def remove_users_from_group
+    success = true
+    unless params[:users].nil? # no errors
+      params[:users].each do |user|
+        group_user = GroupUser.find(:first, :conditions => { group_id: params[:group_id], user_id: user })
+        if group_user.nil?
+          success = false
+        else
+          group_user.destroy
+        end
+      end
+      if success
+        flash[:success] = "Users removed"
+      else
+        flash[:error] = "Could not remove all users"
+      end
+    else
+      flash[:error] = "Could not remove any users"
+    end
+    redirect_to Group.find(params[:group_id])
   end
 end
