@@ -1,12 +1,27 @@
+require File.join(Rails.root, 'lib/twilio_helper.rb')
+
 class UsersController < ApplicationController
+  include TwilioHelper
+
   def index
     @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
-    @groups = Group.all
-    @users = User.all
+    if signed_in? && current_user == @user
+      @groups = Group.find(:all, conditions: {public: true})
+      @groups_in = @user.groups
+      @users = User.all
+      messages = GroupMessage.where("group_id in (?) OR user_id = ?", @groups_in, @user.id)
+      @message = ""
+      messages.each do |msg|
+        @message << "#{msg.message}\n"
+      end
+    else
+      flash[:error] = "You must be signed in to view this page"
+      redirect_to signin_url
+    end
   end
 
   def new
@@ -15,11 +30,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
-    @user.name = params[:name]
-    @user.phone_number = params[:phone_number]
-    @user.password = params[:password]
-    @user.password_confirmation = params[:password_confirmation]
+    @user = User.new(params[:user])
 
     if @user.save
       sign_in @user
@@ -52,7 +63,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
+      sign_out
       if @user.update_attributes(params[:user])
+        sign_in @user
         format.html { redirect_to @user, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
@@ -63,6 +76,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    if signed_in?
+      sign_out
+    end
+
     @user = User.find(params[:id])
     @user.destroy
 
@@ -75,8 +92,27 @@ class UsersController < ApplicationController
   end
 
   def group_message
-    send_group_text Group.find(params[:group]).name, params[:message]
-    flash[:message] = " Message Sent to #{Group.find(params[:group]).name}: #{params[:message]}"
-    redirect_to "/users/#{params[:user_id]}"
+    user = User.find(params[:user_id])
+    group = Group.find(params[:group])
+    send_group_text user, group, params[:message]
+    flash[:message] = " Message Sent to #{group.name}: #{params[:message]}"
+    redirect_to "/users/#{user.id}"
+  end
+
+  def group_message_multiple
+    user = User.find(params[:user_id])
+    if !params[:groups].nil?
+      flash[:message] = ""
+      params[:groups].each do |group_id|
+        group = Group.find(group_id)
+        message = "#{group.name}: #{user.name} - #{params[:message]}"
+        send_group_text user, group, message
+        flash[:message] << "Message sent to #{group.name}: #{params[:message]}\n"
+      end
+    else
+      flash[:error] = "Could not send any group messages"
+    end
+    
+    redirect_to "/users/#{user.id}"
   end
 end
