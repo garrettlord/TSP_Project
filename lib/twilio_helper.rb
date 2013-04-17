@@ -13,8 +13,11 @@ module TwilioHelper
       numbers = text_message.numbers_array
       
       numbers.each do |number|
+        puts "SENDING TEXT"
         send_text(number, text_message.message)
       end # num each
+    else
+      puts "TEXT MESSAGE NOT VALID"
     end # if
   end # def
 
