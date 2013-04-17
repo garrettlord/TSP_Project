@@ -25,6 +25,9 @@ class User < ActiveRecord::Base
   # scramble
   has_one :scramble_game
 
+  #polls
+  has_many :poll_responses
+
   validates :name, presence: true, uniqueness: true,
       length: { maximum: 50 }
 

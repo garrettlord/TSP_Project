@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412155524) do
+ActiveRecord::Schema.define(:version => 20130417023650) do
 
   create_table "group_messages", :force => true do |t|
     t.integer  "user_id"
@@ -37,6 +37,24 @@ ActiveRecord::Schema.define(:version => 20130412155524) do
   end
 
   add_index "groups", ["name"], :name => "index_groups_on_name", :unique => true
+
+  create_table "poll_responses", :force => true do |t|
+    t.integer  "poll_id"
+    t.integer  "user_id"
+    t.string   "response"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "polls", :force => true do |t|
+    t.integer  "group_id"
+    t.string   "question"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+  end
+
+  add_index "polls", ["name"], :name => "index_polls_on_name"
 
   create_table "scramble_games", :force => true do |t|
     t.integer  "score"
