@@ -8,7 +8,7 @@ module TwilioHelper
   def send_group_text(user, group, message)
     logger.info "debug::send_group_text called"
     group_message = GroupMessage.create(group_id: group.id, user_id: user.id, message: message)
-    text_message = TextMessage.new(group_name: group.name, message: message)
+    text_message = TextMessage.new(group_id: group.id, message: message)
     logger.info "debug::group message and text message created"
 
     if text_message.valid?

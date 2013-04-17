@@ -3,31 +3,22 @@ class TextMessage
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
+  attr_accessor :group_id, :message
+
+  validates :group_id, presence: true
+  validates :message, presence: true
+
   # attributes hash is read for validation
   def initialize(attributes = {})
-    @attributes = attributes
+    attributes.each do |name, value|
+      send("#{name}=", value)
+    end
   end
-
-  def read_attribute_for_validation(key)
-    @attributes[key]
-  end
-
-  # custom accessors
-  def message
-    @attributes[:message]
-  end
-
-  def group_name
-    @attributes[:group_name]
-  end
-
-  # validation
-  validates :message, :presence => true
 
   # parses :numbers into an array of unique, 10 digit numbers (only for valid records)
   def numbers_array
     numbers = []
-    Group.find_by_name(group_name).users.each do |user|
+    Group.find(:group_id).users.each do |user|
       numbers << user.phone_number
     end
     return numbers
