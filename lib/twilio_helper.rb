@@ -20,7 +20,6 @@ module TwilioHelper
   end # def
 
   def send_poll(group, message)
-    message << " Respond with poll <id> <response>"
     text_message = TextMessage.new(group_id: group.id, message: message)
 
     if text_message.valid?
