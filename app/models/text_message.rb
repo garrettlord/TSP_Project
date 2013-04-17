@@ -18,7 +18,7 @@ class TextMessage
   # parses :numbers into an array of unique, 10 digit numbers (only for valid records)
   def numbers_array
     numbers = []
-    Group.find(:group_id).users.each do |user|
+    Group.find(group_id).users.each do |user|
       numbers << user.phone_number
     end
     return numbers
