@@ -5,3 +5,16 @@
 <div class="page-header">
   <h1><%=t '.title', :default => [:'helpers.titles.new', "#{@poll.question}"] %></h1>
 </div>
+
+<dl class="dl-horizontal">
+  <dt><strong>A:</strong></dt>
+  <dd><%= @a_count %></dd>
+  <dt><strong>B:</strong></dt>
+  <dd><%= @b_count %></dd>
+</dl>
+
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+    poll_path(@poll),
+    :method => 'delete',
+    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+    :class => 'btn btn-danger' %>

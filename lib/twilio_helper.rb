@@ -6,7 +6,22 @@ module TwilioHelper
   AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
 
   def send_group_text(user, group, message)
-    group_message = GroupMessage.create(group_id: group.id, user_id: user.id, message: message)
+    unless user.nil?
+      group_message = GroupMessage.create(group_id: group.id, user_id: user.id, message: message)
+    end
+
+    text_message = TextMessage.new(group_name: group.name, message: message)
+
+    if text_message.valid?
+      numbers = text_message.numbers_array
+      
+      numbers.each do |number|
+        send_text(number, text_message.message)
+      end # num each
+    end # if
+  end # def
+
+  def send_poll(group, message)
     text_message = TextMessage.new(group_name: group.name, message: message)
 
     if text_message.valid?
