@@ -14,7 +14,7 @@ module TwilioHelper
     if text_message.valid?
       logger.info "debug::text message is valid"
       numbers = text_message.numbers_array
-      logger.info "debug::got numbers array"
+      logger.info "debug::got numbers array: #{numbers}"
       
       numbers.each do |number|
         logger.info "debug::calling send_text"
