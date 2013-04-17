@@ -1,30 +1,136 @@
+<% provide(:title, "#{@group.name}") %>
 <%- model_class = Group -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
-</div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @group.name %></dd>
-</dl>
+<div class = "container-fluid">
+  <!-- start a row -->
+  <div class="row-fluid">
 
- 
+    <!-- group info column -->
+    <div class = "span4">
+      <!-- group name -->
+      <center>
+        <div class="page-header">
+          <h1><%=t '.title', :default => @group.name %></h1>
+        </div>
+      </center>
 
-  <dl class="dl-horizontal">
-    <dt><strong>Users in this group:</strong></dt>
-    <% @group.users.each do |user|%>
-      <dd><%=link_to user.name, user_path(user) %></dd>
-    <% end %>
-  </dl>
+      <p>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              groups_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_group_path(@group), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              group_path(@group),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+      <left>
+        <!-- group attributes -->
+        <dl class="dl-horizontal">
+          <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+          <dd><%= @group.name %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:public) %>:</strong></dt>
+          <dd><%= @group.public %></dd>
+        </dl>
+
+        <p>
+
+        <!-- list of users in the group -->
+        <dl class="dl-horizontal">
+          <!-- admins -->
+          <dt><strong>Admins:</strong></dt>
+          <% if @admins.any? %>
+            <% @admins.each do |admin|%>
+              <dd><%=link_to admin.name, user_path(admin) %></dd>
+            <% end %>
+          <% else %>
+            <dd>none</dd>
+          <%end %>
+
+          <!-- regular users -->
+          <dt><strong>Users:</strong></dt>
+          <% if @users.any? %>
+            <% @users.each do |user|%>
+              <dd><%=link_to user.name, user_path(user) %></dd>
+            <% end %>
+          <% else %>
+            <dd>none</dd>
+          <%end %>
+        </dl>
+      </left>
+
+      <p>
+
+      <center>
+
+        <!-- bar with edit, destroy -->
+        <div class="form-actions">
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_group_path(@group), :class => 'btn' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      group_path(@group),
+                      :method => 'delete',
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger' %>
+        </div>
+
+        <p>
+
+        <% if @isadmin %>
+
+          <!-- add users section -->
+          <h2>Add Users</h2>
+          <%= form_tag "/group_users/add_users" do %>
+            <Strong>Users:</Strong></p>
+            <p><%= select_tag :users, options_from_collection_for_select(@allusers, "id", "name"), multiple: true, size: "5" %>
+            <p><small>Hold Ctrl to select multiple items</small></p>
+            <p><%= submit_tag nil, value: "Associate", class: "btn btn-large btn-primary" %>
+
+            <%= hidden_field_tag :group_id, "#{@group.id}" %> 
+          <% end %>
+
+          <p>
+
+          <!-- remove users section -->
+          <h2>Remove Users</h2>
+          <%= form_tag "/group_users/remove_users" do %>
+            <Strong>Groups:</Strong></p>
+            <p><%= select_tag :users, options_from_collection_for_select(@users, "id", "name"), multiple: true, size: "5" %>
+            <p><small>Hold Ctrl to select multiple items</small></p>
+            <p><%= submit_tag nil, value: "Disassociate", class: "btn btn-large btn-primary" %>
+
+            <%= hidden_field_tag :group_id, "#{@group.id}" %> 
+          <% end %>
+
+          <p>
+
+          <!-- polls -->
+          <h2>Polls</h2>
+
+          <dl class="dl-horizontal">
+            <dt><strong>Current Polls:</strong></dt>
+            <% if @polls.any? %>
+              <% @polls.each do |poll|%>
+                <dd><%=link_to poll.name, poll_path(poll) %></dd>
+              <% end %>
+            <% else %>
+              <dd>none</dd>
+            <%end %>
+          </dl>
+
+          <%= link_to "Create poll", new_poll_path(group_id: "#{@group.id}"), class: "btn btn-large btn-primary" %>
+        <% end %>
+
+      </center>
+    </div>
+
+
+
+    <!-- group messaging column -->
+    <div class = "span8">
+      <center>
+
+        <p><h2>Send a Message</h2>
+        <%= form_tag "/group_messages/multiple_from_group" do %>
+          <p><%= text_area_tag :history, "#{@message}", rows: "15", readonly: true, class: "span12"  %>
+          <p><%= text_area_tag :message, nil, rows: "1", class: "span12"  %>
+          <p><%= submit_tag nil, value: "Send", class: "btn btn-large btn-primary" %> 
+
+          <%= hidden_field_tag :group_id, "#{@group.id}" %> 
+        <% end %>
+      </center>
+    </div>
+  </div>
 </div>
