@@ -13,11 +13,11 @@ module TwilioHelper
       numbers = text_message.numbers_array
       
       numbers.each do |number|
-        puts "SENDING TEXT"
+        logger.debug "debug::SENDING TEXT"
         send_text(number, text_message.message)
       end # num each
     else
-      puts "TEXT MESSAGE NOT VALID"
+      logger.debug "debug::TEXT MESSAGE NOT VALID"
     end # if
   end # def
 
@@ -28,8 +28,11 @@ module TwilioHelper
       numbers = text_message.numbers_array
       
       numbers.each do |number|
+        logger.debug "debug::sending poll"
         send_text(number, text_message.message)
       end # num each
+    else
+      logger.debug "debug::text message not valid"
     end # if
   end # def
 
