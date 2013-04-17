@@ -1,0 +1,31 @@
+<% provide(:title, 'New Poll') %>
+
+<%- model_class = Poll -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human %></h1>
+</div>
+
+<%= form_for @poll, :html => { :class => 'form-horizontal' } do |f| %>
+  <!-- name -->
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field', :autofocus => 'true' %>
+    </div>
+  </div>
+
+  <!-- question -->
+  <div class="control-group">
+    <%= f.label :question, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :question, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <%= f.hidden_field :group_id, value: "#{@group_id}" %>
+
+  <!-- submit button -->
+  <div class="form-actions">
+    <%= f.submit :class => 'btn btn-primary' %>
+  </div>
+<% end %>

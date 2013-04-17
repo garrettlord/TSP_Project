@@ -93,6 +93,24 @@
 
             <%= hidden_field_tag :group_id, "#{@group.id}" %> 
           <% end %>
+
+          <p>
+
+          <!-- polls -->
+          <h2>Polls</h2>
+
+          <dl class="dl-horizontal">
+            <dt><strong>Current Polls:</strong></dt>
+            <% if @polls.any? %>
+              <% @polls.each do |poll|%>
+                <dd><%=link_to poll.name, poll_path(poll) %></dd>
+              <% end %>
+            <% else %>
+              <dd>none</dd>
+            <%end %>
+          </dl>
+
+          <%= link_to "Create poll", new_poll_path(group_id: "#{@group.id}"), class: "btn btn-large btn-primary" %>
         <% end %>
 
       </center>

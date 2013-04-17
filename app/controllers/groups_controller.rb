@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-def index
+  def index
     @groups = Group.all
   end
 
@@ -10,6 +10,8 @@ def index
       @users = @group.users
       @allusers = User.all
       @isadmin = GroupUser.where("group_id = ? and user_id = ?", @group.id, current_user.id).first.admin
+
+      @polls = Poll.where("group_id = ?", @group.id)
 
       messages = GroupMessage.where("group_id = ?", @group.id)
       @message = ""
