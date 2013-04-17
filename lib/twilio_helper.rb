@@ -9,14 +9,18 @@ module TwilioHelper
     logger.info "debug::send_group_text called"
     group_message = GroupMessage.create(group_id: group.id, user_id: user.id, message: message)
     text_message = TextMessage.new(group_name: group.name, message: message)
+    logger.info "debug::group message and text message created"
 
     if text_message.valid?
+      logger.info "debug::text message is valid"
       numbers = text_message.numbers_array
+      logger.info "debug::got numbers array"
       
       numbers.each do |number|
-        logger.info "debug::SENDING TEXT"
+        logger.info "debug::calling send_text"
         send_text(number, text_message.message)
       end # num each
+      logger.info "debug::finished calling send_text"
     else
       logger.info "debug::TEXT MESSAGE NOT VALID"
     end # if
@@ -44,7 +48,7 @@ module TwilioHelper
       texts = message.scan(/.{1,120}/m)
 
       texts.each do |text|
-        puts "sending message: #{text} to: #{number}"
+        logger.info "info::sending message: #{text} to: #{number}"
         begin
           account.sms.messages.create(
               :from => TWILIO_NUMBER,
@@ -52,7 +56,7 @@ module TwilioHelper
               :body => text
           )
         rescue Exception => e
-          puts "error sending message: #{e.to_s}"
+          logger.info "error::error sending message: #{e.to_s}"
         end # begin
       end
     end
