@@ -1,0 +1,7 @@
+<% provide(:title, "#{@poll.id}") %>
+<%- model_class = Poll -%>
+
+<%- model_class = Poll -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', "#{@poll.question}"] %></h1>
+</div>
