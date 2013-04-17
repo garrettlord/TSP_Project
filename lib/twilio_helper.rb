@@ -6,6 +6,7 @@ module TwilioHelper
   AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
 
   def send_group_text(user, group, message)
+    logger.info "debug::send_group_text called"
     group_message = GroupMessage.create(group_id: group.id, user_id: user.id, message: message)
     text_message = TextMessage.new(group_name: group.name, message: message)
 
