@@ -106,7 +106,7 @@ class UsersController < ApplicationController
       params[:groups].each do |group_id|
         group = Group.find(group_id)
         message = "#{group.name}: #{user.name} - #{params[:message]}"
-        puts "SENDING GROUP MESSAGE"
+        logger.info "debug::sending group message"
         send_group_text user, group, message
         flash[:message] << "Message sent to #{group.name}: #{params[:message]}\n"
       end
