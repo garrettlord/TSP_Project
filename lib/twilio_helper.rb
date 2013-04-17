@@ -9,35 +9,26 @@ module TwilioHelper
     logger.info "debug::send_group_text called"
     group_message = GroupMessage.create(group_id: group.id, user_id: user.id, message: message)
     text_message = TextMessage.new(group_id: group.id, message: message)
-    logger.info "debug::group message and text message created"
 
     if text_message.valid?
-      logger.info "debug::text message is valid"
       numbers, group_id = text_message.numbers_array
-      logger.info "debug::got numbers array: #{numbers} from group_id: #{group_id}"
       
       numbers.each do |number|
-        logger.info "debug::calling send_text"
         send_text(number, text_message.message)
       end # num each
-      logger.info "debug::finished calling send_text"
-    else
-      logger.info "debug::TEXT MESSAGE NOT VALID"
     end # if
   end # def
 
   def send_poll(group, message)
-    text_message = TextMessage.new(group_name: group.name, message: message)
+    message << " Respond with poll <id> <response>"
+    text_message = TextMessage.new(group_id: group.id, message: message)
 
     if text_message.valid?
       numbers = text_message.numbers_array
       
       numbers.each do |number|
-        logger.debug "debug::sending poll"
         send_text(number, text_message.message)
       end # num each
-    else
-      logger.debug "debug::text message not valid"
     end # if
   end # def
 

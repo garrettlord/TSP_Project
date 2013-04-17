@@ -14,7 +14,8 @@ class PollsController < ApplicationController
 
     if @poll.save
       group = @poll.group
-      send_poll group, @poll.question
+      message = @poll.question + " Respond with 'poll #{@poll.id} <response>'"
+      send_poll group, message
       flash[:message] = " Message Sent to #{group.name}: #{@poll.question}"
 
       flash[:success] = "New poll successfully created!"
