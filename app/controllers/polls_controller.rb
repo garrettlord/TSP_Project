@@ -29,6 +29,12 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.find(params[:id])
+    isadmin = GroupUser.where("group_id = ? and user_id = ?", @poll.group_id, current_user.id).first.admin
+
+    unless isadmin
+      flash[:error] = "You must be the group admin to view this page"
+      redirect_to root_url
+    end
 
     @a_count = PollResponse.where('poll_id = ? AND response = ?', @poll.id, "a").size
     @b_count = PollResponse.where('poll_id = ? AND response = ?', @poll.id, "b").size
