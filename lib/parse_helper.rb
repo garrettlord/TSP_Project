@@ -3,6 +3,7 @@ require File.join(Rails.root, "lib/weather.rb")
 require File.join(Rails.root, "lib/define.rb")
 require File.join(Rails.root, "lib/movie.rb")
 require File.join(Rails.root, "lib/food.rb")
+require File.join(Rails.root, "lib/help.rb")
 
 module ParseHelper
 	include TwilioHelper
@@ -10,6 +11,7 @@ module ParseHelper
 	include Define
   include Movie
   include Food
+  include Help
 
 	def parse(user, message)
     puts "parsing"
@@ -52,6 +54,8 @@ module ParseHelper
       	output = wotd()
       when "movie", "m"
         output = movie(input[1..-1].join(" "))
+      when "help", "h", "?"
+      	output help(input[1])
 
 			#Two parameter functions
 
@@ -76,7 +80,7 @@ module ParseHelper
 			#Three parameter functions
 
 			else
-				output = "Could not process request"
+				output = "Could not process request. Try texting 'help'"
 		end
 
 		# send the message
@@ -87,6 +91,10 @@ module ParseHelper
 		# send the message
     	message = "#{group.name}: #{from.name} - #{message}"
     	send_group_text(from, group, message)
+	end
+
+	def help(service)
+		return get_help(service)
 	end
 
  	def weather(zip)
