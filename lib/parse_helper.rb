@@ -2,12 +2,14 @@ require File.join(Rails.root, "lib/twilio_helper.rb")
 require File.join(Rails.root, "lib/weather.rb")
 require File.join(Rails.root, "lib/define.rb")
 require File.join(Rails.root, "lib/movie.rb")
+require File.join(Rails.root, "lib/food.rb")
 
 module ParseHelper
 	include TwilioHelper
 	include Weather
 	include Define
   include Movie
+  include Food
 
 	def parse(user, message)
     puts "parsing"
@@ -57,6 +59,8 @@ module ParseHelper
 			# 	addPerson(input.at(1), input.at(2))
 			# when input.at(0) == "alarm" or input.at(0) == "a"
 			# 	alarm(input.at(1), input)
+      when "food", "f"
+      	output = food(input[1], input[2])
 			when "messagegroup", "mg"
         group = Group.find_by_name(input[1])
 				messageGroup(user, group, input[2..-1].join(" "))
@@ -108,4 +112,8 @@ module ParseHelper
   def wotd()
   	return get_wotd()
   end 
+
+  def food(meal, day)
+  	return get_food(meal, day)
+  end
 end
