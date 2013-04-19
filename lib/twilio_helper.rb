@@ -38,7 +38,7 @@ module TwilioHelper
     unless message.empty?
       account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
 
-      texts = message.scan(/.{1,120}/m)
+      texts = message.scan(/.{1,160}/m)
 
       texts.each do |text|
         logger.info "info::sending message: #{text} to: #{number}"
