@@ -2,12 +2,15 @@ require File.join(Rails.root, "lib/twilio_helper.rb")
 require File.join(Rails.root, "lib/weather.rb")
 require File.join(Rails.root, "lib/define.rb")
 require File.join(Rails.root, "lib/movie.rb")
+require File.join(Rails.root, "/lib/scramble_helper.rb")
+
 
 module ParseHelper
 	include TwilioHelper
 	include Weather
 	include Define
-  include Movie
+	include Movie
+	include ScrambleHelper
 
 	def parse(user, message)
     puts "parsing"
@@ -46,6 +49,8 @@ module ParseHelper
 				output = example(input[1])
 			when "word-related", "wr"
 				output = related(input[1])
+			when "scramble"
+				output = scramble(user, input[1])
 			when "wotd", "word-of-the-day"
       	output = wotd()
       when "movie", "m"
@@ -108,4 +113,8 @@ module ParseHelper
   def wotd()
   	return get_wotd()
   end 
+
+  def scramble(user, word)
+  	return playGame(user, word)
+  end
 end
