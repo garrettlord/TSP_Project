@@ -1,84 +1,102 @@
+<% provide(:title, "#{@user.name}") %>
 <%- model_class = User -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
-</div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @user.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
-  <dd><%= @user.phone_number %></dd>
+<div class = "container-fluid">
+  <!-- start a row -->
+  <div class="row-fluid">
 
-</dl>
+    <!-- user info column -->
+    <div class = "span4">
+      <!-- user name -->
+      <center>
+        <div class="page-header">
+          <h1><%=t '.title', :default => @user.name %></h1>
+        </div>
+      </center>
 
-  
+      <p>
 
-  <dl class="dl-horizontal">
-    <dt><strong>Groups this user is in:</strong></dt>
-    <% @user.groups.each do |group|%>
-      <dd><%=link_to group.name, group_path(group) %></dd>
-    <% end %>
-  </dl>
+      <left>
+        <!-- user attributes -->
+        <dl class="dl-horizontal">
+          <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+          <dd><%= @user.name %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+          <dd><%= @user.phone_number %></dd>
+        </dl>
 
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              users_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_user_path(@user), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              user_path(@user),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-</div>
-<center>
-<div class="row">
-  <div class = "span6">
-    <h2>Send a Message</h2>
+        <p>
+
+        <!-- list of involved groups -->
+        <dl class="dl-horizontal">
+          <dt><strong>Groups you are in:</strong></dt>
+          <% @groups_in.each do |group|%>
+            <dd><%=link_to group.name, group_path(group) %></dd>
+          <% end %>
+        </dl>
+      </left>
+
+      <p>
+
+      <center>
+
+        <!-- bar with edit, destroy -->
+        <div class="form-actions">
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_path(@user), :class => 'btn' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_path(@user),
+                      :method => 'delete',
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger' %>
+        </div>
+
+        <p>
+
+        <!-- add public groups section -->
+        <h2>Add Public Groups</h2>
+        <%= form_tag "/group_users/multiple/create" do %>
+          <Strong>Groups:</Strong></p>
+          <p><%= select_tag :groups, options_from_collection_for_select(@groups, "id", "name"), multiple: true, size: "5" %>
+          <p><small>Hold Ctrl to select multiple items</small></p>
+          <p><%= submit_tag nil, value: "Associate", class: "btn btn-large btn-primary" %>
+
+          <%= hidden_field_tag :user_id, "#{@user.id}" %> 
+        <% end %>
+
+        <p>
+
+        <!-- remove groups section -->
+        <h2>Remove Groups</h2>
+        <%= form_tag "/group_users/multiple/destroy" do %>
+          <Strong>Groups:</Strong></p>
+          <p><%= select_tag :groups, options_from_collection_for_select(@groups_in, "id", "name"), multiple: true, size: "5" %>
+          <p><small>Hold Ctrl to select multiple items</small></p>
+          <p><%= submit_tag nil, value: "Disassociate", class: "btn btn-large btn-primary" %>
+
+          <%= hidden_field_tag :user_id, "#{@user.id}" %> 
+        <% end %>
+
+      </center>
+    </div>
+
+
+
+    <!-- group messaging column -->
+    <div class = "span8">
+      <center>
+
+        <p><h2>Send a Message</h2>
+        <%= form_tag "/group_messages/multiple" do %>
+          <p><Strong>Groups:</Strong>
+          <p><%= select_tag :groups, options_from_collection_for_select(@groups_in, "id", "name"), multiple: true, size: "5", class: "span12" %>
+          <p><%= text_area_tag :history, "#{@message}", rows: "15", readonly: true, class: "span12"  %>
+          <p><%= text_area_tag :message, nil, rows: "1", class: "span12"  %>
+          <p><%= submit_tag nil, value: "Send", class: "btn btn-large btn-primary" %> 
+
+          <%= hidden_field_tag :user_id, "#{@user.id}" %> 
+        <% end %>
+      </center>
+    </div>
   </div>
-  <div class = "span6">
-    <h2>Associate Groups and Users</h2>
-  </div>
 </div>
-<div class="row">
-
-
-<%= form_tag "/group_messages" do %>
-      <div class = "span3">
-        <p><Strong>Groups:</Strong></p>
-        <%= select_tag :group, options_from_collection_for_select(@groups, "id", "name"), size: "10" %>
-        
-      </div>
-      <div class = "span3">
-        <p><Strong>Message:</Strong></p>
-        <%= text_area_tag :message, nil, rows: "9" %>
-        <%= hidden_field_tag :user_id, "#{@user.id}" %>
-        <%= submit_tag nil, value: "Send", class: "btn btn-large btn-primary" %>  
-      </div>
-
-<% end %>
-
-
-
-  <div class="span3">
-    
-    <p><Strong>Groups:</Strong></p>
-    <select multiple="multiple" size = "10">
-        <% @groups.each do |group|%>
-          <option><%= group.name%></option>
-        <%end%>
-      </select>
-      <p><small>Hold Ctrl to select multiple items</small></p>
-  </div>
-  
-  <div class="span3">
-    <p><Strong>Users:</Strong></p>
-    <select multiple="multiple" size = "10">
-        <% @users.each do |user|%>
-          <option><%= user.name%></option>
-        <%end%>
-      </select>
-      <button class="btn btn-large btn-primary" type="button">Associate</button>
-  </div>
-</div>
-</center>

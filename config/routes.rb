@@ -4,6 +4,7 @@ Apothegm::Application.routes.draw do
   resources :group_users
   resources :text_messages
   resources :sessions, only: [:new, :create, :destroy]
+  resources :polls, only: [:new, :create, :show, :destroy]
   
   root to: 'StaticPages#home'
 
@@ -15,6 +16,15 @@ Apothegm::Application.routes.draw do
   match '/process_sms' => 'ReceiveMessages#process_sms'
 
   match '/group_messages', to: 'users#group_message'
+  match '/group_messages/multiple', to: 'users#group_message_multiple'
+
+  match '/group_users/multiple/create', to: 'group_users#multiple_create', via: :post
+  match '/group_users/multiple/destroy', to: 'group_users#multiple_destroy', via: :post
+
+  match '/group_users/add_users', to: 'group_users#add_users_to_group', via: :post
+  match '/group_users/remove_users', to: 'group_users#remove_users_from_group', via: :post
+
+  match '/dashboard' => 'ReportingDashboard#build'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
