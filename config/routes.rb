@@ -1,7 +1,7 @@
 Apothegm::Application.routes.draw do
   resources :users
   resources :groups
-  resources :group_users
+  # resources :group_users
   resources :text_messages
   resources :sessions, only: [:new, :create, :destroy]
   resources :polls, only: [:new, :create, :show, :destroy]
