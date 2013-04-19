@@ -65,8 +65,7 @@ module ScrambleHelper
 
 	#Sets up a round. Called each time a new round is made
 	def initRound(round)
-		rand = Random.new()
-		i = rand(1..50)
+		i = Random.rand(1..50)
 		round.roundScore = 10
 		round.usedHint = 0
 		round.correctWord = @wordList[i]
