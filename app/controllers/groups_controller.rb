@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
       @users = @group.users
       @allusers = User.all
 
-      
+      @isadmin = is_admin? @group.id
 
       @polls = Poll.where("group_id = ?", @group.id)
 
