@@ -4,14 +4,22 @@ class PollsController < ApplicationController
   include TwilioHelper
 
   def new
+    unless is_admin? params[:group_id]
+      flash[:error] = "You must be a group admin to do that"
+      redirect_to groups_url
+    end
+
     @poll = Poll.new
     @group_id = params[:group_id] || 1
   end
 
   def create
+    unless is_admin? params[:group_id]
+      flash[:error] = "You must be a group admin to do that"
+      redirect_to groups_url
+    end
+
     @poll = Poll.new(params[:poll])
-
-
     if @poll.save
       group = @poll.group
       message = @poll.question + " Respond with 'poll #{@poll.id} <response>'"
@@ -29,9 +37,8 @@ class PollsController < ApplicationController
 
   def show
     @poll = Poll.find(params[:id])
-    isadmin = GroupUser.where("group_id = ? and user_id = ?", @poll.group_id, current_user.id).first.admin
 
-    unless isadmin
+    unless is_admin @poll.group_id
       flash[:error] = "You must be the group admin to view this page"
       redirect_to root_url
     end
@@ -42,9 +49,26 @@ class PollsController < ApplicationController
 
   def destroy
     @poll = Poll.find(params[:id])
+
+    unless is_admin? @poll.group_id
+      flash[:error] = "You must be a group admin to do that"
+      redirect_to groups_url
+    end
+
+    
     group = @poll.group
     @poll.destroy
 
     redirect_to group_path(group)
+  end
+
+  def is_admin? group_id
+    if signed_in?
+      isadmin = GroupUser.where("group_id = ? and user_id = ?", group_id, current_user.id).first.admin
+    else
+      isadmin = false
+    end
+
+    return isadmin
   end
 end
