@@ -105,11 +105,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  @user = User.find(params[:id])
     if signed_in?
       if current_user == @user
         sign_out
 
-        @user = User.find(params[:id])
         @user.destroy
 
         @associations = @user.group_users
