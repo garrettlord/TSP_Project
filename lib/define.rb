@@ -71,7 +71,7 @@ module Define
 	def get_random(min, max)
 
 		begin
-			random = Wordnik.words.get_random_word(:part_of_speech => 'verb', :part_of_speech => 'noun', :part_of_speech => 'adjective', :minLength => min, :maxLength => max)
+			random = Wordnik.word.get_random_word(:part_of_speech => 'verb', :part_of_speech => 'noun', :part_of_speech => 'adjective', :minLength => min, :maxLength => max)
 
 			message = ""
 
