@@ -30,8 +30,8 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
       allTextsCount << record.count.to_i #rendering it as varible to JSON in the last line....
     end
 
-  logger.info "inbound is #{inboundCount.to_s}"
-  logger.info "The all texts are #{allTextsCount.to_s}"
+    logger.info "inbound is #{inboundCount.to_s}"
+    logger.info "The all texts are #{allTextsCount.to_s}"
 
     respond_to do |format|
       format.html {render html: [allTextsCount, inboundCount] }

@@ -2,12 +2,16 @@ require File.join(Rails.root, "lib/twilio_helper.rb")
 require File.join(Rails.root, "lib/weather.rb")
 require File.join(Rails.root, "lib/define.rb")
 require File.join(Rails.root, "lib/movie.rb")
+require File.join(Rails.root, "lib/food.rb")
+require File.join(Rails.root, "/lib/scramble_helper.rb")
 
 module ParseHelper
 	include TwilioHelper
 	include Weather
 	include Define
   include Movie
+  include Food
+	include ScrambleHelper
 
 	def parse(user, message)
     puts "parsing"
@@ -17,59 +21,26 @@ module ParseHelper
 		#Zero parameter functions
 
 		case input[0].downcase
-			# when input.at(0) == "food" or input.at(0) == "f"
-			# 	food
-
-			#One parameter functions
-
-			# when input.at(0) == "?" or input.at(0) == "help" or input.at(0) == "h"
-			# 	help(input.at(1))
-			# when input.at(0) == "joingroup" or input.at(0) == "jg"
-			# 	joinGroup(input.at(1))
-			# when input.at(0) == "game" or input.at(0) == "g"
-			# 	game(input.at(1))
-			# when input.at(0) == "leavegroup" or input.at(0) == "lg"
-			# 	leaveGroup(input.at(1))
-			# when input.at(0) == "newgroup" or input.at(0) == "ng"
-			# 	newGroup(input.at(1))
-			# when input.at(0) == "newperson" or input.at(0) == "np"
-			# 	newPerson(input.at(1))
-			# when input.at(0) == "timer" or input.at(0) == "t"
-			# 	timer(input.at(1))
-			# when input.at(0) == "highscore" or input.at(0) == "hs"
-			# 	highscore(input.at(1))
 			when "weather", "w"
-				output = weather(input[1])
+				output = weather(input[1])  # zipcode
 			when "word-define", "wd"
-				output = definition(input[1])
+				output = definition(input[1]) # word
 			when "word-example", "we"
-				output = example(input[1])
+				output = example(input[1])  # word
 			when "word-related", "wr"
-				output = related(input[1])
+				output = related(input[1])  # word
+			when "scramble", "scr"
+				output = scramble(user, input[1])
 			when "wotd", "word-of-the-day"
       	output = wotd()
-      when "movie", "m"
-        output = movie(input[1..-1].join(" "))
-
-			#Two parameter functions
-
-			# when input.at(0) == "addperson" or input.at(0) == "ap"
-			# 	addPerson(input.at(1), input.at(2))
-			# when input.at(0) == "alarm" or input.at(0) == "a"
-			# 	alarm(input.at(1), input)
+      when "food", "f"
+      	output = food(input[1], input[2])
 			when "messagegroup", "mg"
         group = Group.find_by_name(input[1])
-				messageGroup(user, group, input[2..-1].join(" "))
-			# when input.at(0) == "messageperson" or input.at(0) == "mp"
-			# 	messagePerson(input.at(1),input)
-			# when input.at(0) == "service" or input.at(0) == "s"
-			# 	service(input.at(1),input)
-			# when input.at(0) == "removeperson" or input.at(0) == "rp"
-			# 	removePerson(input.at(1),input.at(2))
-			# when input.at(0) == "weather" or input.at(0) == "w"
-			# 	weather(input.at(1),input.at(1))
-
-			#Three parameter functions
+				messageGroup(user, group, input[2..-1].join(" ")) # message
+      when "poll", "p"
+        output = "Thank you for your response"
+        poll(user, input[1], input[2])  # poll id, response
 
 			else
 				output = "Could not process request"
@@ -81,7 +52,6 @@ module ParseHelper
 	
 	def messageGroup(from, group, message)
 		# send the message
-    	message = "#{group.name}: #{from.name} - #{message}"
     	send_group_text(from, group, message)
 	end
 
@@ -108,4 +78,16 @@ module ParseHelper
   def wotd()
   	return get_wotd()
   end 
+
+  def food(meal, day)
+  	return get_food(meal, day)
+  end
+
+  def poll(user, pollid, response)
+    resp = PollResponse.create(user_id: user.id, poll_id: pollid, response: response)
+  end
+
+  def scramble(user, word)
+  	return playGame(user, word)
+  end
 end

@@ -6,15 +6,18 @@ module TwilioHelper
   AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
 
   def send_group_text(user, group, message)
-    logger.info "debug::send_group_text called"
     group_message = GroupMessage.create(group_id: group.id, user_id: user.id, message: message)
     text_message = TextMessage.new(group_id: group.id, message: message)
 
     if text_message.valid?
-      numbers, group_id = text_message.numbers_array
+      numbers = text_message.numbers_array
+
+      logger.info "debug::#{numbers}"
       
       numbers.each do |number|
-        send_text(number, text_message.message)
+        unless number == user.phone_number
+          send_text(number, "#{group.name}: #{user.name} - #{text_message.message}")
+        end
       end # num each
     end # if
   end # def
@@ -24,6 +27,8 @@ module TwilioHelper
 
     if text_message.valid?
       numbers = text_message.numbers_array
+
+      logger.info "debug::#{numbers}"
       
       numbers.each do |number|
         send_text(number, text_message.message)
@@ -35,7 +40,7 @@ module TwilioHelper
     unless message.empty?
       account = Twilio::REST::Client.new(ACCOUNT_SID, AUTH_TOKEN).account
 
-      texts = message.scan(/.{1,120}/m)
+      texts = message.scan(/.{1,160}/m)
 
       texts.each do |text|
         logger.info "info::sending message: #{text} to: #{number}"
