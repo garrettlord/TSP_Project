@@ -18,8 +18,7 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
 puts "just inbound texts"
 @client.account.usage.records.daily.list({
    :category => "sms-inbound",
-   :start_date => "2013-04-02",
-   :end_date => "2013-04-06"
+   :StartDate=>'-30days'
   }).each do |record|
     # puts record.start_date
     # puts record.count
@@ -38,8 +37,7 @@ puts "---------------------------------------"
 puts "inbound and outbound texts"
 @client.account.usage.records.daily.list({
    :category => "sms",
-   :start_date => "2013-04-02",
-   :end_date => "2013-04-06"
+   # :StartDate=-30days
   }).each do |record|
   # puts record.start_date
   @allTexts << record.count

@@ -117,7 +117,7 @@ class UsersController < ApplicationController
           assoc.destroy
         end
 
-        redirect_to users_url
+        redirect_to root_url
       else
         flash[:error] = "You cannot delete another user's profile"
         redirect_to user_path(current_user)
