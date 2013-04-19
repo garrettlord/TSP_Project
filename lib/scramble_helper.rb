@@ -10,7 +10,6 @@ module ScrambleHelper
 		#Set up the game if this is the user's first time
 		if user.scramble_game == nil
 			game = user.create_scramble_game 
-      round = game.create_scramble_round
 			# game.user_id = user.id
 			# game.save
 			return initScrambleGame(game)
