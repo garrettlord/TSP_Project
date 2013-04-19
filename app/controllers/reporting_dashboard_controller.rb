@@ -15,8 +15,7 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
     #"just inbound texts"
     client.account.usage.records.daily.list({
        :category => "sms-inbound",
-       :start_date => "2013-04-02",
-       :end_date => "2013-04-09"
+       :StartDate=>'-30days'
       }).each do |record|
           inboundCount << record.count.to_i
     end
@@ -24,8 +23,7 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
     #"inbound and outbound texts"
     client.account.usage.records.daily.list({
        :category => "sms",
-       :start_date => "2013-04-02",
-       :end_date => "2013-04-09"
+       :StartDate=>'-30days'
       }).each do |record|
       allTextsCount << record.count.to_i #rendering it as varible to JSON in the last line....
     end
@@ -34,8 +32,8 @@ AUTH_TOKEN = 'fd6608ce6be77e3f0e4a839e60021353'
     logger.info "The all texts are #{allTextsCount.to_s}"
 
     respond_to do |format|
-      format.html {render html: [allTextsCount, inboundCount] }
-      format.json {render json: [allTextsCount, inboundCount] }
+        format.html {render html: [inboundCount, allTextsCount] }
+        format.json {render json: [inboundCount, allTextsCount] }
     end
   
   end
