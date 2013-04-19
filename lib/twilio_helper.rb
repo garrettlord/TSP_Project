@@ -11,7 +11,9 @@ module TwilioHelper
     text_message = TextMessage.new(group_id: group.id, message: message)
 
     if text_message.valid?
-      numbers, group_id = text_message.numbers_array
+      numbers = text_message.numbers_array
+
+      logger.info "debug::#{numbers}"
       
       numbers.each do |number|
         send_text(number, text_message.message)

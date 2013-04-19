@@ -21,7 +21,7 @@ class TextMessage
     Group.find(group_id).members.each do |user|
       numbers << user.phone_number
     end
-    return numbers, group_id
+    return numbers
   end
 
   # needed for form not to try to access db
