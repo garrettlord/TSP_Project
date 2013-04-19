@@ -10,12 +10,7 @@ class GroupsController < ApplicationController
       @users = @group.users
       @allusers = User.all
 
-      gu = GroupUser.where("group_id = ? and user_id = ?", @group.id, current_user.id).first
-      if gu.nil?
-        @isadmin = false
-      else
-        @isadmin = gu.admin
-      end
+      
 
       @polls = Poll.where("group_id = ?", @group.id)
 
@@ -79,17 +74,15 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
-    if signed_in?
-      isadmin = GroupUser.where("group_id = ? and user_id = ?", @group.id, current_user.id).first.admin
-      if isadmin
-        @group = Group.find(params[:id])
-      else
-        flash[:error] = "You must be the group admin to edit it"
-        redirect_to groups_url
-      end
-    else
+    unless signed_in?
       flash[:error] = "You must be signed in to view this page"
       redirect_to signin_url
+    end
+
+    @group = Group.find(params[:id])
+    unless is_admin? @group.id
+      flash[:error] = "You must be the group admin to edit it"
+      redirect_to groups_url
     end
   end
 
@@ -97,22 +90,21 @@ class GroupsController < ApplicationController
   # PUT /groups/1.json
   def update
     if signed_in?
-      isadmin = GroupUser.where("group_id = ? and user_id = ?", @group.id, current_user.id).first.admin
-      if isadmin
-        @group = Group.find(params[:id])
+      @group = Group.find(params[:id])
 
-        respond_to do |format|
-          if @group.update_attributes(params[:group])
-            format.html { redirect_to @group, notice: 'Group was successfully updated.' }
-            format.json { head :no_content }
-          else
-            format.html { render action: "edit" }
-            format.json { render json: @group.errors, status: :unprocessable_entity }
-          end
-        end
-      else
+      unless is_admin? @group.id
         flash[:error] = "You must be the group admin to edit it"
         redirect_to groups_url
+      end
+
+      respond_to do |format|
+        if @group.update_attributes(params[:group])
+          format.html { redirect_to @group, notice: 'Group was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @group.errors, status: :unprocessable_entity }
+        end
       end
     else
       flash[:error] = "You must be signed in to view this page"
@@ -122,24 +114,39 @@ class GroupsController < ApplicationController
 
   def destroy
     if signed_in?
-      isadmin = GroupUser.where("group_id = ? and user_id = ?", @group.id, current_user.id).first.admin
-      if isadmin
-        @group = Group.find(params[:id])
-        @group.destroy
+      @group = Group.find(params[:id])
 
-        @associations = @group.group_users
-        @associations.each do |assoc|
-          assoc.destroy
-        end
-
-        redirect_to groups_url
-      else
+      unless is_admin? @group.id
         flash[:error] = "You must be the group admin to edit it"
         redirect_to groups_url
       end
+      
+      @group.destroy
+
+      @associations = @group.group_users
+      @associations.each do |assoc|
+        assoc.destroy
+      end
+
+      redirect_to groups_url
     else
       flash[:error] = "You must be signed in to view this page"
       redirect_to signin_url
     end
+  end
+
+  def is_admin? group_id
+    if signed_in?
+      gu = GroupUser.where("group_id = ? and user_id = ?", group_id, current_user.id).first
+      if gu.nil?
+        isadmin = false
+      else
+        isadmin = gu.admin
+      end
+    else
+      isadmin = false
+    end
+
+    return isadmin
   end
 end

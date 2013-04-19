@@ -64,7 +64,12 @@ class PollsController < ApplicationController
 
   def is_admin? group_id
     if signed_in?
-      isadmin = GroupUser.where("group_id = ? and user_id = ?", group_id, current_user.id).first.admin
+      gu = GroupUser.where("group_id = ? and user_id = ?", group_id, current_user.id).first
+      if gu.nil?
+        isadmin = false
+      else
+        isadmin = gu.admin
+      end
     else
       isadmin = false
     end
