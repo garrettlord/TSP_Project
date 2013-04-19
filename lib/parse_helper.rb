@@ -32,16 +32,15 @@ module ParseHelper
 			when "scramble", "scr"
 				output = scramble(user, input[1])
 			when "wotd", "word-of-the-day"
-      	output = wotd()
-      when "food", "f"
-      	output = food(input[1], input[2])
+      	  output = wotd()
+         when "food", "f"
+      	  output = food(input[1], input[2])
 			when "messagegroup", "mg"
-        group = Group.find_by_name(input[1])
+            group = Group.find_by_name(input[1])
 				messageGroup(user, group, input[2..-1].join(" ")) # message
-      when "poll", "p"
-        output = "Thank you for your response"
-        poll(user, input[1], input[2])  # poll id, response
-
+         when "poll", "p"
+            output = "Thank you for your response"
+            poll(user, input[1], input[2])  # poll id, response
 			else
 				output = "Could not process request"
 		end

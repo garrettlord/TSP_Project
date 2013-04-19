@@ -1,0 +1,454 @@
+2013-04-17T19:45:58.096407+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `call'
+2013-04-17T19:45:58.096407+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+2013-04-17T19:45:58.096744+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2013-04-17T19:45:58.096744+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+2013-04-17T19:45:58.096744+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/static.rb:62:in `call'
+2013-04-17T19:45:58.096744+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-ssl-1.3.3/lib/rack/ssl.rb:27:in `call'
+2013-04-17T19:45:58.096744+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:136:in `forward'
+2013-04-17T19:45:58.096744+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:245:in `fetch'
+2013-04-17T19:45:58.096744+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:185:in `lookup'
+2013-04-17T19:45:58.096744+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:66:in `call!'
+2013-04-17T19:45:58.096744+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+2013-04-17T19:45:58.096744+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:51:in `call'
+2013-04-17T19:45:58.096407+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/methodoverride.rb
+:21:in `call'
+2013-04-17T19:45:58.097149+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/application.rb:223:in `call'
+2013-04-17T19:45:58.097149+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+2013-04-17T19:45:58.097149+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/log_tailer.rb:17:in `call'
+2013-04-17T19:45:58.097149+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+2013-04-17T19:45:58.097149+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+2013-04-17T19:45:58.097149+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+2013-04-17T19:45:58.097149+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+2013-04-17T19:45:58.097149+00:00 app[web.1]: 
+2013-04-17T19:45:58.097149+00:00 app[web.1]: 
+2013-04-17T19:45:58.097149+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/engine.rb:479:in `call'
+2013-04-17T19:46:02.059547+00:00 app[web.1]: Started GET "/users" for 141.219.125.26 at 2013-04-17 19:46:02 +0000
+2013-04-17T19:46:02.062347+00:00 app[web.1]: Processing by UsersController#index as HTML
+2013-04-17T19:46:02.165079+00:00 app[web.1]:   Rendered users/index.html.erb within layouts/application (98.8ms)
+2013-04-17T19:46:02.166376+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-04-17T19:46:02.171443+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.0ms)
+2013-04-17T19:46:02.171140+00:00 app[web.1]:   Rendered layouts/_header.html.erb (4.5ms)
+2013-04-17T19:46:02.171686+00:00 app[web.1]: Completed 200 OK in 109ms (Views: 104.2ms | ActiveRecord: 3.7ms)
+2013-04-17T19:46:02.175289+00:00 heroku[router]: at=info method=GET path=/users host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=119ms status=304 bytes=0
+2013-04-17T19:46:02.580898+00:00 app[web.1]: Started GET "/dashboard" for 141.219.125.26 at 2013-04-17 19:46:02 +0000
+2013-04-17T19:46:02.586165+00:00 app[web.1]: Processing by ReportingDashboardController#build as JSON
+2013-04-17T19:46:02.983924+00:00 heroku[router]: at=info method=GET path=/apple-touch-icon-precomposed.png host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=319ms status=404 bytes=754
+2013-04-17T19:46:02.981166+00:00 app[web.1]: Started GET "/apple-touch-icon-precomposed.png" for 141.219.125.26 at 2013-04-17 19:46:02 +0000
+2013-04-17T19:46:02.984336+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2013-04-17T19:46:02.984336+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:32:in `call_app'
+2013-04-17T19:46:02.984336+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/tagged_logging.rb:22:in `tagged'
+2013-04-17T19:46:02.984649+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:136:in `forward'
+2013-04-17T19:46:02.984649+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:245:in `fetch'
+2013-04-17T19:46:02.984649+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/static.rb:62:in `call'
+2013-04-17T19:46:02.984649+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:185:in `lookup'
+2013-04-17T19:46:02.984040+00:00 heroku[router]: at=info method=GET path=/dashboard host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=409ms status=304 bytes=0
+2013-04-17T19:46:02.979350+00:00 app[web.1]: inbound is [1, 0, 0, 0, 1, 1, 3, 5, 0, 0, 0, 3, 74, 0, 9, 87, 7, 1, 0, 21, 30, 13, 0, 0, 0, 0, 0, 0, 0, 0]
+2013-04-17T19:46:02.984649+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:51:in `call'
+2013-04-17T19:46:02.984893+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/engine.rb:479:in `call'
+2013-04-17T19:46:02.979350+00:00 app[web.1]: The all texts are [6, 0, 0, 0, 3, 25, 29, 12, 0, 0, 0, 10, 166, 0, 28, 244, 16, 3, 0, 59, 57, 42, 0, 0, 0, 0, 0, 0, 4, 5]
+2013-04-17T19:46:02.984649+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+2013-04-17T19:46:02.980089+00:00 app[web.1]: Completed 200 OK in 394ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+2013-04-17T19:46:02.984649+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2013-04-17T19:46:02.984336+00:00 app[web.1]: 
+2013-04-17T19:46:02.984336+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `call'
+2013-04-17T19:46:02.984336+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+2013-04-17T19:46:02.984336+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+2013-04-17T19:46:02.984336+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+2013-04-17T19:46:02.984649+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-ssl-1.3.3/lib/rack/ssl.rb:27:in `call'
+2013-04-17T19:46:02.984336+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+2013-04-17T19:46:02.984893+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+2013-04-17T19:46:02.984893+00:00 app[web.1]: 
+2013-04-17T19:46:02.984893+00:00 app[web.1]: 
+2013-04-17T19:46:02.984893+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/application.rb:223:in `call'
+2013-04-17T19:46:02.984649+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:66:in `call!'
+2013-04-17T19:46:02.984336+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `block in call'
+2013-04-17T19:46:02.984893+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+2013-04-17T19:46:02.984893+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/log_tailer.rb:17:in `call'
+2013-04-17T19:46:02.984893+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+2013-04-17T19:46:02.984893+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+2013-04-17T19:46:02.984893+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+2013-04-17T19:46:02.984649+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+2013-04-17T19:46:03.194895+00:00 app[web.1]: Started GET "/apple-touch-icon.png" for 141.219.125.26 at 2013-04-17 19:46:03 +0000
+2013-04-17T19:46:03.197581+00:00 app[web.1]: 
+2013-04-17T19:46:03.197581+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+2013-04-17T19:46:03.197581+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2013-04-17T19:46:03.197581+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:32:in `call_app'
+2013-04-17T19:46:03.197581+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `block in call'
+2013-04-17T19:46:03.197581+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/tagged_logging.rb:22:in `tagged'
+2013-04-17T19:46:03.197581+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `call'
+2013-04-17T19:46:03.197581+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+2013-04-17T19:46:03.197581+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+2013-04-17T19:46:03.197581+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+2013-04-17T19:46:03.197854+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+2013-04-17T19:46:03.197854+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2013-04-17T19:46:03.197854+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+2013-04-17T19:46:03.197854+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:245:in `fetch'
+2013-04-17T19:46:03.197854+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/static.rb:62:in `call'
+2013-04-17T19:46:03.197854+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-ssl-1.3.3/lib/rack/ssl.rb:27:in `call'
+2013-04-17T19:46:03.198094+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+2013-04-17T19:46:03.197854+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:136:in `forward'
+2013-04-17T19:46:03.197854+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:66:in `call!'
+2013-04-17T19:46:03.198094+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+2013-04-17T19:46:03.197854+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:51:in `call'
+2013-04-17T19:46:03.198094+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+2013-04-17T19:46:03.198094+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/engine.rb:479:in `call'
+2013-04-17T19:46:03.197854+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:185:in `lookup'
+2013-04-17T19:46:03.198094+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/application.rb:223:in `call'
+2013-04-17T19:46:03.198094+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/log_tailer.rb:17:in `call'
+2013-04-17T19:46:03.198094+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+2013-04-17T19:46:03.198094+00:00 app[web.1]: 
+2013-04-17T19:46:03.198094+00:00 app[web.1]: 
+2013-04-17T19:46:03.198094+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+2013-04-17T19:46:03.195925+00:00 heroku[router]: at=info method=GET path=/apple-touch-icon.png host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=2ms service=7ms status=404 bytes=754
+2013-04-17T19:46:13.726527+00:00 app[web.1]: Started DELETE "/users/6" for 141.219.125.26 at 2013-04-17 19:46:13 +0000
+2013-04-17T19:46:13.745338+00:00 app[web.1]: Processing by UsersController#destroy as HTML
+2013-04-17T19:46:13.763508+00:00 app[web.1]:   Parameters: {"authenticity_token"=>"08K4fIun8qEejAQH89nqfW8HuHMmQiLSlfVad5LgNgY=", "id"=>"6"}
+2013-04-17T19:46:13.918061+00:00 app[web.1]: Redirected to https://mtu-tsp-spring-2013.herokuapp.com/users
+2013-04-17T19:46:14.013758+00:00 app[web.1]: Completed 302 Found in 250ms (ActiveRecord: 105.6ms)
+2013-04-17T19:46:14.015279+00:00 heroku[router]: at=info method=POST path=/users/6 host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=329ms status=302 bytes=113
+2013-04-17T19:46:15.777348+00:00 app[web.1]: Started GET "/users" for 141.219.125.26 at 2013-04-17 19:46:15 +0000
+2013-04-17T19:46:15.790550+00:00 app[web.1]: Processing by UsersController#index as HTML
+2013-04-17T19:46:15.879833+00:00 app[web.1]:   Rendered users/index.html.erb within layouts/application (52.5ms)
+2013-04-17T19:46:15.889816+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-04-17T19:46:15.906736+00:00 app[web.1]:   Rendered layouts/_header.html.erb (12.8ms)
+2013-04-17T19:46:15.910346+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.0ms)
+2013-04-17T19:46:15.912084+00:00 app[web.1]: Completed 200 OK in 95ms (Views: 81.2ms | ActiveRecord: 11.8ms)
+2013-04-17T19:46:15.915122+00:00 heroku[router]: at=info method=GET path=/users host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=152ms status=200 bytes=7438
+2013-04-17T19:46:16.288489+00:00 app[web.1]: Started GET "/dashboard" for 141.219.125.26 at 2013-04-17 19:46:16 +0000
+2013-04-17T19:46:16.297507+00:00 app[web.1]: Processing by ReportingDashboardController#build as JSON
+2013-04-17T19:46:17.620931+00:00 app[web.1]: inbound is [1, 0, 0, 0, 1, 1, 3, 5, 0, 0, 0, 3, 74, 0, 9, 87, 7, 1, 0, 21, 30, 13, 0, 0, 0, 0, 0, 0, 0, 0]
+2013-04-17T19:46:17.627970+00:00 app[web.1]: The all texts are [6, 0, 0, 0, 3, 25, 29, 12, 0, 0, 0, 10, 166, 0, 28, 244, 16, 3, 0, 59, 57, 42, 0, 0, 0, 0, 0, 0, 4, 5]
+2013-04-17T19:46:17.629043+00:00 app[web.1]: Completed 200 OK in 1327ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+2013-04-17T19:46:17.632266+00:00 app[web.1]: Started GET "/apple-touch-icon-precomposed.png" for 141.219.125.26 at 2013-04-17 19:46:17 +0000
+2013-04-17T19:46:17.635532+00:00 app[web.1]: 
+2013-04-17T19:46:17.635532+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+2013-04-17T19:46:17.635532+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2013-04-17T19:46:17.635532+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+2013-04-17T19:46:17.635532+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:32:in `call_app'
+2013-04-17T19:46:17.635532+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `block in call'
+2013-04-17T19:46:17.635532+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/tagged_logging.rb:22:in `tagged'
+2013-04-17T19:46:17.635532+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `call'
+2013-04-17T19:46:17.635532+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+2013-04-17T19:46:17.635532+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+2013-04-17T19:46:17.635910+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+2013-04-17T19:46:17.635910+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2013-04-17T19:46:17.638105+00:00 heroku[router]: at=info method=GET path=/dashboard host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=1367ms status=304 bytes=0
+2013-04-17T19:46:17.635910+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+2013-04-17T19:46:17.635910+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/static.rb:62:in `call'
+2013-04-17T19:46:17.635910+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-ssl-1.3.3/lib/rack/ssl.rb:27:in `call'
+2013-04-17T19:46:17.635910+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:136:in `forward'
+2013-04-17T19:46:17.635910+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:245:in `fetch'
+2013-04-17T19:46:17.635910+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:185:in `lookup'
+2013-04-17T19:46:17.635910+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:66:in `call!'
+2013-04-17T19:46:17.635910+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:51:in `call'
+2013-04-17T19:46:17.641740+00:00 heroku[router]: at=info method=GET path=/apple-touch-icon-precomposed.png host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=1338ms status=404 bytes=754
+2013-04-17T19:46:17.636159+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/engine.rb:479:in `call'
+2013-04-17T19:46:17.636159+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/application.rb:223:in `call'
+2013-04-17T19:46:17.636159+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+2013-04-17T19:46:17.636159+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/log_tailer.rb:17:in `call'
+2013-04-17T19:46:17.636159+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+2013-04-17T19:46:17.636159+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+2013-04-17T19:46:17.636159+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+2013-04-17T19:46:17.636159+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+2013-04-17T19:46:17.636159+00:00 app[web.1]: 
+2013-04-17T19:46:17.636159+00:00 app[web.1]: 
+2013-04-17T19:46:17.836628+00:00 app[web.1]: Started GET "/apple-touch-icon.png" for 141.219.125.26 at 2013-04-17 19:46:17 +0000
+2013-04-17T19:46:17.846520+00:00 app[web.1]: 
+2013-04-17T19:46:17.846520+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+2013-04-17T19:46:17.846520+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2013-04-17T19:46:17.846520+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+2013-04-17T19:46:17.846520+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:32:in `call_app'
+2013-04-17T19:46:17.846520+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `block in call'
+2013-04-17T19:46:17.846520+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/tagged_logging.rb:22:in `tagged'
+2013-04-17T19:46:17.846520+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `call'
+2013-04-17T19:46:17.846520+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+2013-04-17T19:46:17.859972+00:00 heroku[router]: at=info method=GET path=/apple-touch-icon.png host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=29ms status=404 bytes=754
+2013-04-17T19:46:17.846520+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+2013-04-17T19:46:17.846903+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+2013-04-17T19:46:17.846903+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2013-04-17T19:46:17.846903+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+2013-04-17T19:46:17.846903+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/static.rb:62:in `call'
+2013-04-17T19:46:17.846903+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-ssl-1.3.3/lib/rack/ssl.rb:27:in `call'
+2013-04-17T19:46:17.846903+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:136:in `forward'
+2013-04-17T19:46:17.846903+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:245:in `fetch'
+2013-04-17T19:46:17.846903+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:185:in `lookup'
+2013-04-17T19:46:17.846903+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:66:in `call!'
+2013-04-17T19:46:17.846903+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:51:in `call'
+2013-04-17T19:46:17.847490+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/engine.rb:479:in `call'
+2013-04-17T19:46:17.847490+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/application.rb:223:in `call'
+2013-04-17T19:46:17.847490+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+2013-04-17T19:46:17.847490+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/log_tailer.rb:17:in `call'
+2013-04-17T19:46:17.847490+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+2013-04-17T19:46:17.847490+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+2013-04-17T19:46:17.847490+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+2013-04-17T19:46:17.847490+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+2013-04-17T19:46:17.847490+00:00 app[web.1]: 
+2013-04-17T19:46:17.847490+00:00 app[web.1]: 
+2013-04-17T19:46:21.117492+00:00 app[web.1]: Started GET "/" for 141.219.221.65 at 2013-04-17 19:46:21 +0000
+2013-04-17T19:46:21.128608+00:00 app[web.1]: Processing by StaticPagesController#home as HTML
+2013-04-17T19:46:21.143669+00:00 app[web.1]:   Rendered static_pages/home.html.erb within layouts/application (0.0ms)
+2013-04-17T19:46:21.144962+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-04-17T19:46:21.156645+00:00 app[web.1]:   Rendered layouts/_header.html.erb (11.4ms)
+2013-04-17T19:46:21.157116+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.0ms)
+2013-04-17T19:46:21.157409+00:00 app[web.1]: Completed 200 OK in 26ms (Views: 12.5ms | ActiveRecord: 10.4ms)
+2013-04-17T19:46:21.165247+00:00 heroku[router]: at=info method=GET path=/ host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=4ms service=54ms status=304 bytes=0
+2013-04-17T19:46:21.253900+00:00 app[web.1]: Started GET "/assets/application-d1839c2126a7d4f543c4018092cfd319.css" for 141.219.221.65 at 2013-04-17 19:46:21 +0000
+2013-04-17T19:46:21.258304+00:00 app[web.1]: Served asset /application-d1839c2126a7d4f543c4018092cfd319.css - 304 Not Modified (0ms)
+2013-04-17T19:46:21.258422+00:00 heroku[router]: at=info method=GET path=/assets/application-d1839c2126a7d4f543c4018092cfd319.css host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=1ms service=10ms status=304 bytes=0
+2013-04-17T19:46:21.419773+00:00 app[web.1]: Started GET "/dashboard" for 141.219.221.65 at 2013-04-17 19:46:21 +0000
+2013-04-17T19:46:21.490790+00:00 app[web.1]: Processing by ReportingDashboardController#build as JSON
+2013-04-17T19:46:21.619240+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=3ms service=6ms status=304 bytes=0
+2013-04-17T19:46:21.953954+00:00 app[web.1]: inbound is [1, 0, 0, 0, 1, 1, 3, 5, 0, 0, 0, 3, 74, 0, 9, 87, 7, 1, 0, 21, 30, 13, 0, 0, 0, 0, 0, 0, 0, 0]
+2013-04-17T19:46:21.957515+00:00 app[web.1]: The all texts are [6, 0, 0, 0, 3, 25, 29, 12, 0, 0, 0, 10, 166, 0, 28, 244, 16, 3, 0, 59, 57, 42, 0, 0, 0, 0, 0, 0, 4, 5]
+2013-04-17T19:46:21.958276+00:00 app[web.1]: Completed 200 OK in 467ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+2013-04-17T19:46:21.960418+00:00 app[web.1]: Started GET "/groups" for 141.219.221.65 at 2013-04-17 19:46:21 +0000
+2013-04-17T19:46:21.965717+00:00 app[web.1]: Processing by GroupsController#index as HTML
+2013-04-17T19:46:21.968035+00:00 heroku[router]: at=info method=GET path=/dashboard host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=3ms service=571ms status=304 bytes=0
+2013-04-17T19:46:22.002242+00:00 app[web.1]:   Rendered groups/index.html.erb within layouts/application (30.5ms)
+2013-04-17T19:46:22.002242+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-04-17T19:46:22.014734+00:00 app[web.1]:   Rendered layouts/_header.html.erb (13.3ms)
+2013-04-17T19:46:22.015353+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.0ms)
+2013-04-17T19:46:22.015660+00:00 app[web.1]: Completed 200 OK in 50ms (Views: 41.3ms | ActiveRecord: 7.5ms)
+2013-04-17T19:46:22.019422+00:00 heroku[router]: at=info method=GET path=/groups host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=1ms service=81ms status=200 bytes=6665
+2013-04-17T19:46:22.104567+00:00 app[web.1]: Started GET "/assets/application-d1839c2126a7d4f543c4018092cfd319.css" for 141.219.221.65 at 2013-04-17 19:46:22 +0000
+2013-04-17T19:46:22.107844+00:00 app[web.1]: Served asset /application-d1839c2126a7d4f543c4018092cfd319.css - 304 Not Modified (0ms)
+2013-04-17T19:46:22.465574+00:00 app[web.1]: Started GET "/dashboard" for 141.219.221.65 at 2013-04-17 19:46:22 +0000
+2013-04-17T19:46:22.474166+00:00 app[web.1]: Processing by ReportingDashboardController#build as JSON
+2013-04-17T19:46:22.959373+00:00 heroku[router]: at=info method=GET path=/dashboard host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=1ms service=731ms status=200 bytes=143
+2013-04-17T19:46:22.958264+00:00 app[web.1]: inbound is [1, 0, 0, 0, 1, 1, 3, 5, 0, 0, 0, 3, 74, 0, 9, 87, 7, 1, 0, 21, 30, 13, 0, 0, 0, 0, 0, 0, 0, 0]
+2013-04-17T19:46:22.958264+00:00 app[web.1]: The all texts are [6, 0, 0, 0, 3, 25, 29, 12, 0, 0, 0, 10, 166, 0, 28, 244, 16, 3, 0, 59, 57, 42, 0, 0, 0, 0, 0, 0, 4, 5]
+2013-04-17T19:46:22.958943+00:00 app[web.1]: Completed 200 OK in 484ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+2013-04-17T19:46:22.113889+00:00 heroku[router]: at=info method=GET path=/assets/application-d1839c2126a7d4f543c4018092cfd319.css host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=1ms service=21ms status=304 bytes=0
+2013-04-17T19:46:23.986757+00:00 app[web.1]: Started GET "/users/17" for 141.219.125.26 at 2013-04-17 19:46:23 +0000
+2013-04-17T19:46:23.991455+00:00 app[web.1]: Processing by UsersController#show as HTML
+2013-04-17T19:46:23.991455+00:00 app[web.1]:   Parameters: {"id"=>"17"}
+2013-04-17T19:46:23.999655+00:00 app[web.1]: Redirected to https://mtu-tsp-spring-2013.herokuapp.com/signin
+2013-04-17T19:46:23.999655+00:00 app[web.1]: Completed 302 Found in 9ms (ActiveRecord: 3.8ms)
+2013-04-17T19:46:23.999486+00:00 heroku[router]: at=info method=GET path=/users/17 host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=18ms status=302 bytes=114
+2013-04-17T19:46:24.091564+00:00 app[web.1]: Started GET "/signin" for 141.219.125.26 at 2013-04-17 19:46:24 +0000
+2013-04-17T19:46:24.094631+00:00 app[web.1]: Processing by SessionsController#new as HTML
+2013-04-17T19:46:24.097579+00:00 app[web.1]:   Rendered sessions/new.html.erb within layouts/application (2.2ms)
+2013-04-17T19:46:24.098906+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-04-17T19:46:24.103759+00:00 app[web.1]:   Rendered layouts/_header.html.erb (4.0ms)
+2013-04-17T19:46:24.104274+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.0ms)
+2013-04-17T19:46:24.104587+00:00 app[web.1]: Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 1.7ms)
+2013-04-17T19:46:24.109470+00:00 heroku[router]: at=info method=GET path=/signin host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=0ms service=22ms status=200 bytes=2995
+2013-04-17T19:46:24.614892+00:00 app[web.1]: Started GET "/dashboard" for 141.219.125.26 at 2013-04-17 19:46:24 +0000
+2013-04-17T19:46:24.617713+00:00 app[web.1]: Processing by ReportingDashboardController#build as JSON
+2013-04-17T19:46:25.006499+00:00 app[web.1]: inbound is [1, 0, 0, 0, 1, 1, 3, 5, 0, 0, 0, 3, 74, 0, 9, 87, 7, 1, 0, 21, 30, 13, 0, 0, 0, 0, 0, 0, 0, 0]
+2013-04-17T19:46:25.006499+00:00 app[web.1]: The all texts are [6, 0, 0, 0, 3, 25, 29, 12, 0, 0, 0, 10, 166, 0, 28, 244, 16, 3, 0, 59, 57, 42, 0, 0, 0, 0, 0, 0, 4, 5]
+2013-04-17T19:46:25.008324+00:00 app[web.1]: Completed 200 OK in 390ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+2013-04-17T19:46:25.009740+00:00 app[web.1]: Started GET "/apple-touch-icon-precomposed.png" for 141.219.125.26 at 2013-04-17 19:46:25 +0000
+2013-04-17T19:46:25.012448+00:00 app[web.1]: 
+2013-04-17T19:46:25.012448+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+2013-04-17T19:46:25.012448+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2013-04-17T19:46:25.012448+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+2013-04-17T19:46:25.010158+00:00 heroku[router]: at=info method=GET path=/dashboard host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=400ms status=304 bytes=0
+2013-04-17T19:46:25.012448+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:32:in `call_app'
+2013-04-17T19:46:25.012448+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `block in call'
+2013-04-17T19:46:25.012448+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/tagged_logging.rb:22:in `tagged'
+2013-04-17T19:46:25.012448+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `call'
+2013-04-17T19:46:25.012448+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+2013-04-17T19:46:25.012448+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+2013-04-17T19:46:25.012723+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+2013-04-17T19:46:25.012723+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2013-04-17T19:46:25.012723+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+2013-04-17T19:46:25.012723+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/static.rb:62:in `call'
+2013-04-17T19:46:25.012723+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-ssl-1.3.3/lib/rack/ssl.rb:27:in `call'
+2013-04-17T19:46:25.012723+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:136:in `forward'
+2013-04-17T19:46:25.012723+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:245:in `fetch'
+2013-04-17T19:46:25.012723+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:185:in `lookup'
+2013-04-17T19:46:25.012723+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:66:in `call!'
+2013-04-17T19:46:25.012723+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:51:in `call'
+2013-04-17T19:46:25.013047+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/engine.rb:479:in `call'
+2013-04-17T19:46:25.013047+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/application.rb:223:in `call'
+2013-04-17T19:46:25.013047+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+2013-04-17T19:46:25.013047+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/log_tailer.rb:17:in `call'
+2013-04-17T19:46:25.013047+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+2013-04-17T19:46:25.013047+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+2013-04-17T19:46:25.013047+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+2013-04-17T19:46:25.013047+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+2013-04-17T19:46:25.013047+00:00 app[web.1]: 
+2013-04-17T19:46:25.013047+00:00 app[web.1]: 
+2013-04-17T19:46:25.012101+00:00 heroku[router]: at=info method=GET path=/apple-touch-icon-precomposed.png host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=9ms service=303ms status=404 bytes=754
+2013-04-17T19:46:25.171940+00:00 heroku[router]: at=info method=GET path=/apple-touch-icon.png host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=7ms status=404 bytes=754
+2013-04-17T19:46:25.169411+00:00 app[web.1]: Started GET "/apple-touch-icon.png" for 141.219.125.26 at 2013-04-17 19:46:25 +0000
+2013-04-17T19:46:25.172116+00:00 app[web.1]: 
+2013-04-17T19:46:25.172116+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+2013-04-17T19:46:25.172116+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2013-04-17T19:46:25.172116+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+2013-04-17T19:46:25.172116+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:32:in `call_app'
+2013-04-17T19:46:25.172116+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `block in call'
+2013-04-17T19:46:25.172116+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/tagged_logging.rb:22:in `tagged'
+2013-04-17T19:46:25.172116+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `call'
+2013-04-17T19:46:25.172116+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+2013-04-17T19:46:25.172116+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+2013-04-17T19:46:25.172368+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+2013-04-17T19:46:25.172368+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2013-04-17T19:46:25.172368+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+2013-04-17T19:46:25.172368+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/static.rb:62:in `call'
+2013-04-17T19:46:25.172368+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-ssl-1.3.3/lib/rack/ssl.rb:27:in `call'
+2013-04-17T19:46:25.172368+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:136:in `forward'
+2013-04-17T19:46:25.172368+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:245:in `fetch'
+2013-04-17T19:46:25.172368+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:185:in `lookup'
+2013-04-17T19:46:25.172368+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:66:in `call!'
+2013-04-17T19:46:25.172368+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:51:in `call'
+2013-04-17T19:46:25.172595+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/engine.rb:479:in `call'
+2013-04-17T19:46:25.172595+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/application.rb:223:in `call'
+2013-04-17T19:46:25.172595+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+2013-04-17T19:46:25.172595+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/log_tailer.rb:17:in `call'
+2013-04-17T19:46:25.172595+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+2013-04-17T19:46:25.172595+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+2013-04-17T19:46:25.172595+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+2013-04-17T19:46:25.172595+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+2013-04-17T19:46:25.172595+00:00 app[web.1]: 
+2013-04-17T19:46:25.172595+00:00 app[web.1]: 
+2013-04-17T19:46:25.544366+00:00 app[web.1]: Started GET "/groups/13" for 141.219.221.65 at 2013-04-17 19:46:25 +0000
+2013-04-17T19:46:25.547168+00:00 app[web.1]: Processing by GroupsController#show as HTML
+2013-04-17T19:46:25.547168+00:00 app[web.1]:   Parameters: {"id"=>"13"}
+2013-04-17T19:46:25.576212+00:00 app[web.1]:   Rendered groups/show.html.erb within layouts/application (17.7ms)
+2013-04-17T19:46:25.577199+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-04-17T19:46:25.578505+00:00 app[web.1]:   Rendered layouts/_header.html.erb (1.2ms)
+2013-04-17T19:46:25.578659+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.0ms)
+2013-04-17T19:46:25.578836+00:00 app[web.1]: Completed 200 OK in 32ms (Views: 10.8ms | ActiveRecord: 17.8ms)
+2013-04-17T19:46:25.582085+00:00 heroku[router]: at=info method=GET path=/groups/13 host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=0ms service=43ms status=200 bytes=6498
+2013-04-17T19:46:25.664479+00:00 heroku[router]: at=info method=GET path=/assets/application-d1839c2126a7d4f543c4018092cfd319.css host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=1ms service=10ms status=304 bytes=0
+2013-04-17T19:46:25.661997+00:00 app[web.1]: Started GET "/assets/application-d1839c2126a7d4f543c4018092cfd319.css" for 141.219.221.65 at 2013-04-17 19:46:25 +0000
+2013-04-17T19:46:25.664579+00:00 app[web.1]: Served asset /application-d1839c2126a7d4f543c4018092cfd319.css - 304 Not Modified (0ms)
+2013-04-17T19:46:25.747128+00:00 app[web.1]: Started GET "/dashboard" for 141.219.221.65 at 2013-04-17 19:46:25 +0000
+2013-04-17T19:46:25.749802+00:00 app[web.1]: Processing by ReportingDashboardController#build as JSON
+2013-04-17T19:46:26.104292+00:00 app[web.1]: inbound is [1, 0, 0, 0, 1, 1, 3, 5, 0, 0, 0, 3, 74, 0, 9, 87, 7, 1, 0, 21, 30, 13, 0, 0, 0, 0, 0, 0, 0, 0]
+2013-04-17T19:46:26.104292+00:00 app[web.1]: The all texts are [6, 0, 0, 0, 3, 25, 29, 12, 0, 0, 0, 10, 166, 0, 28, 244, 16, 3, 0, 59, 57, 42, 0, 0, 0, 0, 0, 0, 4, 5]
+2013-04-17T19:46:26.105516+00:00 app[web.1]: Completed 200 OK in 355ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+2013-04-17T19:46:26.106694+00:00 heroku[router]: at=info method=GET path=/dashboard host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=2ms service=364ms status=304 bytes=0
+2013-04-17T19:46:28.424670+00:00 app[web.1]: Started GET "/polls/new?group_id=13" for 141.219.221.65 at 2013-04-17 19:46:28 +0000
+2013-04-17T19:46:28.429044+00:00 app[web.1]: Processing by PollsController#new as HTML
+2013-04-17T19:46:28.429230+00:00 app[web.1]:   Parameters: {"group_id"=>"13"}
+2013-04-17T19:46:28.432869+00:00 app[web.1]:   Rendered polls/new.html.erb within layouts/application (2.7ms)
+2013-04-17T19:46:28.434763+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-04-17T19:46:28.439369+00:00 app[web.1]:   Rendered layouts/_header.html.erb (4.3ms)
+2013-04-17T19:46:28.439819+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.0ms)
+2013-04-17T19:46:28.440099+00:00 app[web.1]: Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 1.9ms)
+2013-04-17T19:46:28.514216+00:00 app[web.1]: Started GET "/assets/application-d1839c2126a7d4f543c4018092cfd319.css" for 141.219.221.65 at 2013-04-17 19:46:28 +0000
+2013-04-17T19:46:28.518953+00:00 app[web.1]: Served asset /application-d1839c2126a7d4f543c4018092cfd319.css - 304 Not Modified (0ms)
+2013-04-17T19:46:28.440595+00:00 heroku[router]: at=info method=GET path=/polls/new?group_id=13 host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=0ms service=21ms status=304 bytes=0
+2013-04-17T19:46:28.615670+00:00 app[web.1]: Started GET "/dashboard" for 141.219.221.65 at 2013-04-17 19:46:28 +0000
+2013-04-17T19:46:28.519040+00:00 heroku[router]: at=info method=GET path=/assets/application-d1839c2126a7d4f543c4018092cfd319.css host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=0ms service=11ms status=304 bytes=0
+2013-04-17T19:46:28.619640+00:00 app[web.1]: Processing by ReportingDashboardController#build as JSON
+2013-04-17T19:46:28.953831+00:00 heroku[router]: at=info method=GET path=/dashboard host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=3ms service=346ms status=304 bytes=0
+2013-04-17T19:46:28.952094+00:00 app[web.1]: inbound is [1, 0, 0, 0, 1, 1, 3, 5, 0, 0, 0, 3, 74, 0, 9, 87, 7, 1, 0, 21, 30, 13, 0, 0, 0, 0, 0, 0, 0, 0]
+2013-04-17T19:46:28.952094+00:00 app[web.1]: The all texts are [6, 0, 0, 0, 3, 25, 29, 12, 0, 0, 0, 10, 166, 0, 28, 244, 16, 3, 0, 59, 57, 42, 0, 0, 0, 0, 0, 0, 4, 5]
+2013-04-17T19:46:28.952772+00:00 app[web.1]: Completed 200 OK in 333ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+2013-04-17T19:46:40.831214+00:00 app[web.1]: Started POST "/polls" for 141.219.221.65 at 2013-04-17 19:46:40 +0000
+2013-04-17T19:46:40.831214+00:00 app[web.1]: Processing by PollsController#create as HTML
+2013-04-17T19:46:40.831214+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"X7X9eL0NP7D/sOX1H2CoozyrmFdGpp0mVxI2ADxhLs0=", "poll"=>{"name"=>"test", "question"=>"Test? A-Works, B-NO", "group_id"=>"13"}, "commit"=>"Create Poll"}
+2013-04-17T19:46:40.831214+00:00 app[web.1]: info::sending message: Test? A-Works, B-NO Respond with 'poll 5 <response>' to: ["248-255-7341", "248-255-7341", "906-231-5424", "906-221-3182"]
+2013-04-17T19:46:40.831614+00:00 app[web.1]: error::error sending message: The 'To' number +1["248-255-7341", "248-255-7341", "906-231-5424", "906-221-3182"] is not a valid phone number.
+2013-04-17T19:46:40.831614+00:00 app[web.1]: info::sending message: Test? A-Works, B-NO Respond with 'poll 5 <response>' to: 13
+2013-04-17T19:46:40.831614+00:00 app[web.1]: error::error sending message: The 'To' number +113 is not a valid phone number.
+2013-04-17T19:46:40.831925+00:00 app[web.1]: Redirected to https://mtu-tsp-spring-2013.herokuapp.com/polls/5
+2013-04-17T19:46:40.831925+00:00 app[web.1]: Completed 302 Found in 504ms (ActiveRecord: 16.4ms)
+2013-04-17T19:46:40.852473+00:00 app[web.1]: Started GET "/polls/5" for 141.219.221.65 at 2013-04-17 19:46:40 +0000
+2013-04-17T19:46:40.855590+00:00 app[web.1]: Processing by PollsController#show as HTML
+2013-04-17T19:46:40.855590+00:00 app[web.1]:   Parameters: {"id"=>"5"}
+2013-04-17T19:46:40.869275+00:00 app[web.1]:   Rendered polls/show.html.erb within layouts/application (1.0ms)
+2013-04-17T19:46:40.870401+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-04-17T19:46:40.871716+00:00 app[web.1]:   Rendered layouts/_header.html.erb (1.2ms)
+2013-04-17T19:46:40.871909+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.0ms)
+2013-04-17T19:46:40.872240+00:00 app[web.1]: Completed 200 OK in 17ms (Views: 4.5ms | ActiveRecord: 9.3ms)
+2013-04-17T19:46:40.873439+00:00 heroku[router]: at=info method=GET path=/polls/5 host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=1ms service=25ms status=200 bytes=2374
+2013-04-17T19:46:40.959783+00:00 app[web.1]: Started GET "/assets/application-d1839c2126a7d4f543c4018092cfd319.css" for 141.219.221.65 at 2013-04-17 19:46:40 +0000
+2013-04-17T19:46:40.962985+00:00 app[web.1]: Served asset /application-d1839c2126a7d4f543c4018092cfd319.css - 304 Not Modified (0ms)
+2013-04-17T19:46:40.975066+00:00 heroku[router]: at=info method=GET path=/assets/application-d1839c2126a7d4f543c4018092cfd319.css host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=9ms service=20ms status=304 bytes=0
+2013-04-17T19:46:41.058804+00:00 app[web.1]: Started GET "/dashboard" for 141.219.221.65 at 2013-04-17 19:46:41 +0000
+2013-04-17T19:46:41.062994+00:00 app[web.1]: Processing by ReportingDashboardController#build as JSON
+2013-04-17T19:46:41.348845+00:00 app[web.1]: inbound is [1, 0, 0, 0, 1, 1, 3, 5, 0, 0, 0, 3, 74, 0, 9, 87, 7, 1, 0, 21, 30, 13, 0, 0, 0, 0, 0, 0, 0, 0]
+2013-04-17T19:46:41.348845+00:00 app[web.1]: The all texts are [6, 0, 0, 0, 3, 25, 29, 12, 0, 0, 0, 10, 166, 0, 28, 244, 16, 3, 0, 59, 57, 42, 0, 0, 0, 0, 0, 0, 4, 5]
+2013-04-17T19:46:41.349589+00:00 app[web.1]: Completed 200 OK in 286ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+2013-04-17T19:46:41.351367+00:00 app[web.1]: Started POST "/sessions" for 141.219.125.26 at 2013-04-17 19:46:41 +0000
+2013-04-17T19:46:41.354721+00:00 app[web.1]: Processing by SessionsController#create as HTML
+2013-04-17T19:46:41.354721+00:00 app[web.1]:   Parameters: {"utf8"=>"✓", "authenticity_token"=>"08K4fIun8qEejAQH89nqfW8HuHMmQiLSlfVad5LgNgY=", "session"=>{"name"=>"Dominic", "password"=>"[FILTERED]"}, "commit"=>"Sign in"}
+2013-04-17T19:46:41.358411+00:00 heroku[router]: at=info method=GET path=/dashboard host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=1ms service=305ms status=304 bytes=0
+2013-04-17T19:46:40.796247+00:00 heroku[router]: at=info method=POST path=/polls host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.221.65" dyno=web.1 connect=0ms service=514ms status=302 bytes=115
+2013-04-17T19:46:41.669782+00:00 heroku[router]: at=info method=GET path=/users/17 host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=36ms status=200 bytes=6650
+2013-04-17T19:46:41.460483+00:00 app[web.1]: Redirected to https://mtu-tsp-spring-2013.herokuapp.com/users/17
+2013-04-17T19:46:41.460619+00:00 app[web.1]: Completed 302 Found in 106ms (ActiveRecord: 1.9ms)
+2013-04-17T19:46:41.638160+00:00 app[web.1]: Started GET "/users/17" for 141.219.125.26 at 2013-04-17 19:46:41 +0000
+2013-04-17T19:46:41.640983+00:00 app[web.1]: Processing by UsersController#show as HTML
+2013-04-17T19:46:41.640983+00:00 app[web.1]:   Parameters: {"id"=>"17"}
+2013-04-17T19:46:41.662236+00:00 app[web.1]:   Rendered users/show.html.erb within layouts/application (4.1ms)
+2013-04-17T19:46:41.664464+00:00 app[web.1]:   Rendered layouts/_shim.html.erb (0.0ms)
+2013-04-17T19:46:41.666215+00:00 app[web.1]:   Rendered layouts/_header.html.erb (1.6ms)
+2013-04-17T19:46:41.666415+00:00 app[web.1]:   Rendered layouts/_footer.html.erb (0.0ms)
+2013-04-17T19:46:41.666583+00:00 app[web.1]: Completed 200 OK in 26ms (Views: 9.0ms | ActiveRecord: 11.4ms)
+2013-04-17T19:46:42.035028+00:00 app[web.1]: Started GET "/dashboard" for 141.219.125.26 at 2013-04-17 19:46:42 +0000
+2013-04-17T19:46:42.037892+00:00 app[web.1]: Processing by ReportingDashboardController#build as JSON
+2013-04-17T19:46:41.460145+00:00 heroku[router]: at=info method=POST path=/sessions host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=4ms service=206ms status=302 bytes=116
+2013-04-17T19:46:42.377929+00:00 app[web.1]: inbound is [1, 0, 0, 0, 1, 1, 3, 5, 0, 0, 0, 3, 74, 0, 9, 87, 7, 1, 0, 21, 30, 13, 0, 0, 0, 0, 0, 0, 0, 0]
+2013-04-17T19:46:42.377929+00:00 app[web.1]: The all texts are [6, 0, 0, 0, 3, 25, 29, 12, 0, 0, 0, 10, 166, 0, 28, 244, 16, 3, 0, 59, 57, 42, 0, 0, 0, 0, 0, 0, 4, 5]
+2013-04-17T19:46:42.378659+00:00 app[web.1]: Completed 200 OK in 341ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+2013-04-17T19:46:42.379832+00:00 app[web.1]: Started GET "/apple-touch-icon-precomposed.png" for 141.219.125.26 at 2013-04-17 19:46:42 +0000
+2013-04-17T19:46:42.382598+00:00 app[web.1]: 
+2013-04-17T19:46:42.382598+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+2013-04-17T19:46:42.382598+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2013-04-17T19:46:42.382598+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+2013-04-17T19:46:42.382598+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:32:in `call_app'
+2013-04-17T19:46:42.382598+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `block in call'
+2013-04-17T19:46:42.382598+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/tagged_logging.rb:22:in `tagged'
+2013-04-17T19:46:42.382598+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `call'
+2013-04-17T19:46:42.382598+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+2013-04-17T19:46:42.382598+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+2013-04-17T19:46:42.382853+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+2013-04-17T19:46:42.382853+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2013-04-17T19:46:42.382853+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+2013-04-17T19:46:42.382853+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/static.rb:62:in `call'
+2013-04-17T19:46:42.382853+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-ssl-1.3.3/lib/rack/ssl.rb:27:in `call'
+2013-04-17T19:46:42.382853+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:136:in `forward'
+2013-04-17T19:46:42.382853+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:245:in `fetch'
+2013-04-17T19:46:42.382853+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:185:in `lookup'
+2013-04-17T19:46:42.382853+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:66:in `call!'
+2013-04-17T19:46:42.382853+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:51:in `call'
+2013-04-17T19:46:42.383077+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/engine.rb:479:in `call'
+2013-04-17T19:46:42.383077+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/application.rb:223:in `call'
+2013-04-17T19:46:42.383077+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+2013-04-17T19:46:42.383077+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/log_tailer.rb:17:in `call'
+2013-04-17T19:46:42.383077+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+2013-04-17T19:46:42.383077+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+2013-04-17T19:46:42.381992+00:00 heroku[router]: at=info method=GET path=/dashboard host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=0ms service=352ms status=304 bytes=0
+2013-04-17T19:46:42.383077+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+2013-04-17T19:46:42.383077+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+2013-04-17T19:46:42.383077+00:00 app[web.1]: 
+2013-04-17T19:46:42.383077+00:00 app[web.1]: 
+2013-04-17T19:46:42.673862+00:00 app[web.1]: Started GET "/apple-touch-icon.png" for 141.219.125.26 at 2013-04-17 19:46:42 +0000
+2013-04-17T19:46:42.676834+00:00 app[web.1]: 
+2013-04-17T19:46:42.676834+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+2013-04-17T19:46:42.676834+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+2013-04-17T19:46:42.676834+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+2013-04-17T19:46:42.676834+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:32:in `call_app'
+2013-04-17T19:46:42.676834+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `block in call'
+2013-04-17T19:46:42.676834+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/tagged_logging.rb:22:in `tagged'
+2013-04-17T19:46:42.676834+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/logger.rb:16:in `call'
+2013-04-17T19:46:42.676834+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+2013-04-17T19:46:42.676834+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+2013-04-17T19:46:42.677132+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+2013-04-17T19:46:42.677132+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/activesupport-3.2.12/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+2013-04-17T19:46:42.677132+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/lock.rb:15:in `call'
+2013-04-17T19:46:42.677132+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/actionpack-3.2.12/lib/action_dispatch/middleware/static.rb:62:in `call'
+2013-04-17T19:46:42.677132+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-ssl-1.3.3/lib/rack/ssl.rb:27:in `call'
+2013-04-17T19:46:42.677132+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:136:in `forward'
+2013-04-17T19:46:42.677132+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:245:in `fetch'
+2013-04-17T19:46:42.677132+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:185:in `lookup'
+2013-04-17T19:46:42.677132+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:66:in `call!'
+2013-04-17T19:46:42.677132+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-cache-1.2/lib/rack/cache/context.rb:51:in `call'
+2013-04-17T19:46:42.677356+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/engine.rb:479:in `call'
+2013-04-17T19:46:42.677356+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/application.rb:223:in `call'
+2013-04-17T19:46:42.677356+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+2013-04-17T19:46:42.677356+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/railties-3.2.12/lib/rails/rack/log_tailer.rb:17:in `call'
+2013-04-17T19:46:42.677187+00:00 heroku[router]: at=info method=GET path=/apple-touch-icon.png host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=24ms status=404 bytes=754
+2013-04-17T19:46:42.677356+00:00 app[web.1]:   vendor/bundle/ruby/1.9.1/gems/rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+2013-04-17T19:46:42.677356+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+2013-04-17T19:46:42.677356+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+2013-04-17T19:46:42.677356+00:00 app[web.1]:   /usr/local/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+2013-04-17T19:46:42.677356+00:00 app[web.1]: 
+2013-04-17T19:46:42.677356+00:00 app[web.1]: 
+2013-04-17T19:46:42.383656+00:00 heroku[router]: at=info method=GET path=/apple-touch-icon-precomposed.png host=mtu-tsp-spring-2013.herokuapp.com fwd="141.219.125.26" dyno=web.1 connect=1ms service=267ms status=404 bytes=754

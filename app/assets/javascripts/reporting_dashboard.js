@@ -22,8 +22,6 @@ function build_chart(inbound, all){
                 x: -20
             },
             xAxis: {
-                categories: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Jun',
-                    'Sat', 'Sun']
             },
             yAxis: {
                 title: {
