@@ -9,7 +9,13 @@ class GroupsController < ApplicationController
       @admins = @group.admins
       @users = @group.users
       @allusers = User.all
-      @isadmin = GroupUser.where("group_id = ? and user_id = ?", @group.id, current_user.id).first.admin
+
+      gu = GroupUser.where("group_id = ? and user_id = ?", @group.id, current_user.id).first
+      if gu.nil?
+        @isadmin = false
+      else
+        @isadmin = gu.admin
+      end
 
       @polls = Poll.where("group_id = ?", @group.id)
 
