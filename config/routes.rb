@@ -17,6 +17,8 @@ Apothegm::Application.routes.draw do
 
   match '/group_messages', to: 'users#group_message'
   match '/group_messages/multiple', to: 'users#group_message_multiple'
+  match '/group_messages/from_group', to: 'users#group_message_from_group'
+
 
   match '/group_users/multiple/create', to: 'group_users#multiple_create', via: :post
   match '/group_users/multiple/destroy', to: 'group_users#multiple_destroy', via: :post

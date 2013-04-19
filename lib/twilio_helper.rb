@@ -15,7 +15,9 @@ module TwilioHelper
       logger.info "debug::#{numbers}"
       
       numbers.each do |number|
-        send_text(number, text_message.message)
+        unless number == user.phone_number
+          send_text(number, "#{group.name}: #{user.name} - #{text_message.message}")
+        end
       end # num each
     end # if
   end # def

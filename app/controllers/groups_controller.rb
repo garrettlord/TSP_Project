@@ -16,7 +16,11 @@ class GroupsController < ApplicationController
       messages = GroupMessage.where("group_id = ?", @group.id)
       @message = ""
       messages.each do |msg|
-        @message << "#{msg.message}\n"
+        msggroup = Group.find(msg.group_id)
+        msguser = User.find(msg.user_id)
+        unless msggroup.nil? or msguser.nil?
+          @message << "#{msggroup.name}: #{msguser.name} - #{msg.message}\n"
+        end
       end
     else
       flash[:error] = "You must be signed in to view this page"

@@ -16,7 +16,11 @@ class UsersController < ApplicationController
       messages = GroupMessage.where("group_id in (?) OR user_id = ?", @groups_in, @user.id)
       @message = ""
       messages.each do |msg|
-        @message << "#{msg.message}\n"
+        msggroup = Group.find(msg.group_id)
+        msguser = User.find(msg.user_id)
+        unless msggroup.nil? or msguser.nil?
+          @message << "#{msggroup.name}: #{msguser.name} - #{msg.message}\n"
+        end
       end
     else
       flash[:error] = "You must be signed in to view this page"
@@ -97,6 +101,13 @@ class UsersController < ApplicationController
     send_group_text user, group, params[:message]
     flash[:message] = " Message Sent to #{group.name}: #{params[:message]}"
     redirect_to "/users/#{user.id}"
+  end
+
+  def group_message_from_group
+    group = Group.find(params[:group_id])
+    send_group_text current_user, group, params[:message]
+    flash[:message] = " Message Sent to #{group.name}: #{params[:message]}"
+    redirect_to "/groups/#{group.id}"
   end
 
   def group_message_multiple

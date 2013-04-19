@@ -48,7 +48,6 @@ module ParseHelper
 	
 	def messageGroup(from, group, message)
 		# send the message
-    	message = "#{group.name}: #{from.name} - #{message}"
     	send_group_text(from, group, message)
 	end
 
