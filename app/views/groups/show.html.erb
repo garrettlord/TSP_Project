@@ -123,7 +123,7 @@
       <center>
 
         <p><h2>Send a Message</h2>
-        <%= form_tag "/group_messages/multiple_from_group" do %>
+        <%= form_tag "/group_messages/from_group" do %>
           <p><%= text_area_tag :history, "#{@message}", rows: "15", readonly: true, class: "span12"  %>
           <p><%= text_area_tag :message, nil, rows: "1", class: "span12"  %>
           <p><%= submit_tag nil, value: "Send", class: "btn btn-large btn-primary" %> 
