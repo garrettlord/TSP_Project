@@ -2,24 +2,16 @@ require File.join(Rails.root, "lib/twilio_helper.rb")
 require File.join(Rails.root, "lib/weather.rb")
 require File.join(Rails.root, "lib/define.rb")
 require File.join(Rails.root, "lib/movie.rb")
-<<<<<<< HEAD
 require File.join(Rails.root, "lib/food.rb")
-=======
 require File.join(Rails.root, "/lib/scramble_helper.rb")
-
->>>>>>> aa6597d5d3d851bbcd048b1dc7f86360782eae9e
 
 module ParseHelper
 	include TwilioHelper
 	include Weather
 	include Define
-<<<<<<< HEAD
   include Movie
   include Food
-=======
-	include Movie
 	include ScrambleHelper
->>>>>>> aa6597d5d3d851bbcd048b1dc7f86360782eae9e
 
 	def parse(user, message)
     puts "parsing"
