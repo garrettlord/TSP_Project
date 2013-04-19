@@ -10,6 +10,7 @@ module ScrambleHelper
 		#Set up the game if this is the user's first time
 		if user.scramble_game == nil
 			game = user.create_scramble_game 
+      round = game.create_scramble_round
 			# game.user_id = user.id
 			# game.save
 			return initScrambleGame(game)
@@ -24,14 +25,14 @@ module ScrambleHelper
 
 	#Main method for a game
 	def play(game, message)
-    if message[0, 6] == "-start"
-      return initRound(round)
-    end
-    
 		round = game.scramble_round
 		score = game.score
 
 		if status(round) >= 2 
+			return initRound(round)
+		end
+
+		if message[0, 6] == "-start"
 			return initRound(round)
 		end
 
