@@ -3,7 +3,7 @@ require File.join(Rails.root, "/lib/scramble_helper.rb")
 include ScrambleHelper
 
 begin
-	testUser = User.new(:name => "Derp", :phone_number => "1234567890", :password => "password", :password_confirmation => "password")
+	testUser = User.new(:name => "Derp", :phone_number => "123-456-7890", :password => "password", :password_confirmation => "password")
 	testUser.save
 
 	puts "TEST GAME\n"
